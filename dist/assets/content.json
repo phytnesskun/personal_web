@@ -1,0 +1,326 @@
+{
+  "zh": {
+    "about": {
+      "intro": "我是亓炳堃，一名国际学校理科教师，教授物理、数学与高等数学。",
+      "paragraphs": [
+        "我的学习与研究经历跨越复旦大学、纽约市立大学、北京大学和洛桑联邦理工学院，研究兴趣集中在非厄米光子学。我也已获得亚利桑那州立大学的 Master of Engineering, Computing and Technology 学位。",
+        "从物理研究到课堂教学，我一直喜欢把复杂问题拆解成可以理解、可以尝试的步骤。现在，我也在探索用 AI 辅助开发教学工具，将备课中的具体需求做成可使用的题库与练习网站。"
+      ],
+      "teaching": [
+        "国际学校物理、数学与高等数学教学",
+        "纽约市立大学本科物理讲授与实验教学经历",
+        "洛桑联邦理工学院助教经历"
+      ],
+      "life": [
+        "骑行：在路上发现新的风景",
+        "健身：保持运动与日常节奏",
+        "音乐：给专注之外留一点空间"
+      ]
+    },
+    "education": [
+      {
+        "institution": "亚利桑那州立大学 · Arizona State University",
+        "detail": "Master of Engineering, Computing and Technology",
+        "period": "已获学位"
+      },
+      {
+        "institution": "洛桑联邦理工学院 · EPFL",
+        "detail": "光学博士阶段学习",
+        "period": "2020.01–2021.07"
+      },
+      {
+        "institution": "北京大学 · Peking University",
+        "detail": "访问学生",
+        "period": "2018.08–2019.09"
+      },
+      {
+        "institution": "纽约市立大学 · CUNY",
+        "detail": "物理学博士阶段学习",
+        "period": "2014.08–2019.12"
+      },
+      {
+        "institution": "复旦大学 · Fudan University",
+        "detail": "物理学本科阶段学习",
+        "period": "2010.09–2014.07"
+      }
+    ],
+    "papers": [
+      {
+        "title": "Robust Zero Modes in Non-Hermitian Systems without Global Symmetries",
+        "authors": "Jose D. H. Rivero, Courtney Fleming, Bingkun Qi, Liang Feng, Li Ge",
+        "journal": "Physical Review Letters 131, 223801",
+        "year": 2023,
+        "url": "https://doi.org/10.1103/PhysRevLett.131.223801",
+        "summary": "研究不具备全局对称性的非厄米系统中的稳健零模。"
+      },
+      {
+        "title": "Linear Localization of Zero Modes in Weakly Coupled Non-Hermitian Reservoirs",
+        "authors": "Bingkun Qi, Li Ge",
+        "journal": "Advanced Physics Research 2, 2300066",
+        "year": 2023,
+        "url": "https://doi.org/10.1002/apxr.202300066",
+        "summary": "研究弱耦合非厄米储库中零模的线性局域化。"
+      },
+      {
+        "title": "Parity-Time Symmetry Synthetic Lasers: Physics and Devices",
+        "authors": "Bingkun Qi, Hua-Zhou Chen, Li Ge, Pierre Berini, Ren-Min Ma",
+        "journal": "Advanced Optical Materials 7, 1900694",
+        "year": 2019,
+        "url": "https://doi.org/10.1002/adom.201900694",
+        "summary": "探讨宇称–时间对称合成激光器的物理机制与器件。"
+      },
+      {
+        "title": "Defect States Emerging from a Non-Hermitian Flat Band of Photonic Zero Modes",
+        "authors": "Bingkun Qi, Lingxuan Zhang, Li Ge",
+        "journal": "Physical Review Letters 120, 093901",
+        "year": 2018,
+        "url": "https://doi.org/10.1103/PhysRevLett.120.093901",
+        "summary": "研究由光子零模构成的非厄米平带中出现的缺陷态。"
+      }
+    ],
+    "projects": [
+      {
+        "id": "caie-physics",
+        "title": "CAIE 9702 AS Physics 题库",
+        "kicker": "3,232 道 AS 试题 · 物理教学工具",
+        "summary": "从日常备课需求出发，将试题筛选、选题篮、组卷与打印设置集中在同一个网站。",
+        "url": "https://9702-as-bank.app.workbuddy.host/",
+        "features": [
+          "AS 阶段共 3,232 道题，核对日期为 2026 年 10 月 22 日",
+          "按阶段、试卷、主题、子主题与考试季筛选",
+          "使用选题篮整理候选试题",
+          "提供目标分值组卷与智能组卷界面",
+          "配置答案显示与打印选项"
+        ],
+        "story": [
+          "备课时，我经常需要围绕一个知识点寻找适合课堂与练习的题目。这个项目从这样的具体需求出发，把筛选条件、候选题目与组卷设置放在一起。",
+          "我尤其关注 AS 物理教学中的选题过程：从主题与子主题逐步缩小范围，再通过选题篮组织练习。它也是我探索 AI 辅助开发教学工具的一次实践。"
+        ]
+      },
+      {
+        "id": "student-feedback",
+        "title": "学生反馈与教务系统",
+        "kicker": "教学管理 · 教师与学生",
+        "summary": "连接教师与学生的反馈入口，探索将教学沟通与日常管理放进同一个系统。",
+        "url": "https://student-feedback-kun.fly.dev",
+        "features": [
+          "教师与学生分别登录使用",
+          "支持中文与 English 界面",
+          "围绕学生反馈与教务管理场景设计"
+        ],
+        "story": [
+          "教学工具也可以帮助课堂之外的工作。这个系统围绕学生反馈与日常教务管理展开，提供教师与学生各自的使用入口。",
+          "我希望把教学中的沟通需求做成清晰、易用的流程。它与题库项目一起，构成我对 AI 辅助软件开发在教育场景中应用的探索。"
+        ]
+      },
+      {
+        "id": "igcse-maths",
+        "title": "Edexcel IGCSE Mathematics B 题库",
+        "kicker": "4MB1 · 1,099 道题 · 58 套试卷",
+        "summary": "面向 Edexcel IGCSE Mathematics B（4MB1）的数学题库项目，整理了 58 套试卷中的 1,099 道题。",
+        "url": "https://ig-math-bank.app.workbuddy.host/",
+        "features": [
+          "对应 Edexcel IGCSE Mathematics B（4MB1）",
+          "收录 1,099 道题",
+          "覆盖 58 套试卷"
+        ],
+        "story": [
+          "数学教学同样需要持续积累与整理练习资源。我围绕 Edexcel IGCSE Mathematics B 建立了这个题库，把分散在试卷中的题目汇集起来。",
+          "对我来说，开发的起点始终是课堂中的具体问题。我希望这些资源能为备课与练习安排提供更顺手的入口。"
+        ]
+      },
+      {
+        "id": "edexcel-maths",
+        "title": "Edexcel A-Level Maths 题库",
+        "kicker": "A-Level 数学 · 教学工具探索",
+        "summary": "面向 Edexcel A-Level 数学的练习资源，为课程教学与备考提供题库入口。",
+        "url": "https://edexcel-maths-bank.app.workbuddy.host/",
+        "features": [
+          "聚焦 Edexcel A-Level 数学课程",
+          "以课程题目整理与练习为出发点"
+        ],
+        "story": [
+          "从 IGCSE 到 A-Level，数学学习的深度与练习需求也在变化。这个项目延续了我用网站组织教学资源的尝试，聚焦 Edexcel A-Level 数学。",
+          "我把这些项目看作教学与技术之间的连接：先发现课堂中的需求，再尝试把想法做成可使用的工具。"
+        ]
+      },
+      {
+        "id": "esat",
+        "title": "ESAT 模拟练习",
+        "kicker": "入学考试 · 模拟练习项目",
+        "summary": "面向 ESAT 的模拟练习项目，将入学考试准备与理科教学工具开发结合起来。",
+        "url": "http://43.142.132.131/login",
+        "features": [
+          "面向 ESAT 入学考试准备",
+          "以模拟练习为核心使用场景"
+        ],
+        "story": [
+          "除了课程内的题库，我也关注入学考试准备中的练习需求。ESAT 模拟练习项目是我在这一方向上的尝试。",
+          "我希望把熟悉的理科教学经验与工具开发结合起来，让一个备考想法有机会落到实际的练习场景中。"
+        ]
+      }
+    ]
+  },
+  "en": {
+    "about": {
+      "intro": "I'm Bingkun Qi, a science teacher at an international school, teaching physics, mathematics and advanced mathematics.",
+      "paragraphs": [
+        "My studies and research have taken me to Fudan University, CUNY, Peking University and EPFL, with a research focus on non-Hermitian photonics. I also hold a Master of Engineering, Computing and Technology from Arizona State University.",
+        "From physics research to the classroom, I enjoy breaking complex problems into steps that people can understand and explore. I am also experimenting with AI-assisted development, turning everyday teaching needs into question banks and practice websites."
+      ],
+      "teaching": [
+        "Physics, mathematics and advanced mathematics in an international school",
+        "Undergraduate physics lecture and laboratory teaching at CUNY",
+        "Teaching assistant experience at EPFL"
+      ],
+      "life": [
+        "Cycling: finding new views along the way",
+        "Fitness: making movement part of everyday life",
+        "Music: leaving room to pause and listen"
+      ]
+    },
+    "education": [
+      {
+        "institution": "Arizona State University",
+        "detail": "Master of Engineering, Computing and Technology",
+        "period": "Degree awarded"
+      },
+      {
+        "institution": "EPFL",
+        "detail": "Doctoral study in optics",
+        "period": "Jan 2020–Jul 2021"
+      },
+      {
+        "institution": "Peking University",
+        "detail": "Visiting student",
+        "period": "Aug 2018–Sep 2019"
+      },
+      {
+        "institution": "City University of New York",
+        "detail": "Doctoral study in physics",
+        "period": "Aug 2014–Dec 2019"
+      },
+      {
+        "institution": "Fudan University",
+        "detail": "Undergraduate study in physics",
+        "period": "Sep 2010–Jul 2014"
+      }
+    ],
+    "papers": [
+      {
+        "title": "Robust Zero Modes in Non-Hermitian Systems without Global Symmetries",
+        "authors": "Jose D. H. Rivero, Courtney Fleming, Bingkun Qi, Liang Feng, Li Ge",
+        "journal": "Physical Review Letters 131, 223801",
+        "year": 2023,
+        "url": "https://doi.org/10.1103/PhysRevLett.131.223801",
+        "summary": "Investigates robust zero modes in non-Hermitian systems that lack global symmetries."
+      },
+      {
+        "title": "Linear Localization of Zero Modes in Weakly Coupled Non-Hermitian Reservoirs",
+        "authors": "Bingkun Qi, Li Ge",
+        "journal": "Advanced Physics Research 2, 2300066",
+        "year": 2023,
+        "url": "https://doi.org/10.1002/apxr.202300066",
+        "summary": "Studies the linear localization of zero modes in weakly coupled non-Hermitian reservoirs."
+      },
+      {
+        "title": "Parity-Time Symmetry Synthetic Lasers: Physics and Devices",
+        "authors": "Bingkun Qi, Hua-Zhou Chen, Li Ge, Pierre Berini, Ren-Min Ma",
+        "journal": "Advanced Optical Materials 7, 1900694",
+        "year": 2019,
+        "url": "https://doi.org/10.1002/adom.201900694",
+        "summary": "Explores the physics and devices of parity-time symmetry synthetic lasers."
+      },
+      {
+        "title": "Defect States Emerging from a Non-Hermitian Flat Band of Photonic Zero Modes",
+        "authors": "Bingkun Qi, Lingxuan Zhang, Li Ge",
+        "journal": "Physical Review Letters 120, 093901",
+        "year": 2018,
+        "url": "https://doi.org/10.1103/PhysRevLett.120.093901",
+        "summary": "Studies defect states emerging from a non-Hermitian flat band formed by photonic zero modes."
+      }
+    ],
+    "projects": [
+      {
+        "id": "caie-physics",
+        "title": "CAIE 9702 AS Physics Question Bank",
+        "kicker": "3,232 AS questions · Physics teaching tools",
+        "summary": "Built around everyday lesson preparation, bringing question filters, a selection basket, paper assembly and print settings into one website.",
+        "url": "https://9702-as-bank.app.workbuddy.host/",
+        "features": [
+          "3,232 AS questions, checked on 22 October 2026",
+          "Filter by stage, paper, topic, subtopic and exam session",
+          "Collect candidate questions in a basket",
+          "Interfaces for target-score and smart paper assembly",
+          "Configurable answer display and print options"
+        ],
+        "story": [
+          "When preparing lessons, I often need to find questions that fit a particular concept and classroom activity. This project grew from that practical need, bringing filters, selected questions and paper settings together.",
+          "My focus is the process of choosing questions for AS physics: narrowing down by topic and subtopic, then using a basket to organise practice. It is also an experiment in using AI-assisted development to build teaching tools."
+        ]
+      },
+      {
+        "id": "student-feedback",
+        "title": "Student Feedback & Teaching Administration",
+        "kicker": "Teaching administration · Teachers & students",
+        "summary": "A shared starting point for teachers and students, exploring how software can support feedback and everyday teaching administration.",
+        "url": "https://student-feedback-kun.fly.dev",
+        "features": [
+          "Separate teacher and student sign-in flows",
+          "Chinese and English interfaces",
+          "Designed around student feedback and teaching administration"
+        ],
+        "story": [
+          "Useful teaching tools can also support the work around a lesson. This project focuses on student feedback and everyday administration, with dedicated entry points for teachers and students.",
+          "My aim is to turn communication needs into clear, usable workflows. Alongside the question banks, it forms part of my exploration of AI-assisted software development for education."
+        ]
+      },
+      {
+        "id": "igcse-maths",
+        "title": "Edexcel IGCSE Mathematics B Question Bank",
+        "kicker": "4MB1 · 1,099 questions · 58 papers",
+        "summary": "A question bank for Edexcel IGCSE Mathematics B (4MB1), bringing together 1,099 questions from 58 papers.",
+        "url": "https://ig-math-bank.app.workbuddy.host/",
+        "features": [
+          "Edexcel IGCSE Mathematics B (4MB1)",
+          "1,099 questions",
+          "58 papers"
+        ],
+        "story": [
+          "Teaching mathematics also involves steadily collecting and organising practice resources. I built this question bank around Edexcel IGCSE Mathematics B to bring questions from different papers together.",
+          "For me, development starts with a concrete classroom need. My aim is to make these resources easier to approach when planning lessons and practice."
+        ]
+      },
+      {
+        "id": "edexcel-maths",
+        "title": "Edexcel A-Level Maths Question Bank",
+        "kicker": "A-Level mathematics · Teaching tool exploration",
+        "summary": "A question-bank project for Edexcel A-Level mathematics, bringing course practice resources into a dedicated teaching tool.",
+        "url": "https://edexcel-maths-bank.app.workbuddy.host/",
+        "features": [
+          "Focused on Edexcel A-Level mathematics",
+          "Organised around course questions and practice"
+        ],
+        "story": [
+          "Moving from IGCSE to A-Level changes both the depth of mathematics and the practice students need. This project continues my exploration of organising teaching resources online, with a focus on Edexcel A-Level mathematics.",
+          "I see these projects as a connection between teaching and technology: identify a classroom need, then try to turn the idea into a usable tool."
+        ]
+      },
+      {
+        "id": "esat",
+        "title": "ESAT Mock Practice",
+        "kicker": "Admissions preparation · Mock practice project",
+        "summary": "A mock-practice project for ESAT, connecting admissions-test preparation with science teaching tools.",
+        "url": "http://43.142.132.131/login",
+        "features": [
+          "Focused on ESAT preparation",
+          "Designed around mock practice"
+        ],
+        "story": [
+          "Alongside course question banks, I am interested in the practice needs that come with admissions tests. The ESAT mock practice project is an exploration in that direction.",
+          "My aim is to combine my experience teaching science and mathematics with tool development, giving an idea for exam preparation a practical form."
+        ]
+      }
+    ]
+  }
+}
