@@ -93,8 +93,8 @@
           "配置答案显示与打印选项"
         ],
         "story": [
-          "备课时，我经常需要围绕一个知识点寻找适合课堂与练习的题目。这个项目从这样的具体需求出发，把筛选条件、候选题目与组卷设置放在一起。",
-          "我尤其关注 AS 物理教学中的选题过程：从主题与子主题逐步缩小范围，再通过选题篮组织练习。它也是我探索 AI 辅助开发教学工具的一次实践。"
+          "围绕一个知识点准备练习，往往要在多份试卷之间来回查找。我把题目按课程阶段、主题与子主题组织起来，让筛选、选题和打印设置形成连续的备课流程。",
+          "页面展示的是 AS 使用场景；原应用也提供 A2 内容。截图记录了 AS 筛选和波动专题选题，不代表学生作答记录。"
         ]
       },
       {
@@ -109,8 +109,8 @@
           "围绕学生反馈与教务管理场景设计"
         ],
         "story": [
-          "教学工具也可以帮助课堂之外的工作。这个系统围绕学生反馈与日常教务管理展开，提供教师与学生各自的使用入口。",
-          "我希望把教学中的沟通需求做成清晰、易用的流程。它与题库项目一起，构成我对 AI 辅助软件开发在教育场景中应用的探索。"
+          "课堂里的困惑需要一个清晰的表达入口。这个项目把教师与学生的登录路径分开，并提供中英文界面，围绕日常教学反馈展开。",
+          "下面用一个虚构的波动课场景，解释我关注的沟通问题：学生如何说清楚卡在哪里，教师如何把问题转化为下一次讲解。流程示例独立于实际系统运行。"
         ]
       },
       {
@@ -158,6 +158,147 @@
           "除了课程内的题库，我也关注入学考试准备中的练习需求。ESAT 模拟练习项目是我在这一方向上的尝试。",
           "我希望把熟悉的理科教学经验与工具开发结合起来，让一个备考想法有机会落到实际的练习场景中。"
         ]
+      }
+    ],
+    "teachingExample": {
+      "eyebrow": "10 分钟 · 互动教学示例",
+      "title": "波的叠加：先预测，再观察，最后推导",
+      "intro": "两列振幅都是 1 的波相遇，合振幅一定是 2 吗？先给出自己的判断，再用波形与数学检查。这个自学示例展示我如何把直觉、观察和推导连接起来。",
+      "duration": "预测 2 分钟 · 观察 3 分钟 · 推导 3 分钟 · 挑战 2 分钟",
+      "learningGoal": "区分瞬时位移与振幅，说明相位差如何改变合振幅，并用一个公式检验观察。",
+      "assumptionsTitle": "先约定模型",
+      "assumptions": [
+        "考虑满足线性叠加原理的两列简谐波；在同一位置、同一时刻，沿同一方向测量的位移可以直接相加。",
+        "两列波的频率相同，相位差 φ 固定。本演示还取相同波长和相同传播方向，因此相位差不随位置改变。",
+        "第一列波的振幅 A₁ 固定为 1；第二列的振幅 A₂ 可在 0 到 1 之间调节。所有位移和振幅都使用相同的相对单位。"
+      ],
+      "steps": [
+        {
+          "number": "01",
+          "title": "预测：先留下一个判断",
+          "time": "2 分钟",
+          "text": "先不看合振幅读数。令 A₁ = A₂ = 1，预测相位差 φ 分别为 0°、90°、180° 时的合振幅 R。写下一个数值或范围，并说明理由。",
+          "prompts": [
+            "两列波的波峰会在同一位置出现吗？",
+            "如果某一时刻合位移为 0，是否就说明合振幅为 0？"
+          ]
+        },
+        {
+          "number": "02",
+          "title": "观察：逐点相加，而非只看波峰",
+          "time": "3 分钟",
+          "text": "在下面的实验中，将第二列波的振幅设为 1，依次把相位差调到 0°、90°、180°。暂停动画，在同一个横坐标读取两条曲线的位移，检查亮色合成曲线是否等于它们的代数和，再核对合振幅读数。",
+          "prompts": [
+            "φ = 90° 时，在第一列波波峰的位置，合位移为 1；但合成波的最大位移是否也只有 1？",
+            "播放动画并观察一个固定位置：瞬时位移随时间改变，合振幅在当前设置下保持不变。"
+          ]
+        },
+        {
+          "number": "03",
+          "title": "推导：把观察写成一个公式",
+          "time": "3 分钟",
+          "text": "令 θ = kx − ωt。先相加位移，再展开三角函数：",
+          "equations": [
+            "y₁ = A₁ sin θ，y₂ = A₂ sin(θ + φ)",
+            "y = y₁ + y₂ = (A₁ + A₂ cos φ) sin θ + A₂ sin φ cos θ",
+            "y = R sin(θ + δ)",
+            "R² = (A₁ + A₂ cos φ)² + (A₂ sin φ)²",
+            "R = √(A₁² + A₂² + 2A₁A₂ cos φ)"
+          ],
+          "prompts": [
+            "将 sin θ 和 cos θ 的系数与 R sin(θ + δ) 的展开式比较，再平方相加，消去 δ。",
+            "公式给出的是合振幅 R，不是某个位置、某个时刻的位移 y。完全抵消时 R = 0，合成波的相位 δ 无需定义。"
+          ]
+        }
+      ],
+      "predictionTable": {
+        "title": "核对你的预测",
+        "headers": [
+          "A₁",
+          "A₂",
+          "φ",
+          "我的预测 R",
+          "观察 / 计算 R"
+        ],
+        "rows": [
+          [
+            "1",
+            "1",
+            "0°",
+            "",
+            ""
+          ],
+          [
+            "1",
+            "1",
+            "90°",
+            "",
+            ""
+          ],
+          [
+            "1",
+            "1",
+            "180°",
+            "",
+            ""
+          ]
+        ]
+      },
+      "challenge": {
+        "title": "挑战：反相就一定完全抵消吗？",
+        "time": "2 分钟",
+        "question": "保持 A₁ = 1，把 A₂ 调为 0.50，相位差设为 180°。先计算 R，再拖动滑块验证。解释为什么反相不再得到一条零位移直线。",
+        "extension": "不做逐一试算：当 A₁ = 1、A₂ = 0.50 时，随相位差改变，R 的最小值和最大值分别是多少？"
+      },
+      "answersTitle": "完成后核对答案",
+      "answers": [
+        {
+          "label": "同相 · φ = 0°",
+          "text": "R = 2。两列波在每个位置的位移同号，且波峰相遇。"
+        },
+        {
+          "label": "相差四分之一周期 · φ = 90°",
+          "text": "R = √2 ≈ 1.41。合成波的峰值不在任一原波峰值的位置，因此不能只在第一列波的波峰处读取振幅。"
+        },
+        {
+          "label": "等振幅反相 · φ = 180°",
+          "text": "R = 0。两列波在每个位置、每个时刻的位移大小相等、方向相反。"
+        },
+        {
+          "label": "挑战 · A₂ = 0.50，φ = 180°",
+          "text": "R = |1 − 0.50| = 0.50。反相使位移相减；只有振幅也相等时才能完全抵消。"
+        },
+        {
+          "label": "拓展",
+          "text": "0.50 ≤ R ≤ 1.50。一般地，|A₁ − A₂| ≤ R ≤ A₁ + A₂。"
+        }
+      ],
+      "keyDistinctionTitle": "带走的关键区别",
+      "keyDistinction": "叠加原理相加的是同一位置、同一时刻的带符号位移：y = y₁ + y₂。振幅是振动偏离平衡位置的最大距离，不能一般地写成 R = A₁ + A₂；本例只有同相时才成立。",
+      "teachingTipTitle": "这节示例的教学设计",
+      "teachingTip": "先保留预测及理由，再一次只改变一个参数。出现不一致时，先在同一横坐标读出三个位移，再讨论振幅。最后用不等振幅的反例检查“反相就完全抵消”这一判断，而不只检查是否会代入公式。",
+      "handoutLabel": "打开双语讲义 · 可打印",
+      "handoutNote": "两页讲义，每种语言一页；包含记录表和核对答案。",
+      "scopeNote": "这是公开教学示例，未包含真实学生数据或课堂成效统计。"
+    },
+    "explainers": [
+      {
+        "id": "flat-band-2018",
+        "title": "增益与损耗，如何塑造光？",
+        "question": "光被放大或吸收时，阵列中的光场会怎样改变？",
+        "why": "为控制光的局域提供新的设计参数。",
+        "finding": "所研究晶格中，非厄米粒子—空穴对称性产生实部平带；增益/损耗增强时，边缘缺陷态更局域。“零”以参考频率为基准。",
+        "credit": "亓炳堃为第一作者。",
+        "sourceUrl": "https://arxiv.org/abs/1704.04713"
+      },
+      {
+        "id": "robust-zero-modes-2023",
+        "title": "从边界出发，稳住一个零模",
+        "question": "不要求整个晶格保持对称，也能让模式守住参考频率吗？",
+        "why": "为稳定频率的光子器件提供另一条理论路径。",
+        "finding": "将边界零模按特定非厄米耦合接入体部，可获得抵抗体部无序的零模；前提是边界及耦合条件保持成立。",
+        "credit": "亓炳堃为共同作者，署名第三位。",
+        "sourceUrl": "https://arxiv.org/abs/2311.01566"
       }
     ]
   },
@@ -255,8 +396,8 @@
           "Configurable answer display and print options"
         ],
         "story": [
-          "When preparing lessons, I often need to find questions that fit a particular concept and classroom activity. This project grew from that practical need, bringing filters, selected questions and paper settings together.",
-          "My focus is the process of choosing questions for AS physics: narrowing down by topic and subtopic, then using a basket to organise practice. It is also an experiment in using AI-assisted development to build teaching tools."
+          "Preparing practice on one concept often means searching across several papers. I organise questions by stage, topic and subtopic so filtering, selection and print settings form one continuous preparation workflow.",
+          "This case focuses on AS; the original application also includes A2 material. The screenshots show AS filters and a waves selection, not student responses."
         ]
       },
       {
@@ -271,8 +412,8 @@
           "Designed around student feedback and teaching administration"
         ],
         "story": [
-          "Useful teaching tools can also support the work around a lesson. This project focuses on student feedback and everyday administration, with dedicated entry points for teachers and students.",
-          "My aim is to turn communication needs into clear, usable workflows. Alongside the question banks, it forms part of my exploration of AI-assisted software development for education."
+          "Questions from a lesson need a clear place to be expressed. This project separates teacher and student sign-in and provides Chinese and English interfaces for everyday teaching feedback.",
+          "A fictional lesson on waves illustrates the communication problem: how a student can express a precise difficulty, and how a teacher might turn it into the next explanation. The illustrative workflow runs independently of the live system."
         ]
       },
       {
@@ -320,6 +461,147 @@
           "Alongside course question banks, I am interested in the practice needs that come with admissions tests. The ESAT mock practice project is an exploration in that direction.",
           "My aim is to combine my experience teaching science and mathematics with tool development, giving an idea for exam preparation a practical form."
         ]
+      }
+    ],
+    "teachingExample": {
+      "eyebrow": "10 minutes · Interactive teaching example",
+      "title": "Wave superposition: predict, observe, then derive",
+      "intro": "When two waves each have an amplitude of 1, must the resultant amplitude be 2? Make a prediction, then test it with a graph and a short derivation. This self-study example connects intuition, observation and mathematics.",
+      "duration": "Predict 2 min · Observe 3 min · Derive 3 min · Challenge 2 min",
+      "learningGoal": "Distinguish instantaneous displacement from amplitude, explain the effect of phase difference, and check an observation with an equation.",
+      "assumptionsTitle": "Define the model first",
+      "assumptions": [
+        "We consider two sinusoidal waves obeying linear superposition. Their displacements, measured along the same direction at the same position and time, add algebraically.",
+        "The waves have the same frequency and a fixed phase difference φ. This demonstration also uses the same wavelength and direction of travel, so φ is independent of position.",
+        "The amplitude of wave 1 is fixed at A₁ = 1. A₂ can vary from 0 to 1. All displacements and amplitudes use the same relative units."
+      ],
+      "steps": [
+        {
+          "number": "01",
+          "title": "Predict: commit to an explanation",
+          "time": "2 min",
+          "text": "Before looking at the resultant-amplitude readout, set A₁ = A₂ = 1 in your model. Predict R for phase differences of 0°, 90° and 180°. Record a number or a range, with a reason.",
+          "prompts": [
+            "Will the crests of both waves occur at the same position?",
+            "If the resultant displacement is zero at one instant, must its amplitude be zero?"
+          ]
+        },
+        {
+          "number": "02",
+          "title": "Observe: add point by point",
+          "time": "3 min",
+          "text": "In the lab below, set the amplitude of wave 2 to 1, then move the phase slider to 0°, 90° and 180°. Pause the animation. At one horizontal coordinate, read the two displacements and check that the bright resultant curve equals their algebraic sum. Then check the resultant amplitude.",
+          "prompts": [
+            "At φ = 90°, the resultant displacement is 1 at a crest of wave 1. Is that also the maximum displacement of the resultant?",
+            "Play the animation and watch one fixed position: instantaneous displacement changes with time, while the amplitude stays constant for the current settings."
+          ]
+        },
+        {
+          "number": "03",
+          "title": "Derive: express the pattern mathematically",
+          "time": "3 min",
+          "text": "Let θ = kx − ωt. Add the displacements, then expand the trigonometric expression:",
+          "equations": [
+            "y₁ = A₁ sin θ; y₂ = A₂ sin(θ + φ)",
+            "y = y₁ + y₂ = (A₁ + A₂ cos φ) sin θ + A₂ sin φ cos θ",
+            "y = R sin(θ + δ)",
+            "R² = (A₁ + A₂ cos φ)² + (A₂ sin φ)²",
+            "R = √(A₁² + A₂² + 2A₁A₂ cos φ)"
+          ],
+          "prompts": [
+            "Match the coefficients of sin θ and cos θ with the expansion of R sin(θ + δ). Square and add to eliminate δ.",
+            "The formula gives the amplitude R, not the displacement y at a particular position and time. When R = 0, the phase δ of the zero resultant need not be defined."
+          ]
+        }
+      ],
+      "predictionTable": {
+        "title": "Check your predictions",
+        "headers": [
+          "A₁",
+          "A₂",
+          "φ",
+          "Predicted R",
+          "Observed / calculated R"
+        ],
+        "rows": [
+          [
+            "1",
+            "1",
+            "0°",
+            "",
+            ""
+          ],
+          [
+            "1",
+            "1",
+            "90°",
+            "",
+            ""
+          ],
+          [
+            "1",
+            "1",
+            "180°",
+            "",
+            ""
+          ]
+        ]
+      },
+      "challenge": {
+        "title": "Challenge: do opposite phases always cancel?",
+        "time": "2 min",
+        "question": "Keep A₁ = 1, set A₂ = 0.50 and φ = 180°. Calculate R before testing it with the sliders. Explain why the resultant is no longer a line of zero displacement.",
+        "extension": "Without testing every setting, find the minimum and maximum R as the phase varies with A₁ = 1 and A₂ = 0.50."
+      },
+      "answersTitle": "Check after completing the activity",
+      "answers": [
+        {
+          "label": "In phase · φ = 0°",
+          "text": "R = 2. The displacements have the same sign at each position, and the crests coincide."
+        },
+        {
+          "label": "A quarter cycle apart · φ = 90°",
+          "text": "R = √2 ≈ 1.41. The resultant reaches its peak at a different position from either individual wave, so reading the displacement at a crest of wave 1 does not give the resultant amplitude."
+        },
+        {
+          "label": "Equal amplitudes, opposite phase · φ = 180°",
+          "text": "R = 0. At every position and time, the displacements have equal magnitudes and opposite signs."
+        },
+        {
+          "label": "Challenge · A₂ = 0.50, φ = 180°",
+          "text": "R = |1 − 0.50| = 0.50. Opposite phases make the displacements subtract; complete cancellation also requires equal amplitudes."
+        },
+        {
+          "label": "Extension",
+          "text": "0.50 ≤ R ≤ 1.50. In general, |A₁ − A₂| ≤ R ≤ A₁ + A₂."
+        }
+      ],
+      "keyDistinctionTitle": "The distinction to keep",
+      "keyDistinction": "Superposition adds signed displacements at the same position and time: y = y₁ + y₂. Amplitude is the maximum distance from equilibrium. In general, R is not A₁ + A₂; in this model that equality holds when the waves are in phase.",
+      "teachingTipTitle": "How this example is designed",
+      "teachingTip": "Keep the original prediction and reasoning, then vary one parameter at a time. When observations disagree with a prediction, read all three displacements at the same horizontal coordinate before discussing amplitude. Use unequal amplitudes to test the claim that opposite phases always cancel, as well as the ability to substitute into a formula.",
+      "handoutLabel": "Open the bilingual printable handout",
+      "handoutNote": "Two pages, one per language, with a recording table and answers.",
+      "scopeNote": "This is a public teaching example; it contains no student records or claims of measured classroom outcomes."
+    },
+    "explainers": [
+      {
+        "id": "flat-band-2018",
+        "title": "Shaping light with gain and loss",
+        "question": "How does amplification or absorption reshape a lattice mode?",
+        "why": "It offers another design parameter for controlling localization.",
+        "finding": "In the studied lattices, non-Hermitian particle-hole symmetry creates a flat real spectrum. Stronger gain/loss increasingly localizes an edge-defect mode. Zero is measured relative to a reference frequency.",
+        "credit": "Bingkun Qi is the first author.",
+        "sourceUrl": "https://arxiv.org/abs/1704.04713"
+      },
+      {
+        "id": "robust-zero-modes-2023",
+        "title": "Anchoring a zero mode at the boundary",
+        "question": "Can a mode retain its reference frequency without global symmetry?",
+        "why": "This suggests another route to frequency-stable photonic devices.",
+        "finding": "Coupling a boundary zero mode to the bulk under specific non-Hermitian conditions yields a zero mode robust to bulk disorder. The boundary and coupling conditions must remain satisfied.",
+        "credit": "Bingkun Qi is a co-author, listed third.",
+        "sourceUrl": "https://arxiv.org/abs/2311.01566"
       }
     ]
   }
