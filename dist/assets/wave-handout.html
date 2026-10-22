@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>波的叠加 · Wave superposition — Bingkun Qi</title>
+  <meta name="description" content="A two-page bilingual worksheet: predict, observe and derive wave superposition in ten minutes.">
+  <style>
+    :root{color-scheme:light;--ink:#132139;--muted:#526178;--blue:#1557c0;--line:#cbd6e5;--wash:#f1f5fb}
+    *{box-sizing:border-box}
+    body{margin:0;background:#e9edf3;color:var(--ink);font:14px/1.55 Arial,"Microsoft YaHei","Noto Sans CJK SC",sans-serif}
+    .toolbar{max-width:210mm;margin:20px auto;display:flex;gap:16px;justify-content:space-between;align-items:center;padding:0 16px}
+    button{font:inherit;cursor:pointer;border:1px solid var(--blue);border-radius:6px;background:var(--blue);color:white;padding:9px 16px;min-height:44px}
+    a{color:var(--blue);text-underline-offset:3px}
+    a:focus-visible,button:focus-visible{outline:3px solid #6b5fe5;outline-offset:3px}
+    .page{max-width:210mm;min-height:297mm;margin:20px auto;padding:15mm 16mm 13mm;background:white;box-shadow:0 4px 22px #1321391a}
+    header{border-bottom:2px solid var(--ink);padding-bottom:13px;margin-bottom:14px}
+    .brand{display:flex;justify-content:space-between;gap:12px;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+    h1{font-size:25px;line-height:1.22;letter-spacing:-.035em;margin:12px 0 5px}
+    .subtitle{margin:0;color:var(--muted);font-size:12px}
+    h2{font-size:15px;line-height:1.3;margin:16px 0 5px}
+    h2 .time{font-size:11px;font-weight:400;color:var(--muted);margin-left:7px;white-space:nowrap}
+    p{margin:5px 0}
+    .model{font-size:11px;color:var(--muted);border-left:3px solid var(--blue);padding:5px 10px;margin:12px 0}
+    table{border-collapse:collapse;width:100%;font-size:12px;margin:9px 0}
+    th,td{border:1px solid var(--line);padding:6px 8px;text-align:center}
+    th{background:var(--wash);font-weight:600}
+    th:nth-child(4),th:nth-child(5){width:30%}
+    td{height:29px}
+    .write{border-bottom:1px solid var(--line);height:25px;margin:0 0 6px}
+    .formula{font-family:"Cambria Math",Cambria,"Times New Roman",serif;font-size:14px;line-height:1.65;margin:7px 0;padding:8px 12px;background:var(--wash);border-radius:5px}
+    .formula strong{font-size:17px;font-weight:600}
+    .small{font-size:11px;color:var(--muted)}
+    .key{border:1px solid var(--line);border-radius:5px;padding:9px 11px;font-size:12px;margin-top:13px}
+    .answer{margin-top:13px;padding-top:9px;border-top:1px dashed #8795aa;font-size:10px;line-height:1.55;color:var(--muted)}
+    footer{display:flex;justify-content:space-between;gap:14px;margin-top:14px;font-size:9px;color:var(--muted)}
+    .url{overflow-wrap:anywhere}
+    @page{size:A4;margin:0}
+    @media print{
+      body{background:white;font-size:10pt;line-height:1.46;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      .toolbar{display:none!important}
+      .page{width:210mm;min-height:0;height:297mm;max-width:none;margin:0;box-shadow:none;break-after:page;page-break-after:always;padding:14mm 16mm 12mm}
+      .page:last-child{break-after:auto;page-break-after:auto}
+      header{margin-bottom:10px;padding-bottom:10px}
+      h1{font-size:24px}h2{margin-top:13px}
+      .model{margin:10px 0}
+      .key,.answer,table{break-inside:avoid;page-break-inside:avoid}
+      a{color:inherit;text-decoration:none}
+    }
+    @media screen and (max-width:640px){.page{margin:12px 0;min-height:0;padding:25px 20px}h1{font-size:24px}.toolbar{flex-wrap:wrap}.brand{font-size:9px}th,td{padding:5px}footer{flex-direction:column;gap:3px}}
+  </style>
+</head>
+<body>
+  <nav class="toolbar" aria-label="讲义工具 / Worksheet tools">
+    <a href="/teaching/">返回互动示例 / Back to the lesson</a>
+    <button type="button" onclick="window.print()">打印 / Save as PDF</button>
+  </nav>
+  <main>
+    <article class="page" lang="zh-CN">
+      <header>
+        <div class="brand"><span>Bingkun Qi · 亓炳堃</span><span>互动教学示例 / 01</span></div>
+        <h1>波的叠加</h1>
+        <p class="subtitle">先预测，再观察，最后推导 · 10 分钟自学讲义</p>
+      </header>
+      <p>两列振幅都是 1 的波相遇，合振幅一定是 2 吗？用一个判断、一次观察和一段推导来检验。</p>
+      <div class="model"><strong>模型约定：</strong>线性叠加；两列同频率、同波长、同向传播的简谐波，沿同一方向振动，相位差 φ 固定。A₁ = 1，A₂ 可调。位移与振幅使用相同的相对单位。</div>
+      <section>
+        <h2>01 · 预测 <span class="time">2 分钟</span></h2>
+        <p>先不看实验读数，填写预测值。两列波的波峰会在同一位置出现吗？</p>
+        <table aria-label="预测与观察记录表">
+          <thead><tr><th>A₁</th><th>A₂</th><th>φ</th><th>预测 R</th><th>观察 / 计算 R</th></tr></thead>
+          <tbody><tr><td>1</td><td>1</td><td>0°</td><td></td><td></td></tr><tr><td>1</td><td>1</td><td>90°</td><td></td><td></td></tr><tr><td>1</td><td>1</td><td>180°</td><td></td><td></td></tr></tbody>
+        </table>
+        <p class="small">我的理由：</p><div class="write"></div>
+      </section>
+      <section>
+        <h2>02 · 观察 <span class="time">3 分钟</span></h2>
+        <p>打开互动示例，将 A₂ 设为 1，依次调到 0°、90°、180°。暂停动画，在同一个横坐标读取两列波的位移，检查它们的代数和，再记录合振幅。</p>
+        <p class="small">φ = 90° 时，在第一列波波峰处，合位移为 1。合成波的最大位移也只有 1 吗？</p><div class="write"></div>
+      </section>
+      <section>
+        <h2>03 · 推导 <span class="time">3 分钟</span></h2>
+        <p>令 θ = kx − ωt。先相加位移，再展开：</p>
+        <div class="formula">
+          y = A₁ sin θ + A₂ sin(θ + φ)<br>
+          y = (A₁ + A₂ cos φ) sin θ + A₂ sin φ cos θ = R sin(θ + δ)<br>
+          R² = (A₁ + A₂ cos φ)² + (A₂ sin φ)²<br>
+          <strong>R = √(A₁² + A₂² + 2A₁A₂ cos φ)</strong>
+        </div>
+        <p class="small">将 sin θ 和 cos θ 的系数与 R sin(θ + δ) 的展开式比较，再平方相加，消去 δ。</p>
+      </section>
+      <section>
+        <h2>挑战 · 反相就一定完全抵消吗？ <span class="time">2 分钟</span></h2>
+        <p>A₁ = 1，A₂ = 0.50，φ = 180°。计算 R，再用滑块验证。若只改变 φ，R 的最小值与最大值是多少？</p><div class="write"></div>
+      </section>
+      <div class="key"><strong>关键区别：</strong>叠加的是同一位置、同一时刻的带符号位移：y = y₁ + y₂。振幅是偏离平衡位置的最大距离；一般不能直接相加。</div>
+      <div class="answer"><strong>完成后核对：</strong>前三项依次为 2、√2 ≈ 1.41、0。90° 时合成波的峰值位置不同于任一原波峰值。挑战：R = |1 − 0.50| = 0.50；范围为 0.50 ≤ R ≤ 1.50。反相且等振幅才能完全抵消。</div>
+      <footer><span class="url">互动示例：<a href="https://bingkun-qi-lab.bingkunq.chatgpt.site/teaching/">bingkun-qi-lab.bingkunq.chatgpt.site/teaching/</a></span><span>中文 · 1 / 2</span></footer>
+    </article>
+    <article class="page" lang="en">
+      <header>
+        <div class="brand"><span>Bingkun Qi · 亓炳堃</span><span>Teaching example / 01</span></div>
+        <h1>Wave superposition</h1>
+        <p class="subtitle">Predict, observe, then derive · A 10-minute self-study worksheet</p>
+      </header>
+      <p>Two waves each have an amplitude of 1. Must their resultant amplitude be 2? Test a prediction with a graph and a short derivation.</p>
+      <div class="model"><strong>Model:</strong> Linear superposition of two sinusoidal waves with the same frequency, wavelength and direction of travel, vibrating along the same direction. Phase difference φ is fixed. A₁ = 1; A₂ varies. Displacements and amplitudes use the same relative units.</div>
+      <section>
+        <h2>01 · Predict <span class="time">2 min</span></h2>
+        <p>Before looking at the readout, predict R. Will both crests occur at the same position?</p>
+        <table aria-label="Prediction and observation table">
+          <thead><tr><th>A₁</th><th>A₂</th><th>φ</th><th>Predicted R</th><th>Observed / calculated R</th></tr></thead>
+          <tbody><tr><td>1</td><td>1</td><td>0°</td><td></td><td></td></tr><tr><td>1</td><td>1</td><td>90°</td><td></td><td></td></tr><tr><td>1</td><td>1</td><td>180°</td><td></td><td></td></tr></tbody>
+        </table>
+        <p class="small">My reasoning:</p><div class="write"></div>
+      </section>
+      <section>
+        <h2>02 · Observe <span class="time">3 min</span></h2>
+        <p>Open the interactive lesson. Set A₂ to 1 and test 0°, 90° and 180°. Pause at each setting. Read both displacements at the same horizontal coordinate, check their algebraic sum, then record the resultant amplitude.</p>
+        <p class="small">At φ = 90°, the resultant displacement is 1 at a crest of wave 1. Is that also the maximum displacement of the resultant?</p><div class="write"></div>
+      </section>
+      <section>
+        <h2>03 · Derive <span class="time">3 min</span></h2>
+        <p>Let θ = kx − ωt. Add displacements and expand:</p>
+        <div class="formula">
+          y = A₁ sin θ + A₂ sin(θ + φ)<br>
+          y = (A₁ + A₂ cos φ) sin θ + A₂ sin φ cos θ = R sin(θ + δ)<br>
+          R² = (A₁ + A₂ cos φ)² + (A₂ sin φ)²<br>
+          <strong>R = √(A₁² + A₂² + 2A₁A₂ cos φ)</strong>
+        </div>
+        <p class="small">Match the coefficients of sin θ and cos θ with the expansion of R sin(θ + δ). Square and add to eliminate δ.</p>
+      </section>
+      <section>
+        <h2>Challenge · Do opposite phases always cancel? <span class="time">2 min</span></h2>
+        <p>Set A₁ = 1, A₂ = 0.50 and φ = 180°. Calculate R, then test it. What are the minimum and maximum R when only φ changes?</p><div class="write"></div>
+      </section>
+      <div class="key"><strong>Keep this distinction:</strong> Superposition adds signed displacements at the same position and time: y = y₁ + y₂. Amplitude is the maximum distance from equilibrium; amplitudes do not generally add.</div>
+      <div class="answer"><strong>Check after completing:</strong> The first three answers are 2, √2 ≈ 1.41, and 0. At 90°, the resultant peaks at a different position from either wave. Challenge: R = |1 − 0.50| = 0.50; its range is 0.50 ≤ R ≤ 1.50. Complete cancellation requires opposite phases and equal amplitudes.</div>
+      <footer><span class="url">Interactive lesson: <a href="https://bingkun-qi-lab.bingkunq.chatgpt.site/teaching/">bingkun-qi-lab.bingkunq.chatgpt.site/teaching/</a></span><span>English · 2 / 2</span></footer>
+    </article>
+  </main>
+</body>
+</html>

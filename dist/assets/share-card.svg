@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#080d18"/><stop offset="1" stop-color="#152b4b"/></linearGradient><linearGradient id="accent"><stop stop-color="#68cfff"/><stop offset="1" stop-color="#ad8dff"/></linearGradient></defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<g fill="none" stroke="#668dca" opacity=".12"><path d="M0 100H1200M0 200H1200M0 300H1200M0 400H1200M0 500H1200M100 0V630M200 0V630M300 0V630M400 0V630M500 0V630M600 0V630M700 0V630M800 0V630M900 0V630M1000 0V630M1100 0V630"/></g>
+<g font-family="Segoe UI,Arial,Microsoft YaHei,sans-serif"><text x="74" y="90" fill="#7dccff" font-size="18" letter-spacing="5">PHYSICS / TEACHING / AI</text><text x="70" y="230" fill="#f0f5ff" font-size="82" font-weight="650">Bingkun Qi</text><text x="74" y="307" fill="#c4ddff" font-size="46" font-weight="600">亓炳堃</text><text x="75" y="402" fill="#abc0db" font-size="26">Exploring physics. Sharing understanding.</text><text x="75" y="547" fill="#89a5ca" font-size="18">Research · Interactive lessons · Teaching tools</text></g>
+<g transform="translate(840 190)" fill="none"><ellipse cx="120" cy="120" rx="160" ry="70" stroke="#6ccfff" stroke-width="2" transform="rotate(35 120 120)"/><ellipse cx="120" cy="120" rx="160" ry="70" stroke="#ad8dff" stroke-width="2" transform="rotate(-35 120 120)"/><circle cx="120" cy="120" r="115" stroke="#7da9e4" stroke-width="1.5"/><circle cx="120" cy="120" r="9" fill="#b7eaff"/></g>
+<path d="M75 464H660" stroke="url(#accent)" stroke-width="3"/>
+</svg>
