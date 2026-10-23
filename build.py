@@ -176,6 +176,18 @@ def page_details(language, route):
     return f'{project["title"]} — Bingkun Qi', project['summary']
 
 
+def physics_hub(language):
+    hub = data[language]['physicsHub']
+    cards = ''.join(
+        f'<article><p class="small-label">{i+1:02d} / {esc(lesson["category"])} · 9702 {esc(lesson["syllabus"])}</p>'
+        f'<h3><a href="{esc(lesson["url"])}" target="_blank" rel="noopener noreferrer">{esc(lesson["title"])} ↗</a></h3>'
+        f'<p>{esc(lesson["description"])}</p></article>'
+        for i, lesson in enumerate(hub['lessons'])
+    )
+    return (f'<section id="physics-lab"><h2>{esc(hub["title"])}</h2><p>{esc(hub["intro"])}</p>'
+            f'<p>{esc(hub["badge"])} · {esc(hub["course"])}</p>{cards}<p>{esc(hub["access"])}</p></section>')
+
+
 def fallback_content(language, route):
     """Keep meaningful copy and navigation available before JS or without it."""
     d, t = data[language], labels[language]
@@ -187,6 +199,8 @@ def fallback_content(language, route):
         navigation.append(
             f'<a href="{localized_path(language, target)}"{current}>{esc(t[key])}</a>'
         )
+    navigation.insert(1, f'<a href="{localized_path(language)}#physics-lab">'
+                      f'{"物理演示" if language == "zh" else "Physics demos"}</a>')
     language_links = ' / '.join(
         f'<a href="{localized_path(code, route)}" lang="{labels[code]["html_lang"]}"'
         f' hreflang="{labels[code]["html_lang"]}">{name}</a>'
@@ -197,6 +211,7 @@ def fallback_content(language, route):
         sections.append(paragraphs(d['about']['paragraphs']))
         sections.append(f'<section id="projects"><h2>{esc(t["projects"])}</h2>'
                         f'{project_cards(language, d["projects"])}</section>')
+        sections.append(physics_hub(language))
         sections.append(f'<section><h2>{esc(t["research"])}</h2>'
                         f'{paper_cards(d["papers"])}</section>')
     elif route == 'about':
@@ -218,6 +233,7 @@ def fallback_content(language, route):
         sections.append(f'<section><h2>{esc(t["research"])}</h2>'
                         f'{paper_cards(d["papers"])}</section>')
     elif route == 'teaching':
+        sections.append(f'<p><a href="{localized_path(language)}#physics-lab">{esc(d["physicsHub"]["teachingLink"])} →</a></p>')
         if d.get('teachingExample'):
             sections.append(teaching_example(language, d['teachingExample']))
         sections.append(f'<section><h2>{esc(t["experience"])}</h2>'
@@ -298,7 +314,7 @@ def write_page(language, route, output_route):
 <meta name="twitter:image" content="{origin}/assets/share-card.png">
 <link rel="canonical" href="{canonical}">{alternates}
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/assets/style.css"><link rel="stylesheet" href="/assets/enhancements.css">
+<link rel="stylesheet" href="/assets/style.css"><link rel="stylesheet" href="/assets/enhancements.css"><link rel="stylesheet" href="/assets/physics-hub.css">
 <script src="/assets/wave-lab.js" defer></script><script src="/assets/enhancements.js" defer></script><script src="/assets/app.js" defer></script>
 <style>
 .static-header{{display:flex;flex-wrap:wrap;align-items:center;gap:20px;padding-block:28px;border-bottom:1px solid var(--line)}}

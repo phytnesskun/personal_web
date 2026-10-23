@@ -12,7 +12,9 @@ The current Sites deployment is private and requires its owner's ChatGPT account
 - Five project pages, led by the CAIE 9702 AS Physics question bank.
 - Student Feedback & Teaching Administration project.
 - Selected publications and education background.
-- Interactive wave-superposition experiment with phase and amplitude controls.
+- Interactive physics hub at `/zh/#physics-lab` and `/en/#physics-lab`, with six CAIE 9702 AS lesson cards linking to the separate Physics Lab. The lab retains its existing access permissions.
+- Original inline wave-superposition experiment with phase and amplitude controls.
+- Physics hub navigation and a matching entry on the guided teaching page; localized static fallback includes all six links.
 - Responsive layouts and keyboard-accessible controls.
 - Two project case studies with actual interface screenshots and clearly labelled illustrative workflows.
 - Two research explainers with original conceptual diagrams and links to the papers.

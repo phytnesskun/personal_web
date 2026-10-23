@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" fill="none">
+  <g stroke="#72ccff" stroke-opacity=".09">
+    <path d="M30 30H330M30 65H330M30 100H330M30 20V110M90 20V110M150 20V110M210 20V110M270 20V110M330 20V110"/>
+  </g>
+  <path d="M30 65H330" stroke="#edf4ff" stroke-opacity=".2" stroke-dasharray="3 5"/>
+  <path d="M30 65C42.5 35 55 35 67.5 65S92.5 95 105 65S130 35 142.5 65S167.5 95 180 65S205 35 217.5 65S242.5 95 255 65S280 35 292.5 65S317.5 95 330 65" stroke="#72ccff" stroke-width="2" stroke-opacity=".8"/>
+  <path d="M30 50C42.5 50 55 80 67.5 80S92.5 50 105 50S130 80 142.5 80S167.5 50 180 50S205 80 217.5 80S242.5 50 255 50S280 80 292.5 80S317.5 50 330 50" stroke="#b29aff" stroke-width="2" stroke-dasharray="5 4"/>
+  <path d="M30 50C42.5 20 55 50 67.5 80S92.5 80 105 50S130 50 142.5 80S167.5 80 180 50S205 50 217.5 80S242.5 80 255 50S280 50 292.5 80S317.5 80 330 50" stroke="#edf4ff" stroke-width="2.7"/>
+  <circle cx="180" cy="50" r="4" fill="#edf4ff"/>
+  <circle cx="180" cy="50" r="9" stroke="#edf4ff" stroke-opacity=".2"/>
+</svg>

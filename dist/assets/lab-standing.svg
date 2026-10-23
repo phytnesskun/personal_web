@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" fill="none">
+  <g stroke="#72ccff" stroke-opacity=".09"><path d="M36 30H324M36 65H324M36 100H324M84 20V110M132 20V110M180 20V110M228 20V110M276 20V110"/></g>
+  <path d="M36 65C68 19 100 19 132 65S196 111 228 65S292 19 324 65C292 111 260 111 228 65S164 19 132 65S68 111 36 65Z" fill="#72ccff" fill-opacity=".035"/>
+  <path d="M36 65H324" stroke="#edf4ff" stroke-opacity=".24" stroke-dasharray="3 5"/>
+  <path d="M36 65C68 19 100 19 132 65S196 111 228 65S292 19 324 65" stroke="#72ccff" stroke-width="2.6"/>
+  <path d="M36 65C68 111 100 111 132 65S196 19 228 65S292 111 324 65" stroke="#b29aff" stroke-width="2" stroke-opacity=".7" stroke-dasharray="5 4"/>
+  <path d="M30 41V89M324 41V89M24 47L30 41M24 59L30 53M24 71L30 65M24 83L30 77M324 47L330 41M324 59L330 53M324 71L330 65M324 83L330 77" stroke="#8fa8c9" stroke-width="1.5"/>
+  <g fill="#edf4ff"><circle cx="36" cy="65" r="3.5"/><circle cx="132" cy="65" r="3.5"/><circle cx="228" cy="65" r="3.5"/><circle cx="324" cy="65" r="3.5"/></g>
+  <g stroke="#72ccff" stroke-opacity=".38"><path d="M84 38V92M180 38V92M276 38V92"/><path d="M80 42L84 38L88 42M176 88L180 92L184 88M272 42L276 38L280 42"/></g>
+</svg>
