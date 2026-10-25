@@ -300,7 +300,67 @@
         "credit": "亓炳堃为共同作者，署名第三位。",
         "sourceUrl": "https://arxiv.org/abs/2311.01566"
       }
-    ]
+    ],
+    "physicsHub": {
+      "title": "物理交互演示",
+      "intro": "从波的叠加到电路中的分压，调节参数、观察变化，把公式变成看得见的物理。",
+      "badge": "6 个演示 · 中英双语",
+      "open": "打开演示",
+      "course": "对照 CAIE 9702 AS 考纲 · 预测 → 操作 → 解释",
+      "access": "完整演示在独立实验室打开，沿用实验室的访问权限。",
+      "preview": "先从两列波开始",
+      "teachingLink": "探索全部 6 个物理交互演示",
+      "lessons": [
+        {
+          "id": "superposition",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/superposition/",
+          "syllabus": "8.1.1",
+          "category": "波动",
+          "title": "波的叠加",
+          "description": "调节振幅与相位，观察两列波如何增强或抵消。"
+        },
+        {
+          "id": "standing",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/",
+          "syllabus": "8.1",
+          "category": "波动",
+          "title": "驻波的形成",
+          "description": "寻找波节与波腹，探索固定端弦的不同谐波模式。"
+        },
+        {
+          "id": "double-slit",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/double-slit/",
+          "syllabus": "8.3",
+          "category": "波动",
+          "title": "双缝干涉",
+          "description": "改变波长、缝距与屏距，观察明暗条纹间距的变化。"
+        },
+        {
+          "id": "motion",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/motion/",
+          "syllabus": "2.1",
+          "category": "力学",
+          "title": "运动与图像",
+          "description": "对照小车运动与图像，理解斜率、面积和运动方向。"
+        },
+        {
+          "id": "collisions",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/collisions/",
+          "syllabus": "3.3",
+          "category": "力学",
+          "title": "碰撞与守恒",
+          "description": "调节质量与速度，比较碰撞前后的总动量与总动能。"
+        },
+        {
+          "id": "divider",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/divider/",
+          "syllabus": "10.3",
+          "category": "电路",
+          "title": "分压器与传感器",
+          "description": "改变光照、温度与传感器位置，观察输出电压。"
+        }
+      ]
+    }
   },
   "en": {
     "about": {
@@ -603,6 +663,66 @@
         "credit": "Bingkun Qi is a co-author, listed third.",
         "sourceUrl": "https://arxiv.org/abs/2311.01566"
       }
-    ]
+    ],
+    "physicsHub": {
+      "title": "Interactive physics",
+      "intro": "From superposition to potential dividers, change the parameters, observe what happens, and connect equations with physical behavior.",
+      "badge": "6 experiments · Chinese & English",
+      "open": "Open experiment",
+      "course": "Aligned with CAIE 9702 AS · Predict → Explore → Explain",
+      "access": "Full experiments open in the separate lab with its existing access permissions.",
+      "preview": "Start with two waves",
+      "teachingLink": "Explore all 6 interactive physics experiments",
+      "lessons": [
+        {
+          "id": "superposition",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/superposition/",
+          "syllabus": "8.1.1",
+          "category": "Waves",
+          "title": "Wave superposition",
+          "description": "Change amplitude and phase to explore reinforcement and cancellation."
+        },
+        {
+          "id": "standing",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/",
+          "syllabus": "8.1",
+          "category": "Waves",
+          "title": "Stationary waves",
+          "description": "Find nodes and antinodes, and explore harmonics on a string with fixed ends."
+        },
+        {
+          "id": "double-slit",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/double-slit/",
+          "syllabus": "8.3",
+          "category": "Waves",
+          "title": "Double-slit interference",
+          "description": "Vary wavelength, slit separation and screen distance to explore fringe spacing."
+        },
+        {
+          "id": "motion",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/motion/",
+          "syllabus": "2.1",
+          "category": "Mechanics",
+          "title": "Motion & graphs",
+          "description": "Connect a cart’s motion with graph gradients, signed areas and direction."
+        },
+        {
+          "id": "collisions",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/collisions/",
+          "syllabus": "3.3",
+          "category": "Mechanics",
+          "title": "Collisions & conservation",
+          "description": "Adjust masses and velocities to compare momentum and kinetic energy before and after impact."
+        },
+        {
+          "id": "divider",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/divider/",
+          "syllabus": "10.3",
+          "category": "Circuits",
+          "title": "Potential dividers & sensors",
+          "description": "Change light, temperature and sensor position to investigate the output voltage."
+        }
+      ]
+    }
   }
 }

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" role="img" aria-labelledby="title desc">
+  <title id="title">Gain and loss in a photonic lattice</title>
+  <desc id="desc">Original conceptual schematic, not simulation or measurement data. Alternating gain and loss sites form a lattice. A flat line represents the real part of the eigenvalue relative to a reference frequency.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101c37"/><stop offset="1" stop-color="#080e1d"/></linearGradient>
+    <radialGradient id="halo"><stop stop-color="#8b72ff" stop-opacity=".35"/><stop offset="1" stop-color="#8b72ff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="800" height="440" rx="24" fill="url(#bg)"/>
+  <g font-family="Inter,Arial,sans-serif">
+    <text x="38" y="47" fill="#83aeff" font-size="13" letter-spacing="2">01 / GAIN + LOSS</text>
+    <text x="38" y="86" fill="#eef3ff" font-size="27" font-weight="600">A lattice with another control dial</text>
+    <ellipse cx="140" cy="181" rx="102" ry="83" fill="url(#halo)"/>
+    <path d="M110 181H690" stroke="#3f527b" stroke-width="3"/>
+    <g fill="#0b1428" stroke-width="2.5">
+      <circle cx="110" cy="181" r="26" stroke="#a68bff"/>
+      <circle cx="226" cy="181" r="22" stroke="#669eff"/>
+      <circle cx="342" cy="181" r="22" stroke="#a68bff"/>
+      <circle cx="458" cy="181" r="22" stroke="#669eff"/>
+      <circle cx="574" cy="181" r="22" stroke="#a68bff"/>
+      <circle cx="690" cy="181" r="22" stroke="#669eff"/>
+    </g>
+    <g fill="#ecf2ff" font-size="22" text-anchor="middle">
+      <text x="110" y="188">+</text><text x="226" y="188">−</text>
+      <text x="342" y="188">+</text><text x="458" y="188">−</text>
+      <text x="574" y="188">+</text><text x="690" y="188">−</text>
+    </g>
+    <text x="80" y="234" fill="#a7b6d0" font-size="14">gain</text>
+    <text x="206" y="234" fill="#a7b6d0" font-size="14">loss</text>
+    <path d="M104 349V268M104 333H704" fill="none" stroke="#435675" stroke-width="1.5"/>
+    <path d="M120 306H680" stroke="#77adff" stroke-width="4" stroke-linecap="round"/>
+    <text x="36" y="311" fill="#b7c5df" font-size="13">Re(E)</text>
+    <text x="694" y="354" fill="#b7c5df" font-size="13">k</text>
+    <text x="326" y="287" fill="#d2e0ff" font-size="15">flat at the reference frequency</text>
+    <text x="38" y="403" fill="#7e90af" font-size="12">CONCEPTUAL SCHEMATIC · Not experimental or simulation data</text>
+  </g>
+</svg>

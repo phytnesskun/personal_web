@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" role="img" aria-labelledby="title desc">
+  <title id="title">A boundary zero mode connected to a bulk lattice</title>
+  <desc id="desc">Original conceptual schematic, not simulation or measurement data. A boundary site couples in one direction into a disordered bulk. This illustrates one example in the paper, not every allowed construction.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101c37"/><stop offset="1" stop-color="#080e1d"/></linearGradient>
+    <radialGradient id="halo"><stop stop-color="#8b72ff" stop-opacity=".3"/><stop offset="1" stop-color="#8b72ff" stop-opacity="0"/></radialGradient>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#a68bff"/></marker>
+  </defs>
+  <rect width="800" height="440" rx="24" fill="url(#bg)"/>
+  <g font-family="Inter,Arial,sans-serif">
+    <text x="38" y="47" fill="#83aeff" font-size="13" letter-spacing="2">02 / BOUNDARY → BULK</text>
+    <text x="38" y="86" fill="#eef3ff" font-size="27" font-weight="600">A small anchor, an extended mode</text>
+    <rect x="361" y="127" width="380" height="229" rx="19" fill="#0c162a" stroke="#2c3f60" stroke-dasharray="5 6"/>
+    <ellipse cx="158" cy="233" rx="110" ry="108" fill="url(#halo)"/>
+    <circle cx="158" cy="233" r="39" fill="#111b32" stroke="#a68bff" stroke-width="3"/>
+    <text x="158" y="241" text-anchor="middle" fill="#ecf2ff" font-size="23">E = 0</text>
+    <path d="M211 233H394" stroke="#a68bff" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="256" y="212" fill="#cbbaff" font-size="13">one-way</text>
+    <g stroke="#3d5c8a" stroke-width="2" fill="none">
+      <path d="M418 233L468 169L568 184L658 159L691 256L615 313L504 300Z"/>
+      <path d="M418 233L568 184L615 313M468 169L504 300L691 256M568 184L691 256"/>
+    </g>
+    <g fill="#182c4c" stroke="#73a5ed" stroke-width="2">
+      <circle cx="418" cy="233" r="14"/><circle cx="468" cy="169" r="11"/>
+      <circle cx="568" cy="184" r="17"/><circle cx="658" cy="159" r="10"/>
+      <circle cx="691" cy="256" r="15"/><circle cx="615" cy="313" r="12"/>
+      <circle cx="504" cy="300" r="18"/>
+    </g>
+    <text x="158" y="307" text-anchor="middle" fill="#c7d4ec" font-size="15">boundary zero mode</text>
+    <text x="551" y="338" text-anchor="middle" fill="#a7b6d0" font-size="13">bulk with disorder</text>
+    <text x="38" y="403" fill="#7e90af" font-size="12">ONE ALLOWED CONSTRUCTION · Conceptual schematic, not data</text>
+  </g>
+</svg>
