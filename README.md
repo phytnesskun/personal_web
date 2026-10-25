@@ -4,11 +4,12 @@
 
 ## 版本与目录
 
-- `dist/`：较新发布版，作为当前预览和后续页面修改的基准。共 54 个文件、28 个 HTML 页面。
+- `dist/`：当前发布文件与可编辑 HTML/CSS/JS/JSON，作为预览和后续修改的基准。
+- `build.py`：2026-10-26 从原 Sites 源仓库恢复的当前生成器，负责中英文入口、静态文字、元数据和站点地图。
 - `legacy-source/`：可构建的旧源码快照，包含原 README、`build.py` 和自己的 `dist/`，共 50 个文件。它不代表较新发布版的完整源码。
 - `.openai/hosting.json`：保留原 Sites 项目配置，部署目录为顶层 `dist/`。本次迁移不执行部署。
 
-旧构建器仅保留在 `legacy-source/` 内。不要把其输出复制到顶层 `dist/`，否则会覆盖较新版内容。最新完整源码、原 Windows 分支及未提交/未推送内容仍需另行确认。
+旧构建器保留在 `legacy-source/` 内，不要把其输出复制到顶层 `dist/`。当前生成器已与迁入的发布文件核对：重新构建仅有换行符差异。GitHub 与 Sites 的提交历史以普通合并保留；原 Windows 未提交/未推送内容仍不在此确认范围内。
 
 ## 本地预览
 
@@ -32,7 +33,7 @@ python3 -m http.server 8766 --bind 127.0.0.1 --directory legacy-source/dist
 python3 legacy-source/build.py
 ```
 
-当前发布版可直接编辑 `dist/` 内的 HTML/CSS/JS/JSON，但尚未恢复与它完全匹配的生成器。根路径资源链接要求网站部署在域名根目录；推送 GitHub 不等于发布 GitHub Pages。
+修改当前内容后，在根目录运行 `python3 build.py`，同步生成页面及站点地图。根路径资源链接要求网站部署在域名根目录；推送 GitHub 不等于发布 GitHub Pages。
 
 ## 迁移来源与校验
 
