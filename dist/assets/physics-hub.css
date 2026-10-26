@@ -8,6 +8,9 @@
 .physics-demo-card{display:flex;flex-direction:column;min-width:0;padding:24px;border:1px solid #2b405e;border-radius:12px;background:linear-gradient(145deg,#14223a,#0e182a);transition:border-color .2s,background .2s,transform .2s;text-decoration:none}
 .physics-demo-card:hover{border-color:#6db5e4;background:linear-gradient(145deg,#1b3151,#13223b);transform:translateY(-3px)}
 .physics-demo-card:focus-visible{outline:2px solid #9cdfff;outline-offset:5px}
+.physics-demo-preview{background:#101c2e}
+.physics-demo-preview:hover{transform:none;background:#101c2e;border-color:#2b405e}
+.physics-demo-preview .physics-demo-open{color:#9db5d2}
 .physics-demo-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;font:10px/1.6 'Cascadia Code','Consolas',monospace;color:#8fa9ce;letter-spacing:.3px}
 .physics-demo-meta>span:first-child{color:#b3d5f7}
 .physics-demo-art{display:block;width:100%;height:auto;aspect-ratio:360/130;margin:18px 0 22px}

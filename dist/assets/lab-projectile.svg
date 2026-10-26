@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" fill="none">
+  <title>Projectile motion</title>
+  <desc>A parabolic path without air resistance, with a velocity arrow tangent to the ascending path and a downward gravitational acceleration arrow.</desc>
+  <path d="M26 105H334" stroke="#edf4ff" stroke-opacity=".25" stroke-width="1.5"/>
+  <g stroke="#72ccff" stroke-opacity=".1"><path d="M44 31V105M112 31V105M180 31V105M248 31V105M316 31V105M44 55H316M44 80H316"/></g>
+  <path d="M44 104Q180 -52 316 104" stroke="#72ccff" stroke-width="2.7" stroke-linecap="round"/>
+  <path d="M180 26V104" stroke="#b29aff" stroke-opacity=".45" stroke-dasharray="3 4"/>
+  <g fill="#101b2d" stroke="#72ccff" stroke-width="1.8"><circle cx="44" cy="104" r="4"/><circle cx="180" cy="26" r="4"/><circle cx="248" cy="45.5" r="4"/><circle cx="316" cy="104" r="4"/></g>
+  <circle cx="112" cy="45.5" r="10" stroke="#edf4ff" stroke-opacity=".2"/>
+  <circle cx="112" cy="45.5" r="4.5" fill="#edf4ff"/>
+  <path d="M112 45.5L150 23.7M142 23L150 23.7L146.5 31" stroke="#edf4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M323 25V67M317 60L323 67L329 60" stroke="#b29aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

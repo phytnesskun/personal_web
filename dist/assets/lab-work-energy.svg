@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" fill="none">
+  <title>Work and kinetic energy</title>
+  <desc>A block is displaced to the right by a net force in the same direction. The dashed block marks a later position; net work equals the change in kinetic energy.</desc>
+  <path d="M26 102H334" stroke="#edf4ff" stroke-opacity=".25" stroke-width="1.5"/>
+  <g stroke="#72ccff" stroke-opacity=".12"><path d="M35 105L31 110M64 105L60 110M93 105L89 110M122 105L118 110M151 105L147 110M180 105L176 110M209 105L205 110M238 105L234 110M267 105L263 110M296 105L292 110M325 105L321 110"/></g>
+  <rect x="54" y="66" width="57" height="35" rx="3" fill="#72ccff" fill-opacity=".12" stroke="#72ccff" stroke-width="2"/>
+  <path d="M61 74H104" stroke="#72ccff" stroke-opacity=".4" stroke-width="1.5"/>
+  <rect x="255" y="66" width="57" height="35" rx="3" fill="#b29aff" fill-opacity=".035" stroke="#b29aff" stroke-opacity=".55" stroke-width="1.7" stroke-dasharray="4 4"/>
+  <path d="M111 83H196M188 77L196 83L188 89" stroke="#edf4ff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M82 117H174M192 117H283M88 113L82 117L88 121M277 113L283 117L277 121" stroke="#b29aff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="151" y="68" fill="#edf4ff" font-family="Arial, sans-serif" font-size="17" font-style="italic">F</text>
+  <text x="180" y="122" fill="#b29aff" font-family="Arial, sans-serif" font-size="16" font-style="italic">s</text>
+  <text x="205" y="37" fill="#72ccff" font-family="Arial, sans-serif" font-size="20">W = ΔEₖ</text>
+</svg>

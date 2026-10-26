@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" fill="none">
+  <title>Spring extension</title>
+  <desc>The same spring is shown relaxed above and stretched below. The extension is the difference between the two end positions, with an applied force pulling to the right.</desc>
+  <path d="M45 18V99M34 25L45 18M34 40L45 33M34 55L45 48M34 70L45 63M34 85L45 78M34 100L45 93" stroke="#edf4ff" stroke-opacity=".35" stroke-width="1.5"/>
+  <path d="M45 35H61L69 27L85 43L101 27L117 43L133 27L149 43L157 35H178" stroke="#72ccff" stroke-opacity=".4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="178" y="25" width="22" height="20" rx="3" fill="#72ccff" fill-opacity=".035" stroke="#72ccff" stroke-opacity=".4" stroke-width="1.5"/>
+  <path d="M45 76H65L79 64L107 88L135 64L163 88L191 64L219 88L233 76H262" stroke="#72ccff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="262" y="64" width="22" height="24" rx="3" fill="#72ccff" fill-opacity=".13" stroke="#edf4ff" stroke-width="1.8"/>
+  <path d="M284 76H330M323 70L330 76L323 82" stroke="#edf4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M189 47V118M273 91V118" stroke="#b29aff" stroke-opacity=".45" stroke-dasharray="3 4"/>
+  <path d="M189 110H220M239 110H273M195 106L189 110L195 114M267 106L273 110L267 114" stroke="#b29aff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="225" y="115" fill="#b29aff" font-family="Arial, sans-serif" font-size="16" font-style="italic">x</text>
+</svg>

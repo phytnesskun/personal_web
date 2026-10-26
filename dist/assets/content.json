@@ -148,16 +148,282 @@
         "id": "esat",
         "title": "ESAT 模拟练习",
         "kicker": "入学考试 · 模拟练习项目",
-        "summary": "面向 ESAT 的模拟练习项目，将入学考试准备与理科教学工具开发结合起来。",
+        "summary": "按知识点练习、查看解析，再从错题与主考点统计回到针对性练习，让每一轮练习都有下一步。",
         "url": "http://43.142.132.131/login",
         "features": [
-          "面向 ESAT 入学考试准备",
-          "以模拟练习为核心使用场景"
+          "按科目、知识点或主考点选择练习",
+          "作答后查看判题反馈与已提供的解析",
+          "使用同一科目的随机组卷或系列模考",
+          "通过错题本回看题目，并继续练习同类题",
+          "按主考点查看作答统计，选择下一轮练习"
         ],
         "story": [
-          "除了课程内的题库，我也关注入学考试准备中的练习需求。ESAT 模拟练习项目是我在这一方向上的尝试。",
-          "我希望把熟悉的理科教学经验与工具开发结合起来，让一个备考想法有机会落到实际的练习场景中。"
-        ]
+          "练习不应停在一个分数上。我希望学生能回到自己的解题过程：哪里判断得太快，哪个关系没有想清楚，下一次应练习什么。",
+          "这个项目把练习、模考、解析、错题和知识点连接起来。学生可以从一道题出发，回顾解法，再选择对应的主考点练习；教师也可以据此与学生讨论下一步的复习安排。"
+        ],
+        "case": {
+          "label": "学习工具 / ESAT PRACTICE",
+          "title": "从一次作答，走向下一次练习。",
+          "cards": [
+            [
+              "学习问题",
+              "知道答对或答错之后，还需要看清解题思路，并找到值得继续练习的内容。"
+            ],
+            [
+              "练习方式",
+              "按知识点开始练习，或进入同一科目的随机组卷与系列模考。"
+            ],
+            [
+              "回顾线索",
+              "把错题与主考点的作答情况放在一起看，为下一轮练习选择一个具体目标。"
+            ]
+          ],
+          "steps": [
+            [
+              "选择并作答",
+              "从科目或知识点进入练习，先完成自己的判断，再提交答案并查看反馈。"
+            ],
+            [
+              "读解析，回看思路",
+              "打开已提供的解析，对照关键关系和计算步骤；回到错题本时，再看自己当时的选择。"
+            ],
+            [
+              "看主考点，再练一次",
+              "在统计页查看各主考点的作答情况，选择需要继续练习的内容，通过“练这个”进入对应题目。"
+            ]
+          ],
+          "note": "这是使用流程示例，不包含真实学生记录。题目与解析来源各有标记；部分题目的解析仍在补充。",
+          "foot": "完整练习、模考和个人记录在独立平台中使用；本页仅演示操作步骤，不记录作答。",
+          "images": []
+        }
+      },
+      {
+        "id": "virtual-lab",
+        "title": "3D 伏安法虚拟实验室",
+        "kicker": "交互实验 · 接线、读表与数据分析",
+        "summary": "在浏览器中连接电路、调节滑动变阻器、读取指针电表，再用自己的记录绘制 U–I 图线。",
+        "url": null,
+        "features": [
+          "自由接线，移动和旋转实验器材",
+          "调节滑动变阻器，选择电流表与电压表量程",
+          "并排查看两块表盘，手动录入和更正测量值",
+          "绘制 U–I 图线，由拟合斜率求出电阻",
+          "对短路、反接和断线给出明确提示"
+        ],
+        "story": [
+          "一次伏安法实验不只有最后的计算。接线、选择量程、读表和记录，都是需要亲自练习的步骤。我把这些环节放进同一个可操作的虚拟实验台。",
+          "界面保留手动读表与记录，让图线从使用者输入的数据中产生。这个项目关注的是如何把物理模型、实验操作和数据解释连成一个完整过程。"
+        ],
+        "highlight": true,
+        "status": "本地原型",
+        "accessNote": "目前为本地可运行原型，本页展示实际界面与操作流程。",
+        "cover": {
+          "file": "virtual-lab-wiring.jpg",
+          "alt": "实际界面：连接电源、开关、定值电阻、电表和滑动变阻器。"
+        },
+        "case": {
+          "label": "案例 / 从接线到图线",
+          "title": "亲手完成测量，让数据给出电阻。",
+          "cards": [
+            [
+              "教学问题",
+              "公式 U = IR 很简洁，但理解一次测量还需要正确接线、读表并比较多组数据。"
+            ],
+            [
+              "设计选择",
+              "用三维实验台组织器材，再提供清楚的双表视图。读数由使用者手动记录，可逐行更正。"
+            ],
+            [
+              "模型检验",
+              "五组理想串联电路结果与 CircuitJS 独立对照一致；本地浏览器完成接线、测量和拟合，得到 10.00 Ω。"
+            ]
+          ],
+          "images": [
+            [
+              "virtual-lab-wiring.jpg",
+              "实际界面：连接电源、开关、定值电阻、电表和滑动变阻器。",
+              1265,
+              712
+            ],
+            [
+              "virtual-lab-measurement.jpg",
+              "实际界面：并排读表、记录数据，并从 U–I 图线斜率求电阻。",
+              1265,
+              1323
+            ]
+          ],
+          "note": "2026 年 10 月的本地产品截图。图中记录来自功能验证中的模拟操作，不是学生实验数据。",
+          "steps": [
+            [
+              "连接电路",
+              "将电流表串联、电压表并联到待测电阻两端，检查滑动变阻器接法并选择合适量程。"
+            ],
+            [
+              "读取并记录",
+              "改变滑片位置，在双表视图读取 U 和 I，手动记录多组不同电流下的测量值。"
+            ],
+            [
+              "解释图线",
+              "观察纵轴为 U、横轴为 I 的图线，通过保留截距的线性拟合求斜率，讨论它为何对应电阻。"
+            ]
+          ],
+          "foot": "当前为本地可运行原型，采用恒温、理想直流模型。虚拟操作用于辅助学习；读数仅保留在当前页面。"
+        }
+      },
+      {
+        "id": "teaching-design",
+        "title": "从受力图到能解释的答案",
+        "kicker": "教学设计 · 原创课例 · 45 分钟计划",
+        "summary": "一节面向已有 IGCSE 基础学生的受力分析课：先暴露常见误解，再通过示范、独立作答与退出题检查理解。",
+        "url": null,
+        "features": [
+          "英文学生题纸与独立解答，先尝试再核对",
+          "自绘受力图，明确研究对象、外力和正方向",
+          "中文教师教案，配有追问、纠错提示和分项评分",
+          "从同一模型迁移到拉力撤去、竖直运动与第三定律"
+        ],
+        "story": [
+          "学生会代入 F = ma，并不一定能判断该把哪些力放进方程。我把这节课的重点放在建模：先选定研究对象，只画作用在它身上的真实外力，再选正方向、列方程并解释结果。",
+          "题纸从“匀速是否需要合力”与第三定律力对开始，接着比较撤去拉力前后的箱子，再用悬挂物和退出题检查迁移。教师教案明确了何时示范、何时让学生独立完成，以及如何根据错误回到相应步骤。"
+        ],
+        "highlight": true,
+        "status": "待试教课例",
+        "accessNote": "下方可下载学生题纸、独立解答与教师教案；先尝试作答，再核对思路。",
+        "cover": {
+          "file": "teaching/forces-before-after.svg",
+          "alt": "同一箱子在松绳前后受到的力：松绳前有向右15牛拉力和向左6牛摩擦力；刚松绳后拉力消失，摩擦力仍向左。两种情况下支持力与重力均为30牛，箭头为示意。"
+        },
+        "case": {
+          "label": "课例 / 诊断、建模与反馈",
+          "title": "从受力图到能解释的答案",
+          "cards": [
+            [
+              "教学目标",
+              "把研究对象、真实外力与正方向说清楚，再把图、方程和解释连起来。"
+            ],
+            [
+              "学习材料",
+              "英文学生题纸、独立解答和中文教师教案，保留完整的课堂练习流程。"
+            ],
+            [
+              "反馈设计",
+              "保留第一次判断，让学生说明一次订正，再用新的退出题情境检查迁移。"
+            ]
+          ],
+          "images": [
+            [
+              "teaching/forces-before-after.svg",
+              "同一个物体，条件改变后要重新检查力的来源。箭头为示意，不按大小比例绘制。",
+              1000,
+              350
+            ]
+          ],
+          "steps": [
+            [
+              "先诊断，留下理由",
+              "0–5 分钟 · 用两道短问区分匀速与零合力、平衡力与第三定律力对。保留第一次回答，作为后续反馈的起点。"
+            ],
+            [
+              "把受力画清楚",
+              "5–18 分钟 · 选定一个物体，逐一标出外力和正方向。以水平拉箱为示范，把图、方程与加速度方向连在一起。"
+            ],
+            [
+              "换情境，再解释",
+              "18–45 分钟 · 独立完成撤去拉力与悬挂物任务，说明一次订正的理由，再用退出题检查能否迁移到新情境。"
+            ]
+          ],
+          "note": "备课与材料检查已完成，待实际试教；此处展示教学设计，不报告学生成效。",
+          "foot": "先完成学生题纸，再打开解答。教师教案为中文，解答含英文解释示例。题纸末页另列可选官方课后题的出处，本站不附该原卷。"
+        },
+        "downloads": [
+          {
+            "url": "/assets/teaching/forces-student-worksheet.pdf",
+            "label": "学生题纸 · 英文 · 5页"
+          },
+          {
+            "url": "/assets/teaching/forces-solutions.pdf",
+            "label": "解答与评分点 · 中文讲解 / 英文解释示例 · 4页"
+          },
+          {
+            "url": "/assets/teaching/forces-teacher-plan.pdf",
+            "label": "教师教案 · 中文 · 3页"
+          }
+        ],
+        "sampleNote": "先完成学生题纸，再打开解答。教师教案为中文，解答含英文解释示例。题纸末页另列可选官方课后题的出处，本站不附该原卷。"
+      },
+      {
+        "id": "prosperity-road",
+        "title": "繁荣之路 · 经济决策游戏",
+        "kicker": "在游戏中学习 · 市场、政策与取舍",
+        "summary": "面对一个城镇的困境，选择政策，观察价格、供给与居民反应，再尝试另一种办法。",
+        "url": null,
+        "features": [
+          "六季度《面包危机》：应对歉收、价格与粮食保障问题",
+          "四季度《烟囱与河流》：比较生产、污染税和排放上限",
+          "在相同季度条件下免费试算替代政策，不改写正式记录",
+          "走访场景角色，通过情境对话理解不同立场",
+          "浏览器保存进度，并可下载任期记录"
+        ],
+        "story": [
+          "价格下降之后，居民就一定能买到足够的面包吗？我把这类经济学问题放进一个可以反复尝试的城镇情境，让政策选择带来可观察的变化。",
+          "游戏先让玩家看局势、做决定、听取世界的回应；想深入时，再打开供需图、账目和同季政策对照。《烟囱与河流》进一步把环境损害与生产目标放进同一组取舍。"
+        ],
+        "highlight": true,
+        "status": "独立游戏",
+        "accessNote": "本页展示实际游戏界面与教学思路。在线试玩暂不可用。",
+        "cover": {
+          "file": "prosperity-bread.png",
+          "alt": "实际界面：《面包危机》中一次限价政策的结算与城镇反应。"
+        },
+        "case": {
+          "label": "案例 / 在游戏中理解取舍",
+          "title": "做一个决定，看看城镇怎样回应。",
+          "cards": [
+            [
+              "学习问题",
+              "较低的标价不自动意味着更充足的供应。把价格、购买量和资源放在一起，才能讨论政策的影响。"
+            ],
+            [
+              "游戏组织",
+              "用连续季度推进情境，让市场变化、角色反应和资源约束共同回应玩家的选择。"
+            ],
+            [
+              "比较方式",
+              "同季试算保留原有环境与期初资源，可以比较另一种政策，而不改写正在进行的任期。"
+            ]
+          ],
+          "images": [
+            [
+              "prosperity-bread.png",
+              "实际界面：《面包危机》中一次限价政策的结算与城镇反应。",
+              1280,
+              800
+            ],
+            [
+              "prosperity-river.png",
+              "实际界面：《烟囱与河流》中比较供货、环境损害和财政结果。",
+              1280,
+              1341
+            ]
+          ],
+          "note": "截图来自实际游戏界面，人物、情境和数值均用于教学模拟。顾问采用本地情境对话；不是自由文本或语音 AI 助手。",
+          "steps": [
+            [
+              "观察局势",
+              "查看当季事件、库存与财政，听取居民和生产者的不同处境。"
+            ],
+            [
+              "选择政策",
+              "在资源约束内作出决定，执行后观察价格、供给、保障或环境损害如何变化。"
+            ],
+            [
+              "再试一种办法",
+              "用同季试算比较替代方案，再进入下一季；结束后回看自动整理的任期记录。"
+            ]
+          ],
+          "foot": "游戏数值来自透明的模型假设，用于讨论经济机制，不是现实预测。学习效果仍需通过实际试玩与教学反馈评估。"
+        },
+        "actionLabel": "打开游戏"
       }
     ],
     "teachingExample": {
@@ -303,13 +569,13 @@
     ],
     "physicsHub": {
       "title": "物理交互演示",
-      "intro": "从波的叠加到电路中的分压，调节参数、观察变化，把公式变成看得见的物理。",
-      "badge": "6 个演示 · 中英双语",
+      "intro": "从力学到波动与电路，调节参数、观察变化，把公式变成看得见的物理。",
+      "badge": "12 个演示主题 · 中英双语",
       "open": "打开演示",
       "course": "对照 CAIE 9702 AS 考纲 · 预测 → 操作 → 解释",
       "access": "完整演示在独立实验室打开，沿用实验室的访问权限。",
       "preview": "先从两列波开始",
-      "teachingLink": "探索全部 6 个物理交互演示",
+      "teachingLink": "浏览 12 个物理交互演示主题",
       "lessons": [
         {
           "id": "superposition",
@@ -317,7 +583,8 @@
           "syllabus": "8.1.1",
           "category": "波动",
           "title": "波的叠加",
-          "description": "调节振幅与相位，观察两列波如何增强或抵消。"
+          "description": "调节振幅与相位，观察两列波如何增强或抵消。",
+          "available": true
         },
         {
           "id": "standing",
@@ -325,7 +592,8 @@
           "syllabus": "8.1",
           "category": "波动",
           "title": "驻波的形成",
-          "description": "寻找波节与波腹，探索固定端弦的不同谐波模式。"
+          "description": "寻找波节与波腹，探索固定端弦的不同谐波模式。",
+          "available": true
         },
         {
           "id": "double-slit",
@@ -333,7 +601,8 @@
           "syllabus": "8.3",
           "category": "波动",
           "title": "双缝干涉",
-          "description": "改变波长、缝距与屏距，观察明暗条纹间距的变化。"
+          "description": "改变波长、缝距与屏距，观察明暗条纹间距的变化。",
+          "available": true
         },
         {
           "id": "motion",
@@ -341,7 +610,8 @@
           "syllabus": "2.1",
           "category": "力学",
           "title": "运动与图像",
-          "description": "对照小车运动与图像，理解斜率、面积和运动方向。"
+          "description": "对照小车运动与图像，理解斜率、面积和运动方向。",
+          "available": true
         },
         {
           "id": "collisions",
@@ -349,7 +619,8 @@
           "syllabus": "3.3",
           "category": "力学",
           "title": "碰撞与守恒",
-          "description": "调节质量与速度，比较碰撞前后的总动量与总动能。"
+          "description": "调节质量与速度，比较碰撞前后的总动量与总动能。",
+          "available": true
         },
         {
           "id": "divider",
@@ -357,9 +628,68 @@
           "syllabus": "10.3",
           "category": "电路",
           "title": "分压器与传感器",
-          "description": "改变光照、温度与传感器位置，观察输出电压。"
+          "description": "改变光照、温度与传感器位置，观察输出电压。",
+          "available": true
+        },
+        {
+          "id": "projectile",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/projectile/",
+          "syllabus": "2.1.9",
+          "category": "力学",
+          "title": "抛体运动",
+          "description": "调节发射条件，对照水平与竖直方向的运动，观察完整轨迹。",
+          "available": true
+        },
+        {
+          "id": "internal-resistance",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/internal-resistance/",
+          "syllabus": "10.1",
+          "category": "电路",
+          "title": "电动势与内阻",
+          "description": "改变外电路电阻，比较电流、端电压与电源内阻的关系。",
+          "available": true
+        },
+        {
+          "id": "terminal-velocity",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/terminal-velocity/",
+          "syllabus": "3.2",
+          "category": "力学",
+          "title": "阻力与终端速度",
+          "description": "比较重力、阻力与速度的变化，观察合力趋于零的过程。",
+          "available": true
+        },
+        {
+          "id": "elasticity",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/elasticity/",
+          "syllabus": "6.1–6.2",
+          "category": "材料",
+          "title": "拉伸与杨氏模量",
+          "description": "改变拉伸条件，对照力与伸长量、应力与应变的关系。",
+          "available": true
+        },
+        {
+          "id": "work-energy",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/work-energy/",
+          "syllabus": "5.1–5.2",
+          "category": "力学",
+          "title": "功与能量转化",
+          "description": "比较各力做功与动能的变化，追踪能量转移的方向。",
+          "available": true
+        },
+        {
+          "id": "diffraction",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/diffraction/",
+          "syllabus": "8.2",
+          "category": "波动",
+          "title": "狭缝衍射",
+          "description": "改变波长与缝宽，比较波通过狭缝后的展开程度。",
+          "available": true
         }
       ]
+    },
+    "teachingOverview": {
+      "title": "让一个好问题，走进课堂。",
+      "intro": "从物理直觉到清晰的解释，把任务、讲解和反馈连接起来。这里有一份完整课例，也有可以亲手操作的十分钟学习活动。"
     }
   },
   "en": {
@@ -511,16 +841,282 @@
         "id": "esat",
         "title": "ESAT Mock Practice",
         "kicker": "Admissions preparation · Mock practice project",
-        "summary": "A mock-practice project for ESAT, connecting admissions-test preparation with science teaching tools.",
+        "summary": "Practise by topic, review the explanation, then use mistakes and primary-topic statistics to choose the next round of practice.",
         "url": "http://43.142.132.131/login",
         "features": [
-          "Focused on ESAT preparation",
-          "Designed around mock practice"
+          "Choose practice by subject, topic or primary topic",
+          "Review answer feedback and available explanations after responding",
+          "Use random papers or mock-paper series within one subject",
+          "Revisit mistakes and continue with related questions",
+          "Use primary-topic statistics to choose what to practise next"
         ],
         "story": [
-          "Alongside course question banks, I am interested in the practice needs that come with admissions tests. The ESAT mock practice project is an exploration in that direction.",
-          "My aim is to combine my experience teaching science and mathematics with tool development, giving an idea for exam preparation a practical form."
-        ]
+          "Practice should offer more than a score. I want students to revisit how they reached an answer: which judgement was rushed, which relationship was unclear, and what they could practise next.",
+          "The project connects practice, mock exams, explanations, mistakes and topics. Students can start with a question, review the method, then choose further practice on its primary topic. Teachers can also use that sequence to discuss the next revision step."
+        ],
+        "case": {
+          "label": "LEARNING TOOLS / ESAT PRACTICE",
+          "title": "From one answer to the next useful practice session.",
+          "cards": [
+            [
+              "The learning question",
+              "After finding out whether an answer is correct, a student still needs to understand the method and decide what to work on next."
+            ],
+            [
+              "Ways to practise",
+              "Start with a topic, or choose a random paper or a mock-paper series within one subject."
+            ],
+            [
+              "Clues for review",
+              "Consider mistakes alongside results by primary topic, then choose a specific focus for the next session."
+            ]
+          ],
+          "steps": [
+            [
+              "Choose and answer",
+              "Enter practice through a subject or topic. Make your own judgement, submit an answer, then review the feedback."
+            ],
+            [
+              "Review the reasoning",
+              "Open the available explanation and compare the key relationships and calculations with your approach. Revisit your original choice in the mistakes view."
+            ],
+            [
+              "Choose a topic and try again",
+              "Use the statistics page to review results by primary topic. Select an area that needs more practice and follow its practice link to a relevant question set."
+            ]
+          ],
+          "note": "This walkthrough contains no real student records. Questions and explanations carry source labels; explanations are still being added for some questions.",
+          "foot": "Complete practice sessions, mock exams and personal records are available in the separate platform. This page only illustrates the steps and does not record answers.",
+          "images": []
+        }
+      },
+      {
+        "id": "virtual-lab",
+        "title": "3D Virtual Resistance Lab",
+        "kicker": "INTERACTIVE EXPERIMENT · WIRING, READING & ANALYSIS",
+        "summary": "Wire a circuit in the browser, adjust a rheostat, read analogue meters, and build a voltage–current graph from your own recorded measurements.",
+        "url": null,
+        "features": [
+          "Wire the circuit and move or rotate the apparatus",
+          "Adjust the rheostat and select ammeter and voltmeter ranges",
+          "Read both meter faces together; enter and correct measurements by hand",
+          "Plot voltage against current and find resistance from the fitted gradient",
+          "Receive clear feedback on short circuits, reversed connections and disconnected leads"
+        ],
+        "story": [
+          "A resistance experiment involves more than a final calculation. Wiring, selecting ranges, reading scales and recording results all need practice. This virtual bench brings those steps into one working environment.",
+          "Measurements remain manual, and the graph is built from the values the user enters. The project connects a physical model with experimental actions and the interpretation of data."
+        ],
+        "highlight": true,
+        "status": "Local prototype",
+        "accessNote": "Currently a locally runnable prototype. This page shows the working interface and workflow.",
+        "cover": {
+          "file": "virtual-lab-wiring.jpg",
+          "alt": "Actual interface: connecting the supply, switch, resistor, meters and rheostat."
+        },
+        "case": {
+          "label": "CASE / FROM CIRCUIT TO GRAPH",
+          "title": "Make the measurements. Let the data reveal the resistance.",
+          "cards": [
+            [
+              "The teaching problem",
+              "U = IR is compact, but understanding a measurement also requires correct wiring, careful scale reading and comparisons across several readings."
+            ],
+            [
+              "Design choices",
+              "A three-dimensional bench organises the apparatus, with a separate view of both meter faces. Users enter their own readings and can correct individual records."
+            ],
+            [
+              "Checking the model",
+              "Five ideal series-circuit results matched an independent CircuitJS comparison. The local browser workflow completed wiring, measurement and a fit of 10.00 Ω."
+            ]
+          ],
+          "images": [
+            [
+              "virtual-lab-wiring.jpg",
+              "Actual interface: connecting the supply, switch, resistor, meters and rheostat.",
+              1265,
+              712
+            ],
+            [
+              "virtual-lab-measurement.jpg",
+              "Actual interface: reading two meters, recording measurements and finding resistance from a voltage–current graph.",
+              1265,
+              1323
+            ]
+          ],
+          "note": "Local product screenshots from October 2026. The records shown are simulated measurements used for functional checks, not student experiment data.",
+          "steps": [
+            [
+              "Connect the circuit",
+              "Connect the ammeter in series and the voltmeter across the resistor. Check the rheostat connections and choose appropriate ranges."
+            ],
+            [
+              "Read and record",
+              "Change the slider position, read voltage and current in the dual-meter view, and manually record several different current values."
+            ],
+            [
+              "Interpret the graph",
+              "Plot voltage vertically against current horizontally. Fit a line with an intercept and explain why its gradient represents resistance."
+            ]
+          ],
+          "foot": "A locally runnable prototype using a constant-temperature, ideal DC model. It supports learning about experimental actions; records last only for the current page session."
+        }
+      },
+      {
+        "id": "teaching-design",
+        "title": "From a force diagram to an explanation",
+        "kicker": "Teaching design · Original lesson · 45-minute plan",
+        "summary": "A force-analysis lesson for students with an IGCSE foundation: uncover a misconception, build a model, then check understanding through independent practice and an exit ticket.",
+        "url": null,
+        "features": [
+          "An English worksheet with separate solutions: attempt first, check afterwards",
+          "Original force diagrams that make the object, external forces and positive direction explicit",
+          "A Chinese teacher plan with prompts, feedback cues and marking guidance",
+          "Transfer from one model to a released rope, vertical motion and Newton’s third law"
+        ],
+        "story": [
+          "Substituting into F = ma does not by itself show that a student knows which forces belong in the equation. This lesson starts with modelling: choose the object, draw the external forces acting on it, define a positive direction, then write and interpret the equation.",
+          "Short questions on constant velocity and third-law pairs lead into a worked crate example. Students then compare the forces before and after a rope is released, apply the model to a suspended load, and attempt an exit ticket independently. The teacher plan specifies when to model, when to step back, and how to use an error to revisit the relevant step."
+        ],
+        "highlight": true,
+        "status": "Ready for classroom trials",
+        "accessNote": "Download the worksheet, separate solutions and teacher plan below. Attempt the questions before checking the reasoning.",
+        "cover": {
+          "file": "teaching/forces-before-after.svg",
+          "alt": "Forces on the same crate before and just after a rope is released. Before release, tension is 15 N to the right and friction is 6 N to the left. Just after release, tension disappears and friction remains to the left. Normal force and gravitational force are 30 N in both cases. Arrows are schematic."
+        },
+        "case": {
+          "label": "LESSON / DIAGNOSIS, MODELLING & FEEDBACK",
+          "title": "From a force diagram to an explanation",
+          "cards": [
+            [
+              "The learning goal",
+              "Identify the object, external forces and positive direction, then connect the diagram, equation and explanation."
+            ],
+            [
+              "The learning materials",
+              "An English worksheet, separate solutions and a Chinese teacher plan preserve the full classroom-practice sequence."
+            ],
+            [
+              "Feedback by design",
+              "Keep the first response, ask the student to explain a correction, then check transfer with a new exit-ticket situation."
+            ]
+          ],
+          "images": [
+            [
+              "teaching/forces-before-after.svg",
+              "When the conditions change, check the source of each force again. Arrows are schematic and are not drawn to scale.",
+              1000,
+              350
+            ]
+          ],
+          "steps": [
+            [
+              "Diagnose and keep the reasoning",
+              "Minutes 0–5 · Two short questions separate constant velocity from resultant force, and balanced forces from a third-law pair. Keep the first response as a starting point for feedback."
+            ],
+            [
+              "Make the force model explicit",
+              "Minutes 5–18 · Choose one object, identify its external forces and set a positive direction. A pulled crate connects the diagram, the equation and the direction of acceleration."
+            ],
+            [
+              "Transfer, explain and check",
+              "Minutes 18–45 · Students work independently on a released rope and a suspended load, explain a correction, then use a new exit-ticket situation to check transfer."
+            ]
+          ],
+          "note": "Materials have been prepared and checked; classroom trials are still pending. This is a teaching-design example, with no claim about measured student outcomes.",
+          "foot": "Try the worksheet before opening the solutions. The teacher plan is in Chinese; the solutions include English model explanations. The worksheet’s last page references optional official homework; that examination paper is not included."
+        },
+        "downloads": [
+          {
+            "url": "/assets/teaching/forces-student-worksheet.pdf",
+            "label": "Student worksheet · English · 5 pages"
+          },
+          {
+            "url": "/assets/teaching/forces-solutions.pdf",
+            "label": "Solutions & marking guidance · Chinese with English model explanations · 4 pages"
+          },
+          {
+            "url": "/assets/teaching/forces-teacher-plan.pdf",
+            "label": "Teacher plan · Chinese · 3 pages"
+          }
+        ],
+        "sampleNote": "Try the worksheet before opening the solutions. The teacher plan is in Chinese; the solutions include English model explanations. The worksheet’s last page references optional official homework; that examination paper is not included."
+      },
+      {
+        "id": "prosperity-road",
+        "title": "Prosperity Road · Economic Decisions",
+        "kicker": "LEARNING THROUGH PLAY · MARKETS, POLICY & TRADE-OFFS",
+        "summary": "Respond to a town in difficulty: choose a policy, observe prices, supply and residents’ reactions, then try another approach.",
+        "url": null,
+        "features": [
+          "Six quarters of Bread Crisis: harvest shocks, prices and access to food",
+          "Four quarters of Smokestacks and the River: production, pollution taxes and emissions limits",
+          "Try alternative policies under the same quarterly conditions without rewriting the campaign",
+          "Explore local scenes and understand different perspectives through contextual dialogue",
+          "Save progress in the browser and download a campaign record"
+        ],
+        "story": [
+          "If prices fall, will residents necessarily be able to buy enough bread? I turned questions like this into a town simulation where players can try policies and observe the consequences.",
+          "The game begins with a situation, a decision and a response from the world. Supply-and-demand diagrams, accounts and same-quarter comparisons are available when the player wants more detail. Smokestacks and the River extends the approach to trade-offs between production and environmental damage."
+        ],
+        "highlight": true,
+        "status": "Standalone game",
+        "accessNote": "This page presents the working game and its teaching ideas. Online play is temporarily unavailable.",
+        "cover": {
+          "file": "prosperity-bread.png",
+          "alt": "Actual interface: a price-control outcome and the town’s response in Bread Crisis."
+        },
+        "case": {
+          "label": "CASE / UNDERSTANDING TRADE-OFFS THROUGH PLAY",
+          "title": "Make a decision. See how the town responds.",
+          "cards": [
+            [
+              "The learning question",
+              "A lower posted price does not automatically mean more adequate supply. Prices, purchases and available resources need to be considered together."
+            ],
+            [
+              "How the game works",
+              "Successive quarters connect market changes, character responses and resource constraints to the player’s decisions."
+            ],
+            [
+              "How comparisons work",
+              "A same-quarter trial preserves the original environment and starting resources. It lets players compare another policy without changing their campaign."
+            ]
+          ],
+          "images": [
+            [
+              "prosperity-bread.png",
+              "Actual interface: a price-control outcome and the town’s response in Bread Crisis.",
+              1280,
+              800
+            ],
+            [
+              "prosperity-river.png",
+              "Actual interface: comparing deliveries, environmental damage and fiscal outcomes in Smokestacks and the River.",
+              1280,
+              1341
+            ]
+          ],
+          "note": "Screenshots show the working game. Characters, situations and numerical outcomes belong to a teaching simulation. The adviser uses local contextual dialogue, not free-text or voice AI.",
+          "steps": [
+            [
+              "Read the situation",
+              "Review the current event, stocks and treasury, then hear the different concerns of residents and producers."
+            ],
+            [
+              "Choose a policy",
+              "Make a decision within the resource constraints. Observe its effects on prices, supply, access to food or environmental damage."
+            ],
+            [
+              "Try another approach",
+              "Compare an alternative under the same quarterly conditions, then continue. Review the automatically compiled campaign record at the end."
+            ]
+          ],
+          "foot": "Transparent model assumptions support discussion of economic mechanisms; the outcomes are not real-world forecasts. Learning effects still require evaluation through student trials and teaching feedback."
+        },
+        "actionLabel": "Open game"
       }
     ],
     "teachingExample": {
@@ -666,13 +1262,13 @@
     ],
     "physicsHub": {
       "title": "Interactive physics",
-      "intro": "From superposition to potential dividers, change the parameters, observe what happens, and connect equations with physical behavior.",
-      "badge": "6 experiments · Chinese & English",
+      "intro": "Explore mechanics, waves and circuits: change the parameters, observe the results, and connect equations with physical behavior.",
+      "badge": "12 experiment topics · Chinese & English",
       "open": "Open experiment",
       "course": "Aligned with CAIE 9702 AS · Predict → Explore → Explain",
       "access": "Full experiments open in the separate lab with its existing access permissions.",
       "preview": "Start with two waves",
-      "teachingLink": "Explore all 6 interactive physics experiments",
+      "teachingLink": "Browse 12 interactive physics topics",
       "lessons": [
         {
           "id": "superposition",
@@ -680,7 +1276,8 @@
           "syllabus": "8.1.1",
           "category": "Waves",
           "title": "Wave superposition",
-          "description": "Change amplitude and phase to explore reinforcement and cancellation."
+          "description": "Change amplitude and phase to explore reinforcement and cancellation.",
+          "available": true
         },
         {
           "id": "standing",
@@ -688,7 +1285,8 @@
           "syllabus": "8.1",
           "category": "Waves",
           "title": "Stationary waves",
-          "description": "Find nodes and antinodes, and explore harmonics on a string with fixed ends."
+          "description": "Find nodes and antinodes, and explore harmonics on a string with fixed ends.",
+          "available": true
         },
         {
           "id": "double-slit",
@@ -696,7 +1294,8 @@
           "syllabus": "8.3",
           "category": "Waves",
           "title": "Double-slit interference",
-          "description": "Vary wavelength, slit separation and screen distance to explore fringe spacing."
+          "description": "Vary wavelength, slit separation and screen distance to explore fringe spacing.",
+          "available": true
         },
         {
           "id": "motion",
@@ -704,7 +1303,8 @@
           "syllabus": "2.1",
           "category": "Mechanics",
           "title": "Motion & graphs",
-          "description": "Connect a cart’s motion with graph gradients, signed areas and direction."
+          "description": "Connect a cart’s motion with graph gradients, signed areas and direction.",
+          "available": true
         },
         {
           "id": "collisions",
@@ -712,7 +1312,8 @@
           "syllabus": "3.3",
           "category": "Mechanics",
           "title": "Collisions & conservation",
-          "description": "Adjust masses and velocities to compare momentum and kinetic energy before and after impact."
+          "description": "Adjust masses and velocities to compare momentum and kinetic energy before and after impact.",
+          "available": true
         },
         {
           "id": "divider",
@@ -720,9 +1321,68 @@
           "syllabus": "10.3",
           "category": "Circuits",
           "title": "Potential dividers & sensors",
-          "description": "Change light, temperature and sensor position to investigate the output voltage."
+          "description": "Change light, temperature and sensor position to investigate the output voltage.",
+          "available": true
+        },
+        {
+          "id": "projectile",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/projectile/",
+          "syllabus": "2.1.9",
+          "category": "Mechanics",
+          "title": "Projectile motion",
+          "description": "Change the launch conditions and compare horizontal and vertical motion along the trajectory.",
+          "available": true
+        },
+        {
+          "id": "internal-resistance",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/internal-resistance/",
+          "syllabus": "10.1",
+          "category": "Circuits",
+          "title": "EMF & internal resistance",
+          "description": "Change the load resistance and compare current, terminal voltage and internal resistance.",
+          "available": true
+        },
+        {
+          "id": "terminal-velocity",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/terminal-velocity/",
+          "syllabus": "3.2",
+          "category": "Mechanics",
+          "title": "Drag & terminal velocity",
+          "description": "Compare weight, drag and speed as the resultant force approaches zero.",
+          "available": true
+        },
+        {
+          "id": "elasticity",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/elasticity/",
+          "syllabus": "6.1–6.2",
+          "category": "Materials",
+          "title": "Stretching & Young modulus",
+          "description": "Change the stretching conditions and compare force–extension and stress–strain relationships.",
+          "available": true
+        },
+        {
+          "id": "work-energy",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/work-energy/",
+          "syllabus": "5.1–5.2",
+          "category": "Mechanics",
+          "title": "Work & energy",
+          "description": "Compare work done by forces with changes in kinetic energy and follow the energy transfers.",
+          "available": true
+        },
+        {
+          "id": "diffraction",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/diffraction/",
+          "syllabus": "8.2",
+          "category": "Waves",
+          "title": "Diffraction through a slit",
+          "description": "Vary wavelength and slit width to compare how much the wave spreads beyond the opening.",
+          "available": true
         }
       ]
+    },
+    "teachingOverview": {
+      "title": "Bring a good question into the classroom.",
+      "intro": "Connect a physical intuition with a clear explanation through tasks, modelling and feedback. Explore a complete lesson and a ten-minute hands-on activity."
     }
   }
 }

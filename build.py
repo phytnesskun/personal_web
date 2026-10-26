@@ -165,12 +165,7 @@ def page_details(language, route):
     if route == 'research':
         return f'{t["research"]} — Bingkun Qi', t['research_description']
     if route == 'teaching':
-        example = d.get('teachingExample')
-        if example:
-            separator = '。' if language == 'zh' else '. '
-            return (f'{example["title"]} — Bingkun Qi',
-                    example['eyebrow'] + separator + example['learningGoal'])
-        return f'{t["teaching"]} — Bingkun Qi', t['teaching_description']
+        return f'{d["teachingOverview"]["title"]} — Bingkun Qi', d['teachingOverview']['intro']
     project_id = route.removeprefix('projects/')
     project = next(p for p in d['projects'] if p['id'] == project_id)
     return f'{project["title"]} — Bingkun Qi', project['summary']
@@ -180,7 +175,9 @@ def physics_hub(language):
     hub = data[language]['physicsHub']
     cards = ''.join(
         f'<article><p class="small-label">{i+1:02d} / {esc(lesson["category"])} · 9702 {esc(lesson["syllabus"])}</p>'
-        f'<h3><a href="{esc(lesson["url"])}" target="_blank" rel="noopener noreferrer">{esc(lesson["title"])} ↗</a></h3>'
+        + (f'<h3>{esc(lesson["title"])}</h3><p>{esc(lesson["status"])}</p>'
+           if lesson.get('available') is False else
+           f'<h3><a href="{esc(lesson["url"])}" target="_blank" rel="noopener noreferrer">{esc(lesson["title"])} ↗</a></h3>') +
         f'<p>{esc(lesson["description"])}</p></article>'
         for i, lesson in enumerate(hub['lessons'])
     )
@@ -233,6 +230,8 @@ def fallback_content(language, route):
         sections.append(f'<section><h2>{esc(t["research"])}</h2>'
                         f'{paper_cards(d["papers"])}</section>')
     elif route == 'teaching':
+        sample = next(p for p in d['projects'] if p['id'] == 'teaching-design')
+        sections.append(project_cards(language, [sample]))
         sections.append(f'<p><a href="{localized_path(language)}#physics-lab">{esc(d["physicsHub"]["teachingLink"])} →</a></p>')
         if d.get('teachingExample'):
             sections.append(teaching_example(language, d['teachingExample']))
@@ -247,7 +246,30 @@ def fallback_content(language, route):
                         f'{paragraphs(project["story"])}</section>')
         sections.append(f'<section><h2>{esc(t["features"])}</h2>'
                         f'{item_list(project["features"])}</section>')
-        sections.append(f'<p><a href="{esc(project["url"])}">{esc(t["visit"])}</a></p>')
+        if project.get('status'):
+            sections.append(f'<p>{esc(project["status"])}</p>')
+        case = project.get('case')
+        if case:
+            sections.append(f'<section><h2>{esc(case["title"])}</h2>')
+            for heading, text in case['cards']:
+                sections.append(f'<h3>{esc(heading)}</h3><p>{esc(text)}</p>')
+            for image in case.get('images', []):
+                sections.append(f'<figure><img src="/assets/{esc(image[0])}" '
+                                f'alt="{esc(image[1])}" style="max-width:100%;height:auto">'
+                                f'<figcaption>{esc(image[1])}</figcaption></figure>')
+            for heading, text in case['steps']:
+                sections.append(f'<h3>{esc(heading)}</h3><p>{esc(text)}</p>')
+            sections.append(f'<p>{esc(case["note"])}</p></section>')
+        if project.get('downloads'):
+            sections.append('<section id="lesson-resources"><h2>'
+                            + ('课例材料' if language == 'zh' else 'Lesson materials') + '</h2>')
+            sections.append(f'<p>{esc(project["sampleNote"])}</p>')
+            for item in project['downloads']:
+                sections.append(f'<p><a href="{esc(item["url"])}">{esc(item["label"])}</a></p>')
+            sections.append('</section>')
+        if project.get('url'):
+            sections.append(f'<p><a href="{esc(project["url"])}">'
+                            f'{esc(project.get("actionLabel", t["visit"]))}</a></p>')
         sections.append(f'<section><h2>{esc(t["projects"])}</h2>'
                         f'{project_cards(language, [p for p in d["projects"] if p["id"] != project["id"]])}</section>')
     return (
@@ -256,7 +278,7 @@ def fallback_content(language, route):
         f'Bingkun Qi / 亓炳堃</a><nav aria-label="{esc(t["nav"])}">{" ".join(navigation)}</nav>'
         f'<div aria-label="{esc(t["languages"])}">{language_links}</div></header>'
         f'<main id="main" class="wrap inner-main static-main"><p class="eyebrow">PHYSICS / TEACHING / AI</p>'
-        f'<h1>{esc(title)}</h1><p>{esc(d["teachingExample"]["intro"] if route == "teaching" and d.get("teachingExample") else description)}</p>{"".join(sections)}'
+        f'<h1>{esc(title)}</h1><p>{esc(description)}</p>{"".join(sections)}'
         f'<noscript><p>{esc(t["noscript"])}</p></noscript></main>'
         f'<footer class="static-footer wrap"><span>Bingkun Qi / 亓炳堃</span>'
         f'<a href="{esc(scholar)}">Google Scholar</a></footer>'

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" fill="none">
+  <title>Terminal velocity</title>
+  <desc>In a model with weight and air resistance, equal opposing force arrows act on a falling sphere at terminal speed. The speed-time curve approaches a horizontal limit.</desc>
+  <path d="M54 36V45M42 54V65M55 84V94M123 43V55M135 70V83" stroke="#72ccff" stroke-opacity=".2" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="89" cy="65" r="14" fill="#72ccff" fill-opacity=".12" stroke="#edf4ff" stroke-width="1.8"/>
+  <path d="M89 51V18M83 25L89 18L95 25" stroke="#72ccff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M89 79V112M83 105L89 112L95 105" stroke="#b29aff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M127 60V92M122 86L127 92L132 86" stroke="#edf4ff" stroke-opacity=".5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g stroke="#72ccff" stroke-opacity=".1"><path d="M175 62H329M175 86H329M213 25V110M252 25V110M291 25V110"/></g>
+  <path d="M175 24V110H334" stroke="#edf4ff" stroke-opacity=".5" stroke-width="1.5"/>
+  <path d="M175 38H330" stroke="#b29aff" stroke-opacity=".6" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <path d="M175 110C191 54 216 38 330 38" stroke="#72ccff" stroke-width="2.7" stroke-linecap="round"/>
+  <text x="158" y="27" fill="#edf4ff" fill-opacity=".65" font-family="Arial, sans-serif" font-size="16" font-style="italic">v</text>
+  <text x="338" y="116" fill="#edf4ff" fill-opacity=".65" font-family="Arial, sans-serif" font-size="16" font-style="italic">t</text>
+</svg>
