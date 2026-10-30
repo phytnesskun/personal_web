@@ -70,10 +70,13 @@ function projectArt(t,kind='caie-physics') {
  return `<div class="project-art" aria-label="${esc(l.join(' '))}"><div class="art-top"><span>${l[1]}</span><span>${l[2]}</span></div><span class="art-code">${l[0]}</span><svg class="art-wave" viewBox="0 0 480 130" aria-hidden="true"><path d="M0 65 Q30 0 60 65 T120 65 T180 65 T240 65 T300 65 T360 65 T420 65 T480 65"/><path d="M0 65 Q30 130 60 65 T120 65 T180 65 T240 65 T300 65 T360 65 T420 65 T480 65"/><line x1="0" y1="65" x2="480" y2="65"/></svg><div class="art-bottom">${kind==='caie-physics'?`<strong>3,232 <span>${t.questionCount}</span></strong><span>${t.countDate}</span>`:`<strong>${l[1]}</strong><span>${lang==='zh'?'教学工具系列':'TEACHING TOOLS'}</span>`}</div></div>`;
 }
 function portfolioHighlights(d,t) {
- return `<div class="portfolio-highlights">${d.projects.filter(p=>p.highlight).map(p=>`<article class="portfolio-highlight"><a class="portfolio-cover ${p.id==='teaching-design'?'diagram-cover':''}" href="/projects/${esc(p.id)}/" aria-label="${esc(p.title)}"><img src="/assets/${esc(p.cover.file)}" alt="${esc(p.cover.alt)}" width="1265" height="712" loading="lazy"></a><div class="portfolio-copy"><p class="small-label">${esc(p.kicker)}</p><h3><a href="/projects/${esc(p.id)}/">${esc(p.title)}</a></h3><p>${esc(p.summary)}</p><p class="project-status">${esc(p.status)}</p><a class="text-link" href="/projects/${esc(p.id)}/">${t.case} →</a></div></article>`).join('')}</div>`;
+ return `<div class="portfolio-highlights">${d.projects.filter(p=>p.highlight).map(p=>`<article class="portfolio-highlight"><a class="portfolio-cover ${p.id==='teaching-design'?'diagram-cover':''}" href="/projects/${esc(p.id)}/" aria-label="${esc(p.title)}"><img src="/assets/${esc(p.cover.file)}" alt="${esc(p.cover.alt)}" width="1265" height="712" loading="lazy"></a><div class="portfolio-copy"><p class="small-label">${esc(p.kicker)}</p><h3><a href="/projects/${esc(p.id)}/">${esc(p.title)}</a></h3><p>${esc(p.summary)}</p><p class="project-status">${esc(p.status)}</p><a class="text-link" href="/projects/${esc(p.id)}/">${t.case} →</a>${p.url?`<p>${projectAction(p,t)}</p>`:''}</div></article>`).join('')}</div>`;
 }
 function projectAction(p,t,cls='text-link') {
- if(p.url) return external(p.url,p.actionLabel||(p.id==='student-feedback'?(lang==='zh'?'访问系统':'Open system'):t.visit),cls);
+ if(p.url) {
+  const label=p.actionLabel||(p.id==='student-feedback'?(lang==='zh'?'访问系统':'Open system'):t.visit);
+  return p.url.startsWith('/')?`<a class="${cls}" href="${esc(p.url)}">${esc(label)} →</a>`:external(p.url,label,cls);
+ }
  if(p.downloads?.length) return `<a class="${cls}" href="#lesson-resources">${lang==='zh'?'查看课例材料':'Explore the lesson materials'} ↓</a>`;
  return '';
 }

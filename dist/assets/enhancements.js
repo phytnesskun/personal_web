@@ -58,7 +58,7 @@ function enhancePage() {
   // Real, shareable language URLs; keep the mounted lab when changing language.
   document.querySelectorAll('a[href^="/"]').forEach(a=>{
     const href=a.getAttribute('href');
-    if(!href.startsWith('/assets/')&&!/^\/(zh|en)(\/|$)/.test(href)) a.setAttribute('href','/'+lang+href);
+    if(!href.startsWith('/assets/')&&!href.startsWith('/lab/')&&!/^\/(zh|en)(\/|$)/.test(href)) a.setAttribute('href','/'+lang+href);
   });
   const canonical=location.origin+'/'+lang+(path==='/'?'/':path+'/');
   document.querySelector('link[rel="canonical"]')?.setAttribute('href',canonical);

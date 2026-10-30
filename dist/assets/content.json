@@ -202,7 +202,7 @@
         "title": "3D 伏安法虚拟实验室",
         "kicker": "交互实验 · 接线、读表与数据分析",
         "summary": "在浏览器中连接电路、调节滑动变阻器、读取指针电表，再用自己的记录绘制 U–I 图线。",
-        "url": null,
+        "url": "/lab/resistance/?lang=zh",
         "features": [
           "自由接线，移动和旋转实验器材",
           "调节滑动变阻器，选择电流表与电压表量程",
@@ -215,8 +215,8 @@
           "界面保留手动读表与记录，让图线从使用者输入的数据中产生。这个项目关注的是如何把物理模型、实验操作和数据解释连成一个完整过程。"
         ],
         "highlight": true,
-        "status": "本地原型",
-        "accessNote": "目前为本地可运行原型，本页展示实际界面与操作流程。",
+        "status": "交互原型 · 理想直流模型",
+        "accessNote": "在本站直接打开实验。建议使用电脑；手机可横屏操作。实验记录仅保留在当前页面，刷新或离开会清空。",
         "cover": {
           "file": "virtual-lab-wiring.jpg",
           "alt": "实际界面：连接电源、开关、定值电阻、电表和滑动变阻器。"
@@ -267,8 +267,9 @@
               "观察纵轴为 U、横轴为 I 的图线，通过保留截距的线性拟合求斜率，讨论它为何对应电阻。"
             ]
           ],
-          "foot": "当前为本地可运行原型，采用恒温、理想直流模型。虚拟操作用于辅助学习；读数仅保留在当前页面。"
-        }
+          "foot": "采用恒温、理想直流模型的交互原型。虚拟操作用于辅助学习；实验记录仅保留在当前页面，刷新或离开会清空。"
+        },
+        "actionLabel": "进入 3D 实验"
       },
       {
         "id": "teaching-design",
@@ -895,7 +896,7 @@
         "title": "3D Virtual Resistance Lab",
         "kicker": "INTERACTIVE EXPERIMENT · WIRING, READING & ANALYSIS",
         "summary": "Wire a circuit in the browser, adjust a rheostat, read analogue meters, and build a voltage–current graph from your own recorded measurements.",
-        "url": null,
+        "url": "/lab/resistance/?lang=en",
         "features": [
           "Wire the circuit and move or rotate the apparatus",
           "Adjust the rheostat and select ammeter and voltmeter ranges",
@@ -908,8 +909,8 @@
           "Measurements remain manual, and the graph is built from the values the user enters. The project connects a physical model with experimental actions and the interpretation of data."
         ],
         "highlight": true,
-        "status": "Local prototype",
-        "accessNote": "Currently a locally runnable prototype. This page shows the working interface and workflow.",
+        "status": "Interactive prototype · Ideal DC model",
+        "accessNote": "Open the experiment on this site. A computer is recommended; phones can use landscape mode. Records last only for this page session and are cleared on reload or exit.",
         "cover": {
           "file": "virtual-lab-wiring.jpg",
           "alt": "Actual interface: connecting the supply, switch, resistor, meters and rheostat."
@@ -960,8 +961,9 @@
               "Plot voltage vertically against current horizontally. Fit a line with an intercept and explain why its gradient represents resistance."
             ]
           ],
-          "foot": "A locally runnable prototype using a constant-temperature, ideal DC model. It supports learning about experimental actions; records last only for the current page session."
-        }
+          "foot": "An interactive prototype using a constant-temperature, ideal DC model. It supports practical learning; records are cleared on reload or exit."
+        },
+        "actionLabel": "Enter the 3D lab"
       },
       {
         "id": "teaching-design",

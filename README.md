@@ -55,6 +55,26 @@ node --check dist/assets/wave-lab.js
 
 本轮检查：37 个 HTML（24 个本地化入口、12 个兼容入口和 1 份讲义）、823 处本地引用、页面元数据与 PDF 文件格式通过；3 份 PDF 经 HTTP 下载哈希比对通过。浏览器检查了中英文新案例、ESAT 与教学页、语言切换、案例步骤、390px 手机布局和菜单 Escape 关闭，未发现 JS 错误或横向溢出。
 
+## 2026-10-30 · 本地整合 3D 电阻实验
+
+- 个人站首页及中英文实验介绍页提供“进入 3D 实验”入口，实际体验页为 `/lab/resistance/`，以 `?lang=zh` 或 `?lang=en` 指定语言。
+- 实验完整保留自己的布局；页头可返回对应语言的项目介绍。切换语言不清空实验，刷新或离开实验会清空接线和记录。
+- 发布文件包含 Three.js MIT 许可。`dist/lab/resistance/release.json` 记录来源仓库、精确提交、构建路径及文件 SHA-256；首次接入来源提交为 `f477a3264c4f79fce705ef0ab969f920fd409100`。
+- 更新实验时，从已安装依赖且构建输入已提交的实验源码工作区重新导入，再运行个人站构建和检查：
+
+```sh
+python3 scripts/import_virtual_lab.py '/Volumes/Bingkun2TB/virtual lab'
+python3 build.py
+python3 scripts/check_site.py
+node --check dist/assets/app.js
+node --check dist/assets/enhancements.js
+node --check dist/assets/virtual-lab-site.js
+```
+
+导入脚本固定使用 `/lab/resistance/` 作为资源路径，构建中间文件保留在已忽略的 `qa/` 中。个人站日常构建保留实验子目录；只需在实验更新时重新导入。服务器上仅需托管整个 `dist/`，不需要 Node.js 或数据库。十二课物理演示仍是独立网站。
+
+本次为本地整合，尚未发布或更改域名。Chrome 实测七线接线、闭合开关得到 1.000 V / 0.100 A、手动记录 10.0 Ω，切换英文保留记录；滑片 75% 时为 1.200 V / 0.120 A。手机模拟视口用于检查布局，尚未进行手机实机触控测试。
+
 ## 迁移来源与校验
 
 来源基目录：

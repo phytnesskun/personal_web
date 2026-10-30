@@ -3,6 +3,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urljoin, urlsplit
 import json
+import hashlib
 
 
 root = Path(__file__).resolve().parents[1]
@@ -85,6 +86,17 @@ for language in ('zh', 'en'):
         assert (dist / 'assets' / f'lab-{lesson["id"]}.svg').is_file(), lesson['id']
         if lesson.get('available') is False:
             assert lesson['status'], lesson['id']
+
+lab = dist / 'lab/resistance'
+release = json.loads((lab / 'release.json').read_text(encoding='utf-8'))
+assert release['base'] == '/lab/resistance/'
+for name, digest in release['sha256'].items():
+    path = lab / name
+    assert path.resolve().is_relative_to(lab.resolve()), name
+    assert hashlib.sha256(path.read_bytes()).hexdigest() == digest, f'Lab release drift: {name}'
+for language in ('zh', 'en'):
+    project = next(p for p in data[language]['projects'] if p['id'] == 'virtual-lab')
+    assert project['url'] == f'/lab/resistance/?lang={language}'
 
 print(f'PASS: {len(pages)} HTML files, {len(routes) * 2} localized routes, '
       f'{checked} local references, metadata and lesson resources.')
