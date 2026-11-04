@@ -1,0 +1,29 @@
+(personal_site) {
+    root * /srv/personal/current
+    encode zstd gzip
+
+    header {
+        X-Content-Type-Options nosniff
+        Referrer-Policy strict-origin-when-cross-origin
+        -Server
+    }
+
+    @esat path /esat /esat/* /login /register
+    handle @esat {
+        header Cache-Control no-store
+        header Retry-After 86400
+        respond "ESAT 在线练习暂时下线。请访问个人主页查看后续安排。 / ESAT practice is temporarily offline." 503
+    }
+
+    handle {
+        file_server
+    }
+}
+
+bingkun.me {
+    import personal_site
+}
+
+http://43.142.132.131 {
+    import personal_site
+}

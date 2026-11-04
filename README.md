@@ -7,7 +7,7 @@
 - `dist/`：当前发布文件与可编辑 HTML/CSS/JS/JSON，作为预览和后续修改的基准。
 - `build.py`：2026-10-26 从原 Sites 源仓库恢复的当前生成器，负责中英文入口、静态文字、元数据和站点地图。
 - `legacy-source/`：可构建的旧源码快照，包含原 README、`build.py` 和自己的 `dist/`，共 50 个文件。它不代表较新发布版的完整源码。
-- `.openai/hosting.json`：保留原 Sites 项目配置，部署目录为顶层 `dist/`，继续使用原网站和原访问权限。
+- `.openai/hosting.json`：保留原 Sites 项目身份用于历史追溯；轻量服务器部署使用 `deploy/lighthouse/`，网站文件仍为顶层 `dist/`。
 
 旧构建器保留在 `legacy-source/` 内，不要把其输出复制到顶层 `dist/`。当前生成器已与迁入的发布文件核对：重新构建仅有换行符差异。GitHub 与 Sites 的提交历史以普通合并保留；原 Windows 未提交/未推送内容仍不在此确认范围内。
 
@@ -103,3 +103,15 @@ node --check dist/assets/virtual-lab-site.js
 外部题库、实验室、反馈系统与论文链接不是本仓库源码的一部分，迁移校验不代表其在线状态；本轮新增物理演示链接另外进行了访问检查。
 
 All rights reserved unless the owner chooses a separate license. Linked papers and external tools retain their respective rights.
+
+## 2026-11-05 · 迁至现有轻量服务器根路径
+
+- 服务器公网 IPv4：`43.142.132.131`。本次实测为 2 核、约 2GB 内存、40GB 系统盘。
+- 个人站部署在 `/home/ubuntu/personal-website/`，当前发布目录为 `site/releases/20261105-portfolio/`，`site/current` 指向该目录。只发布 `dist/`；源码、备份及环境配置不在网站根目录内。
+- 独立 Caddy 容器 `personal-site-caddy` 提供静态网页，配置模板位于 `deploy/lighthouse/`，避免沿用原 ESAT 编排的应用依赖。新站证书数据单独保留在 Docker 卷中。
+- 正式规范域名改为 `https://bingkun.me`，构建器、检查器、canonical、分享地址及站点地图已同步更新。域名解析和 HTTPS 仍需在阿里云 DNS 指向服务器、确认备案接入且签证书后验收；IP HTTP 验收不能替代域名 HTTPS 验收。
+- ESAT 应用容器 `esat-prod-app` 及原入口 `esat-prod-caddy` 已暂停。数据库容器保留运行、未对公网映射端口，原数据库卷 `esat-practice_pgdata_prod` 和应用镜像保留。`/esat/`、`/login`、`/register` 返回 503 暂停说明；`/api/*` 不回退到个人主页。
+- 停止应用写入后生成最终 PostgreSQL 备份，使用 `pg_restore --list` 和 `pg_restore --file=/dev/null` 验证可读取，并将离机副本与服务器文件进行 SHA-256 比对。服务器备份目录为 `/home/ubuntu/personal-site-migration-20261105/`；本地私有备份在被 Git 忽略的 `work/lighthouse-migration-2026-11-05/` 中。不可将这些文件提交或放进 `dist/`。
+- 本轮验证：38 个 HTML、24 个本地化入口、829 处本地引用通过；102 个发布文件在内部测试入口和公网根路径逐文件 SHA-256 核对。中英文首页、ESAT 介绍页和 3D 实验入口返回 200。31 个物理学习入口与迁移前完全一致。未进行本轮浏览器交互复测。
+
+当前 IP 测试阶段如需紧急回到原 ESAT：先停止个人站容器，再启动原 `esat-prod-app` 和 `esat-prod-caddy`；正常情况下直接复用原数据库卷，无需导入备份。域名 HTTPS 启用后，回退应保留新的 HTTPS 入口，仅调整其路由，不可直接以旧的仅 HTTP 入口替换。

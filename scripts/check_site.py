@@ -9,7 +9,7 @@ import hashlib
 root = Path(__file__).resolve().parents[1]
 dist = root / 'dist'
 data = json.loads((dist / 'assets/content.json').read_text(encoding='utf-8-sig'))
-origin = 'https://bingkun-qi-lab.bingkunq.chatgpt.site'
+origin = 'https://bingkun.me'
 
 
 class Page(HTMLParser):

@@ -6,7 +6,7 @@ import json
 
 root = Path(__file__).resolve().parent
 dist = root / 'dist'
-origin = 'https://bingkun-qi-lab.bingkunq.chatgpt.site'
+origin = 'https://bingkun.me'
 scholar = 'https://scholar.google.com/citations?user=V6ELkxMAAAAJ&hl=en'
 github = 'https://github.com/phytnesskun'
 data = json.loads((dist / 'assets/content.json').read_text(encoding='utf-8-sig'))

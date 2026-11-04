@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://bingkun-qi-lab.bingkunq.chatgpt.site/sitemap.xml
+Sitemap: https://bingkun.me/sitemap.xml
