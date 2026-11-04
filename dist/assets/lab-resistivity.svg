@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" fill="none">
+<title>Resistance wire &amp; resistivity</title>
+<desc>A wire of adjustable length and a resistance versus length graph.</desc>
+<path d="M35 72H197" stroke="#edf4ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /><path d="M35 57V87M197 57V87" stroke="#72ccff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><path d="M57 97H177M62 93L57 97L62 101M172 93L177 97L172 101" stroke="#b29aff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /><text x="105" y="120" fill="#b29aff" font-family="Arial, sans-serif" font-size="14">L</text><path d="M210 20V107H337" stroke="#edf4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M212 104L322 30" stroke="#72ccff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><text x="239" y="22" fill="#72ccff" font-family="Arial, sans-serif" font-size="17">R = ρL/A</text>
+</svg>

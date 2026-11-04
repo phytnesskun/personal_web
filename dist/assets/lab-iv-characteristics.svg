@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" fill="none">
+<title>I–V characteristics</title>
+<desc>Distinct schematic current-voltage curves for resistor, lamp and diode.</desc>
+<path d="M45 110V19M25 68H334" stroke="#edf4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /><path d="M51 105L207 22" stroke="#72ccff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><path d="M52 102C101 98 106 49 170 38" stroke="#b29aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><path d="M52 68H194C225 68 230 42 238 22" stroke="#ff91af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><text x="30" y="18" fill="#edf4ff" font-family="Arial, sans-serif" font-size="14">I</text><text x="331" y="88" fill="#edf4ff" font-family="Arial, sans-serif" font-size="14">V</text><text x="264" y="30" fill="#72ccff" font-family="Arial, sans-serif" font-size="14">R</text><text x="264" y="49" fill="#b29aff" font-family="Arial, sans-serif" font-size="14">lamp</text><text x="264" y="68" fill="#ff91af" font-family="Arial, sans-serif" font-size="14">diode</text>
+</svg>

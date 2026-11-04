@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" fill="none">
+<title>Simple harmonic motion</title>
+<desc>A spring-mass oscillator and a displacement trace with the simple harmonic acceleration law.</desc>
+<path d="M28 34H171" stroke="#edf4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /><path d="M28 34L38 25L50 43L62 25L74 43L86 25L98 43L110 34" stroke="#72ccff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><rect x="110" y="20" width="31" height="29" rx="3" stroke="#b29aff" stroke-width="2" /><path d="M28 95H332" stroke="#edf4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M28 95C51 50 74 50 97 95S143 140 166 95S212 50 235 95S281 140 304 95" stroke="#72ccff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><text x="201" y="29" fill="#b29aff" font-family="Arial, sans-serif" font-size="20">a = −ω²x</text>
+</svg>

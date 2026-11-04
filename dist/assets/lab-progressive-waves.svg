@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" fill="none">
+<title>Progressive waves &amp; phase</title>
+<desc>A sinusoidal wave, one highlighted medium particle and the propagation direction.</desc>
+<path d="M24 65H335" stroke="#edf4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity=".35"/><path d="M24 65C44 10 64 10 84 65S124 120 144 65S184 10 204 65S244 120 264 65S304 10 324 65" stroke="#72ccff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /><circle cx="144" cy="65" r="4" stroke="#ff91af" stroke-width="2" fill="#ff91af"/><path d="M282 111H332M324 106L332 111L324 116" stroke="#b29aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><text x="42" y="25" fill="#b29aff" font-family="Arial, sans-serif" font-size="18">v = fλ</text>
+</svg>

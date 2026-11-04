@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" fill="none">
+<title>Moments &amp; equilibrium</title>
+<desc>Two loads act on opposite sides of a pivot; lever arms are measured from the pivot.</desc>
+<path d="M30 65H329" stroke="#72ccff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /><path d="M180 66L166 88H194Z" stroke="#edf4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><path d="M70 65V104M290 65V95" stroke="#b29aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><rect x="58" y="104" width="24" height="17" rx="3" stroke="#b29aff" stroke-width="2" /><rect x="278" y="95" width="24" height="26" rx="3" stroke="#b29aff" stroke-width="2" /><path d="M70 36H180M180 36H290" stroke="#edf4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /><text x="110" y="29" fill="#edf4ff" font-family="Arial, sans-serif" font-size="15">d₁</text><text x="235" y="29" fill="#edf4ff" font-family="Arial, sans-serif" font-size="15">d₂</text><text x="131" y="119" fill="#72ccff" font-family="Arial, sans-serif" font-size="17">Στ = 0</text>
+</svg>

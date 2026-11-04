@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" fill="none">
+<title>Circuits &amp; Kirchhoff’s laws</title>
+<desc>A source supplies two resistor branches and the junction current divides.</desc>
+<path d="M40 37H235M40 37V57M40 69V105H235M145 37V56M145 82V105M235 37V56M235 82V105" stroke="#72ccff" stroke-width="2" stroke-linecap="round"/>
+<path d="M22 57H58M28 69H52" stroke="#edf4ff" stroke-width="2"/>
+<rect x="137" y="56" width="16" height="26" rx="2" stroke="#b29aff" stroke-width="2"/>
+<rect x="227" y="56" width="16" height="26" rx="2" stroke="#b29aff" stroke-width="2"/>
+<circle cx="145" cy="37" r="3" fill="#edf4ff"/>
+<path d="M70 37H107M101 32L107 37L101 42M145 44V52M140 46L145 52L150 46M235 44V52M230 46L235 52L240 46" stroke="#ff91af" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="40" y="125" fill="#72ccff" font-family="Arial, sans-serif" font-size="17">I = I₁ + I₂</text>
+<text x="266" y="61" fill="#b29aff" font-family="Arial, sans-serif" font-size="15">ΣV = 0</text>
+</svg>

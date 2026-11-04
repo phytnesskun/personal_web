@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" fill="none">
+<title>Cantilever deflection</title>
+<desc>A clamped beam bends under a fixed added load, beside a cubic length trend.</desc>
+<rect x="30" y="25" width="20" height="84" rx="3" stroke="#edf4ff" stroke-width="2" /><path d="M50 46H194" stroke="#b29aff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/><path d="M50 46C112 46 161 58 194 79" stroke="#72ccff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /><path d="M194 79V110M188 102L194 110L200 102" stroke="#ff91af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><path d="M210 20V107H337" stroke="#edf4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M212 104C269 104 301 86 324 30" stroke="#b29aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><text x="247" y="22" fill="#72ccff" font-family="Arial, sans-serif" font-size="18">δ ∝ L³</text>
+</svg>

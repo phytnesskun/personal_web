@@ -182,7 +182,8 @@ def physics_hub(language):
         for i, lesson in enumerate(hub['lessons'])
     )
     return (f'<section id="physics-lab"><h2>{esc(hub["title"])}</h2><p>{esc(hub["intro"])}</p>'
-            f'<p>{esc(hub["badge"])} · {esc(hub["course"])}</p>{cards}<p>{esc(hub["access"])}</p></section>')
+            f'<p>{esc(hub["badge"])} · {esc(hub["course"])}</p>{cards}<p>{esc(hub["access"])}</p>'
+            f'<p><a href="{esc(hub["libraryUrl"])}" target="_blank" rel="noopener noreferrer">{esc(hub["libraryLabel"])} ↗</a></p></section>')
 
 
 def fallback_content(language, route):

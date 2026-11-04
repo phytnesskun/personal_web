@@ -569,20 +569,20 @@
       }
     ],
     "physicsHub": {
-      "title": "物理交互演示",
-      "intro": "从力学到波动与电路，调节参数、观察变化，把公式变成看得见的物理。",
-      "badge": "12 个演示主题 · 中英双语",
+      "title": "物理交互演示与实验",
+      "intro": "从力学、波动与电路，到 A2 热学、电场和振动。调节参数、手动取数，再用图线与不确定度解释结果。",
+      "badge": "31 个学习入口 · 15 个配套活动页",
       "open": "打开演示",
-      "course": "对照 CAIE 9702 AS 考纲 · 预测 → 操作 → 解释",
-      "access": "完整演示在独立实验室打开，沿用实验室的访问权限。",
+      "course": "AS / A2 / P3 / P5 · 预测 → 操作 → 解释",
+      "access": "完整实验库公开开放，无需登录。配套测量与任务单在各主题内打开；部分主题仍为概念演示，内容不代表完整考纲覆盖。",
       "preview": "先从两列波开始",
-      "teachingLink": "浏览 12 个物理交互演示主题",
+      "teachingLink": "浏览全部 31 个物理学习入口",
       "lessons": [
         {
           "id": "superposition",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/superposition/",
           "syllabus": "8.1.1",
-          "category": "波动",
+          "category": "AS · 波动",
           "title": "波的叠加",
           "description": "调节振幅与相位，观察两列波如何增强或抵消。",
           "available": true
@@ -591,7 +591,7 @@
           "id": "standing",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/",
           "syllabus": "8.1",
-          "category": "波动",
+          "category": "AS · 波动",
           "title": "驻波的形成",
           "description": "寻找波节与波腹，探索固定端弦的不同谐波模式。",
           "available": true
@@ -600,7 +600,7 @@
           "id": "double-slit",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/double-slit/",
           "syllabus": "8.3",
-          "category": "波动",
+          "category": "AS · 波动",
           "title": "双缝干涉",
           "description": "改变波长、缝距与屏距，观察明暗条纹间距的变化。",
           "available": true
@@ -609,7 +609,7 @@
           "id": "motion",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/motion/",
           "syllabus": "2.1",
-          "category": "力学",
+          "category": "AS · 力学",
           "title": "运动与图像",
           "description": "对照小车运动与图像，理解斜率、面积和运动方向。",
           "available": true
@@ -618,7 +618,7 @@
           "id": "collisions",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/collisions/",
           "syllabus": "3.3",
-          "category": "力学",
+          "category": "AS · 力学",
           "title": "碰撞与守恒",
           "description": "调节质量与速度，比较碰撞前后的总动量与总动能。",
           "available": true
@@ -627,7 +627,7 @@
           "id": "divider",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/divider/",
           "syllabus": "10.3",
-          "category": "电路",
+          "category": "AS · 电路",
           "title": "分压器与传感器",
           "description": "改变光照、温度与传感器位置，观察输出电压。",
           "available": true
@@ -636,7 +636,7 @@
           "id": "projectile",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/projectile/",
           "syllabus": "2.1.9",
-          "category": "力学",
+          "category": "AS · 力学",
           "title": "抛体运动",
           "description": "调节发射条件，对照水平与竖直方向的运动，观察完整轨迹。",
           "available": true
@@ -645,7 +645,7 @@
           "id": "internal-resistance",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/internal-resistance/",
           "syllabus": "10.1",
-          "category": "电路",
+          "category": "AS · 电路",
           "title": "电动势与内阻",
           "description": "改变外电路电阻，比较电流、端电压与电源内阻的关系。",
           "available": true
@@ -654,7 +654,7 @@
           "id": "terminal-velocity",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/terminal-velocity/",
           "syllabus": "3.2",
-          "category": "力学",
+          "category": "AS · 力学",
           "title": "阻力与终端速度",
           "description": "比较重力、阻力与速度的变化，观察合力趋于零的过程。",
           "available": true
@@ -663,7 +663,7 @@
           "id": "elasticity",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/elasticity/",
           "syllabus": "6.1–6.2",
-          "category": "材料",
+          "category": "AS · 材料",
           "title": "拉伸与杨氏模量",
           "description": "改变拉伸条件，对照力与伸长量、应力与应变的关系。",
           "available": true
@@ -672,7 +672,7 @@
           "id": "work-energy",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/work-energy/",
           "syllabus": "5.1–5.2",
-          "category": "力学",
+          "category": "AS · 力学",
           "title": "功与能量转化",
           "description": "比较各力做功与动能的变化，追踪能量转移的方向。",
           "available": true
@@ -681,12 +681,185 @@
           "id": "diffraction",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/diffraction/",
           "syllabus": "8.2",
-          "category": "波动",
+          "category": "AS · 波动",
           "title": "狭缝衍射",
           "description": "改变波长与缝宽，比较波通过狭缝后的展开程度。",
           "available": true
+        },
+        {
+          "id": "pendulum",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/pendulum/",
+          "syllabus": "P3 · measurement & graphs",
+          "category": "P3 · 力学测量",
+          "title": "单摆与周期测量",
+          "available": true,
+          "description": "先预测周期，再用多周期计时和 T²–L 图检验关系。"
+        },
+        {
+          "id": "measurement",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/measurement/",
+          "syllabus": "P3 · measurement",
+          "category": "P3 · 仪器读数",
+          "title": "仪器读数与零点检查",
+          "available": true,
+          "description": "练习米尺、测微器读数与零点修正，保留每次尝试。"
+        },
+        {
+          "id": "resistivity",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/resistivity/",
+          "syllabus": "9.3",
+          "category": "AS · 电学",
+          "title": "电阻丝与电阻率",
+          "available": true,
+          "description": "改变长度与直径，手动测量电压电流并用 R–L 图求电阻率。"
+        },
+        {
+          "id": "spring",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/spring/",
+          "syllabus": "6.1",
+          "category": "AS · 材料",
+          "title": "弹簧加载与伸长",
+          "available": true,
+          "description": "从空托盘基准开始，记录加载和卸载，比较力与伸长。"
+        },
+        {
+          "id": "moments",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/moments/",
+          "syllabus": "4.1",
+          "category": "AS · 力学",
+          "title": "力矩与平衡",
+          "available": true,
+          "description": "找空尺重心、调整载荷与力臂，记录平衡条件。"
+        },
+        {
+          "id": "cantilever",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/cantilever/",
+          "syllabus": "P3 · curves & tangents",
+          "category": "P3 · 曲线与切线",
+          "title": "悬臂梁挠度",
+          "available": true,
+          "description": "固定新增载荷、改变有效长度，比较挠度曲线、切线和线性化。"
+        },
+        {
+          "id": "progressive-waves",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/progressive-waves/",
+          "syllabus": "7.1–7.2",
+          "category": "AS · 波动",
+          "title": "行波、相位与横纵波",
+          "available": true,
+          "description": "同时看空间图、时间图和介质质点，区分横波与纵波。"
+        },
+        {
+          "id": "oscilloscope",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/oscilloscope/",
+          "syllabus": "7.1 · P5",
+          "category": "AS · 波动与测量",
+          "title": "示波器读数",
+          "available": true,
+          "description": "调节时基和垂直增益，从格数读出周期、频率与幅度。"
+        },
+        {
+          "id": "grating",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/grating/",
+          "syllabus": "8.4",
+          "category": "AS · 波动",
+          "title": "衍射光栅与测波长",
+          "available": true,
+          "description": "改变线密度和波长，用级次与衍射角检验光栅关系。"
+        },
+        {
+          "id": "iv-characteristics",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/iv-characteristics/",
+          "syllabus": "9.3",
+          "category": "AS · 电学",
+          "title": "I–V 特性",
+          "available": true,
+          "description": "比较恒温电阻、灯丝和二极管的电压电流曲线。"
+        },
+        {
+          "id": "kirchhoff",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/kirchhoff/",
+          "syllabus": "10.1–10.2",
+          "category": "AS · 电路",
+          "title": "电路与基尔霍夫定律",
+          "available": true,
+          "description": "增加电阻支路，同时核对结点电流与回路电势差。"
+        },
+        {
+          "id": "circular-motion",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/circular-motion/",
+          "syllabus": "12.1–12.2",
+          "category": "A2 · 力学",
+          "title": "圆周运动与向心力",
+          "available": true,
+          "description": "调节圆周运动条件，比较切向速度、向心加速度与径向合力。"
+        },
+        {
+          "id": "shm",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/shm/",
+          "syllabus": "17.1–17.2",
+          "category": "A2 · 振动",
+          "title": "简谐运动与能量",
+          "available": true,
+          "description": "联动位移、速度、加速度和能量，检验简谐运动关系。"
+        },
+        {
+          "id": "electric-field",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/electric-field/",
+          "syllabus": "18.1 · 18.3–18.4",
+          "category": "A2 · 电场",
+          "title": "库仑力、电场与叠加",
+          "available": true,
+          "description": "移动试探位置，逐分量叠加两个点电荷的电场。"
+        },
+        {
+          "id": "capacitor-discharge",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/capacitor-discharge/",
+          "syllabus": "19.3",
+          "category": "A2 · 电容",
+          "title": "电容放电与时间常量",
+          "available": true,
+          "description": "调节 R、C，观察电压、电流和电荷，并用对数图检验放电规律。"
+        },
+        {
+          "id": "induction",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/induction/",
+          "syllabus": "20.5",
+          "category": "A2 · 电磁感应",
+          "title": "电磁感应",
+          "available": true,
+          "description": "转动线圈，联动磁通链、变化率与感应电动势。"
+        },
+        {
+          "id": "graph-workbench",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/graph-workbench/",
+          "syllabus": "P3 · P5",
+          "category": "P3/P5 · 作图与不确定度",
+          "title": "作图与不确定度工作台",
+          "available": true,
+          "description": "自主录入、线性化与作图，练习误差棒及可接受直线。"
+        },
+        {
+          "id": "ideal-gas",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/ideal-gas/",
+          "syllabus": "15.1–15.2 · P5",
+          "category": "A2 · 热学",
+          "title": "理想气体状态关系",
+          "available": true,
+          "description": "比较等温与等容状态，手动取数、线性化并保留原始记录。"
+        },
+        {
+          "id": "specific-heat",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/specific-heat/",
+          "syllabus": "14.3 · P5",
+          "category": "A2 · 热学",
+          "title": "比热容与电加热",
+          "available": true,
+          "description": "用电加热测温升，比较理想保温与散热造成的表观比热容偏差。"
         }
-      ]
+      ],
+      "libraryLabel": "打开完整模拟实验库",
+      "libraryUrl": "https://caie-physics-lab.bingkunq.chatgpt.site/"
     },
     "teachingOverview": {
       "title": "让一个好问题，走进课堂。",
@@ -1263,20 +1436,20 @@
       }
     ],
     "physicsHub": {
-      "title": "Interactive physics",
-      "intro": "Explore mechanics, waves and circuits: change the parameters, observe the results, and connect equations with physical behavior.",
-      "badge": "12 experiment topics · Chinese & English",
+      "title": "Interactive physics & practicals",
+      "intro": "Explore mechanics, waves and circuits alongside A2 thermal physics, fields and oscillations. Change parameters, take readings, then explain the results with graphs and uncertainties.",
+      "badge": "31 learning entries · 15 activity pages",
       "open": "Open experiment",
-      "course": "Aligned with CAIE 9702 AS · Predict → Explore → Explain",
-      "access": "Full experiments open in the separate lab with its existing access permissions.",
+      "course": "AS / A2 / P3 / P5 · Predict → Explore → Explain",
+      "access": "The full lab is public and requires no login. Open measurements and task sheets within the relevant topic; some entries are concept demonstrations, and the collection does not cover the complete syllabus.",
       "preview": "Start with two waves",
-      "teachingLink": "Browse 12 interactive physics topics",
+      "teachingLink": "Browse all 31 physics learning entries",
       "lessons": [
         {
           "id": "superposition",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/superposition/",
           "syllabus": "8.1.1",
-          "category": "Waves",
+          "category": "AS · Waves",
           "title": "Wave superposition",
           "description": "Change amplitude and phase to explore reinforcement and cancellation.",
           "available": true
@@ -1285,7 +1458,7 @@
           "id": "standing",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/",
           "syllabus": "8.1",
-          "category": "Waves",
+          "category": "AS · Waves",
           "title": "Stationary waves",
           "description": "Find nodes and antinodes, and explore harmonics on a string with fixed ends.",
           "available": true
@@ -1294,7 +1467,7 @@
           "id": "double-slit",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/double-slit/",
           "syllabus": "8.3",
-          "category": "Waves",
+          "category": "AS · Waves",
           "title": "Double-slit interference",
           "description": "Vary wavelength, slit separation and screen distance to explore fringe spacing.",
           "available": true
@@ -1303,7 +1476,7 @@
           "id": "motion",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/motion/",
           "syllabus": "2.1",
-          "category": "Mechanics",
+          "category": "AS · Mechanics",
           "title": "Motion & graphs",
           "description": "Connect a cart’s motion with graph gradients, signed areas and direction.",
           "available": true
@@ -1312,7 +1485,7 @@
           "id": "collisions",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/collisions/",
           "syllabus": "3.3",
-          "category": "Mechanics",
+          "category": "AS · Mechanics",
           "title": "Collisions & conservation",
           "description": "Adjust masses and velocities to compare momentum and kinetic energy before and after impact.",
           "available": true
@@ -1321,8 +1494,8 @@
           "id": "divider",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/divider/",
           "syllabus": "10.3",
-          "category": "Circuits",
-          "title": "Potential dividers & sensors",
+          "category": "AS · Circuits",
+          "title": "Dividers & sensors",
           "description": "Change light, temperature and sensor position to investigate the output voltage.",
           "available": true
         },
@@ -1330,7 +1503,7 @@
           "id": "projectile",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/projectile/",
           "syllabus": "2.1.9",
-          "category": "Mechanics",
+          "category": "AS · Mechanics",
           "title": "Projectile motion",
           "description": "Change the launch conditions and compare horizontal and vertical motion along the trajectory.",
           "available": true
@@ -1339,7 +1512,7 @@
           "id": "internal-resistance",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/internal-resistance/",
           "syllabus": "10.1",
-          "category": "Circuits",
+          "category": "AS · Circuits",
           "title": "EMF & internal resistance",
           "description": "Change the load resistance and compare current, terminal voltage and internal resistance.",
           "available": true
@@ -1348,7 +1521,7 @@
           "id": "terminal-velocity",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/terminal-velocity/",
           "syllabus": "3.2",
-          "category": "Mechanics",
+          "category": "AS · Mechanics",
           "title": "Drag & terminal velocity",
           "description": "Compare weight, drag and speed as the resultant force approaches zero.",
           "available": true
@@ -1357,7 +1530,7 @@
           "id": "elasticity",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/elasticity/",
           "syllabus": "6.1–6.2",
-          "category": "Materials",
+          "category": "AS · Materials",
           "title": "Stretching & Young modulus",
           "description": "Change the stretching conditions and compare force–extension and stress–strain relationships.",
           "available": true
@@ -1366,7 +1539,7 @@
           "id": "work-energy",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/work-energy/",
           "syllabus": "5.1–5.2",
-          "category": "Mechanics",
+          "category": "AS · Mechanics",
           "title": "Work & energy",
           "description": "Compare work done by forces with changes in kinetic energy and follow the energy transfers.",
           "available": true
@@ -1375,12 +1548,185 @@
           "id": "diffraction",
           "url": "https://caie-physics-lab.bingkunq.chatgpt.site/diffraction/",
           "syllabus": "8.2",
-          "category": "Waves",
+          "category": "AS · Waves",
           "title": "Diffraction through a slit",
           "description": "Vary wavelength and slit width to compare how much the wave spreads beyond the opening.",
           "available": true
+        },
+        {
+          "id": "pendulum",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/pendulum/",
+          "syllabus": "P3 · measurement & graphs",
+          "category": "P3 · Mechanics practical",
+          "title": "Pendulum & period measurement",
+          "available": true,
+          "description": "Predict the period, then test it with multi-period timing and a T²–L graph."
+        },
+        {
+          "id": "measurement",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/measurement/",
+          "syllabus": "P3 · measurement",
+          "category": "P3 · Instrument readings",
+          "title": "Readings & zero checks",
+          "available": true,
+          "description": "Practise ruler and micrometer readings and zero corrections, keeping each attempt."
+        },
+        {
+          "id": "resistivity",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/resistivity/",
+          "syllabus": "9.3",
+          "category": "AS · Electricity",
+          "title": "Resistance wire & resistivity",
+          "available": true,
+          "description": "Vary length and diameter; measure voltage and current and use an R–L graph to estimate resistivity."
+        },
+        {
+          "id": "spring",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/spring/",
+          "syllabus": "6.1",
+          "category": "AS · Materials",
+          "title": "Spring loading & extension",
+          "available": true,
+          "description": "Start from an empty-hanger reference, record loading and unloading, and compare force with extension."
+        },
+        {
+          "id": "moments",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/moments/",
+          "syllabus": "4.1",
+          "category": "AS · Mechanics",
+          "title": "Moments & equilibrium",
+          "available": true,
+          "description": "Find the unloaded balance point, vary loads and lever arms, and record equilibrium conditions."
+        },
+        {
+          "id": "cantilever",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/cantilever/",
+          "syllabus": "P3 · curves & tangents",
+          "category": "P3 · Curves & tangents",
+          "title": "Cantilever deflection",
+          "available": true,
+          "description": "Keep the added load fixed, vary effective length, and compare deflection curves, tangents and linearisation."
+        },
+        {
+          "id": "progressive-waves",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/progressive-waves/",
+          "syllabus": "7.1–7.2",
+          "category": "AS · Waves",
+          "title": "Progressive waves & phase",
+          "available": true,
+          "description": "Compare snapshots, time traces and a medium particle, and distinguish transverse and longitudinal waves."
+        },
+        {
+          "id": "oscilloscope",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/oscilloscope/",
+          "syllabus": "7.1 · P5",
+          "category": "AS · Waves & measurement",
+          "title": "Oscilloscope readings",
+          "available": true,
+          "description": "Adjust time-base and vertical gain, then read period, frequency and amplitude from the divisions."
+        },
+        {
+          "id": "grating",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/grating/",
+          "syllabus": "8.4",
+          "category": "AS · Waves",
+          "title": "Diffraction grating",
+          "available": true,
+          "description": "Vary line density and wavelength; connect diffraction order and angle with the grating equation."
+        },
+        {
+          "id": "iv-characteristics",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/iv-characteristics/",
+          "syllabus": "9.3",
+          "category": "AS · Electricity",
+          "title": "I–V characteristics",
+          "available": true,
+          "description": "Compare the current–voltage curves of a constant-temperature resistor, filament lamp and diode."
+        },
+        {
+          "id": "kirchhoff",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/kirchhoff/",
+          "syllabus": "10.1–10.2",
+          "category": "AS · Circuits",
+          "title": "Circuits & Kirchhoff’s laws",
+          "available": true,
+          "description": "Add a resistor branch and check junction currents and loop potential differences."
+        },
+        {
+          "id": "circular-motion",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/circular-motion/",
+          "syllabus": "12.1–12.2",
+          "category": "A2 · Mechanics",
+          "title": "Circular motion",
+          "available": true,
+          "description": "Vary the circular motion and compare tangential velocity, centripetal acceleration and radial resultant force."
+        },
+        {
+          "id": "shm",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/shm/",
+          "syllabus": "17.1–17.2",
+          "category": "A2 · Oscillations",
+          "title": "Simple harmonic motion",
+          "available": true,
+          "description": "Link displacement, velocity, acceleration and energy to test simple harmonic motion relationships."
+        },
+        {
+          "id": "electric-field",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/electric-field/",
+          "syllabus": "18.1 · 18.3–18.4",
+          "category": "A2 · Electric fields",
+          "title": "Electric fields",
+          "available": true,
+          "description": "Move a probe and add the field components of two point charges."
+        },
+        {
+          "id": "capacitor-discharge",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/capacitor-discharge/",
+          "syllabus": "19.3",
+          "category": "A2 · Capacitance",
+          "title": "Capacitor discharge",
+          "available": true,
+          "description": "Vary R and C, follow voltage, current and charge, and test the discharge law with a logarithmic graph."
+        },
+        {
+          "id": "induction",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/induction/",
+          "syllabus": "20.5",
+          "category": "A2 · Induction",
+          "title": "Electromagnetic induction",
+          "available": true,
+          "description": "Rotate a coil and connect flux linkage, its rate of change and induced e.m.f."
+        },
+        {
+          "id": "graph-workbench",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/graph-workbench/",
+          "syllabus": "P3 · P5",
+          "category": "P3/P5 · Graphs & uncertainty",
+          "title": "Graphs & uncertainties",
+          "available": true,
+          "description": "Enter data, linearise and plot it; practise error bars and acceptable straight lines."
+        },
+        {
+          "id": "ideal-gas",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/ideal-gas/",
+          "syllabus": "15.1–15.2 · P5",
+          "category": "A2 · Thermal physics",
+          "title": "Ideal gas laws",
+          "available": true,
+          "description": "Compare isothermal and constant-volume states, take readings and linearise them while keeping raw records."
+        },
+        {
+          "id": "specific-heat",
+          "url": "https://caie-physics-lab.bingkunq.chatgpt.site/specific-heat/",
+          "syllabus": "14.3 · P5",
+          "category": "A2 · Thermal physics",
+          "title": "Specific heat capacity",
+          "available": true,
+          "description": "Measure temperature rise during electrical heating and compare ideal insulation with apparent specific heat errors from heat loss."
         }
-      ]
+      ],
+      "libraryLabel": "Open the full simulation lab",
+      "libraryUrl": "https://caie-physics-lab.bingkunq.chatgpt.site/"
     },
     "teachingOverview": {
       "title": "Bring a good question into the classroom.",

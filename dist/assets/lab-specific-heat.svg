@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" fill="none">
+<title>Specific heat capacity</title>
+<desc>An electrically heated block and temperature-rise curves with and without heat loss.</desc>
+<rect x="37" y="50" width="105" height="61" rx="3" stroke="#72ccff" stroke-width="2" fill="#72ccff" fill-opacity=".1"/><path d="M55 52V78L64 84L55 90L64 96" stroke="#ff91af" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /><path d="M116 31V94" stroke="#b29aff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /><circle cx="116" cy="96" r="7" stroke="#b29aff" stroke-width="2" fill="#b29aff"/><path d="M210 20V107H337" stroke="#edf4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M213 105L326 27" stroke="#b29aff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4"/><path d="M213 105C246 82.5 283 64 326 55" stroke="#72ccff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /><text x="211" y="21" fill="#72ccff" font-family="Arial, sans-serif" font-size="18">Q = mcΔθ</text>
+</svg>

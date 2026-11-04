@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" fill="none">
+<title>Electromagnetic induction</title>
+<desc>A rotating coil in a magnetic field and a sinusoidal induced emf trace.</desc>
+<rect x="31" y="31" width="99" height="68" rx="3" stroke="#b29aff" stroke-width="2" /><path d="M42 38L116 91M42 91L116 38" stroke="#b29aff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity=".35"/><path d="M81 18V113" stroke="#edf4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/><path d="M17 51H146M138 46L146 51L138 56M17 80H146M138 75L146 80L138 85" stroke="#72ccff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" /><path d="M210 20V107H337" stroke="#edf4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/><path d="M212 65C230 23 248 23 266 65S302 107 320 65" stroke="#ff91af" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /><text x="199" y="19" fill="#b29aff" font-family="Arial, sans-serif" font-size="16">ε = −d(NΦ)/dt</text>
+</svg>

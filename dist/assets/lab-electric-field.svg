@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" fill="none">
+<title>Electric fields</title>
+<desc>Field lines run from a positive charge to a negative charge; fields add vectorially.</desc>
+<circle cx="89" cy="66" r="18" stroke="#ff91af" stroke-width="2" fill="#ff91af" fill-opacity=".1"/><circle cx="271" cy="66" r="18" stroke="#72ccff" stroke-width="2" fill="#72ccff" fill-opacity=".1"/><path d="M80 66H98M89 57V75" stroke="#ff91af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><path d="M262 66H280" stroke="#72ccff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><path d="M108 66H251M108 58C155 4 205 4 251 58M108 74C155 128 205 128 251 74" stroke="#b29aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><path d="M174 62L181 66L174 70M174 22L181 22L174 18M174 110L181 110L174 114" stroke="#b29aff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /><text x="148" y="124" fill="#edf4ff" font-family="Arial, sans-serif" font-size="16">E = E₁ + E₂</text>
+</svg>
