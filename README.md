@@ -116,6 +116,12 @@ All rights reserved unless the owner chooses a separate license. Linked papers a
 
 当前 IP 测试阶段如需紧急回到原 ESAT：先停止个人站容器，再启动原 `esat-prod-app` 和 `esat-prod-caddy`；正常情况下直接复用原数据库卷，无需导入备份。域名 HTTPS 启用后，回退应保留新的 HTTPS 入口，仅调整其路由，不可直接以旧的仅 HTTP 入口替换。
 
-## 2026-11-06 · 物理目录按考纲排序（本地完成，服务器待同步）
+## 2026-11-06 · 物理目录按考纲排序（服务器已更新，域名待切换）
 
-中英文physicsHub的31项按9702 Topic顺序重排，与演示站v5一致，保留每项网址/ID、卡片及其他网站内容。构建与38 HTML/829处本地引用检查通过；当前轻量服务器的既有SSH身份不可用，公钥认证未通过，所以本次排序尚未同步服务器。旧Sites个人站不作为当前bingkun.me的发布目标；后续恢复原有SSH登录后再按已登记的服务器发布流程更新，不能将本地保存当作上线。
+中英文physicsHub的31项按9702 Topic顺序重排，与演示站v5一致，保留每项网址/ID、卡片及其他网站内容。构建与38 HTML/829处本地引用检查通过。
+
+SSH登录恢复后，已将来源提交 `9c647571a8f02691c11035a2f09f46f0e1e6f3d4` 的4个排序文件部署到 `/home/ubuntu/personal-website/site/releases/20261106-syllabus-order-9c64757/`，并切换 `site/current`。旧 `20261105-portfolio` 目录保留。服务器102文件逐项核对，仅内容JSON和中英/兼容首页4文件改变，其余98文件未变；公网IP的4个HTTP响应逐文件SHA-256与来源一致，ESAT暂停页仍为503。
+
+当前可核对 [IP入口](http://43.142.132.131/)。阿里云权威DNS仍返回Cloudflare地址 `162.159.143.30 / 172.66.3.26`，没有切到轻量服务器；`https://bingkun.me/zh/` 本次请求为403。用户已被提示将根域名解析切换到 `43.142.132.131`，域名访问和HTTPS待切换后核验，不能将IP发布当作正式域名已通过。未重测浏览器交互。原Sites个人站不作为当前服务器发布目标。
+
+原始服务器与HTTP记录保存在已忽略的 `work/syllabus-order-20261106/`；汇总证据见[二维项目发布核验](</Volumes/Bingkun2TB/virtual lab/物理演示/qa/syllabus-order-20261106.json>)，Vault现有模拟总览同步当前结论。
