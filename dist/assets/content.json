@@ -874,7 +874,7 @@
       "headline": "学校管理一站式网页",
       "lead": "把周反馈、催填、课表调课、花名册与导出收进同一套角色权限系统。本页用化名截图展示现在能用的管理能力——不进入生产真库。",
       "ctaPrimary": "浏览模块",
-      "ctaSecondary": "回教学作品集",
+      "ctaSecondary": "打开教学作品集 ↗",
       "panelTitle": "角色 × 模块",
       "roles": [
         [
@@ -1015,9 +1015,9 @@
         {
           "kicker": "教学作品集",
           "title": "回到教学与备课",
-          "text": "物理题库、课例与实验演示仍在教学作品集。",
-          "linkLabel": "打开教学页 →",
-          "href": "/teaching/"
+          "text": "物理题库、课例与实验演示以教学作品集站点为准（热铁盒）。",
+          "linkLabel": "打开 bingkun.rth1.xyz ↗",
+          "href": "https://bingkun.rth1.xyz/"
         },
         {
           "kicker": "隐私边界",
@@ -1027,12 +1027,14 @@
           "href": null
         }
       ],
-      "footerName": "齐炳堃 · Bingkun Qi",
+      "footerName": "亓炳堃 · Bingkun Qi",
       "backTop": "回到顶部 ↑",
       "navTeaching": "教学作品集",
       "navManagement": "管理系统",
       "navOthers": "其他案例",
-      "privacyNote": "截图角色为李老师 / 管理员，学生为张三、李四；班级 26F-G9A。"
+      "privacyNote": "截图角色为李老师 / 管理员，学生为张三、李四；班级 26F-G9A。",
+      "teachingHome": "https://bingkun.rth1.xyz/",
+      "casesHome": "https://bingkun.rth1.xyz/"
     }
   },
   "en": {
@@ -1910,7 +1912,7 @@
       "headline": "One web surface for school administration",
       "lead": "Weekly feedback, chase-up, timetable changes, rosters and exports share one role model. This page shows anonymised screenshots of what already works — it does not open the production database.",
       "ctaPrimary": "Browse modules",
-      "ctaSecondary": "Back to teaching work",
+      "ctaSecondary": "Open teaching portfolio ↗",
       "panelTitle": "Roles × modules",
       "roles": [
         [
@@ -2051,9 +2053,9 @@
         {
           "kicker": "Teaching portfolio",
           "title": "Back to teaching work",
-          "text": "Physics banks, lessons and labs remain in the teaching portfolio.",
-          "linkLabel": "Open teaching →",
-          "href": "/teaching/"
+          "text": "Physics banks, lessons and labs live on the teaching portfolio site (Hotironbox).",
+          "linkLabel": "Open bingkun.rth1.xyz ↗",
+          "href": "https://bingkun.rth1.xyz/"
         },
         {
           "kicker": "Privacy boundary",
@@ -2063,12 +2065,14 @@
           "href": null
         }
       ],
-      "footerName": "Bingkun Qi · 齐炳堃",
+      "footerName": "Bingkun Qi · 亓炳堃",
       "backTop": "Back to top ↑",
       "navTeaching": "Teaching work",
       "navManagement": "Management",
       "navOthers": "Other cases",
-      "privacyNote": "Demo roles: Teacher Li / Admin; students Zhang San & Li Si; class 26F-G9A."
+      "privacyNote": "Demo roles: Teacher Li / Admin; students Zhang San & Li Si; class 26F-G9A.",
+      "teachingHome": "https://bingkun.rth1.xyz/",
+      "casesHome": "https://bingkun.rth1.xyz/"
     }
   }
 }
