@@ -43,7 +43,7 @@ const routeParts = location.pathname.split('/').filter(Boolean);
 const urlLanguage = ['zh','en'].includes(routeParts[0]) ? routeParts.shift() : null;
 let lang = urlLanguage || 'zh';
 const path = '/' + routeParts.join('/');
-const route = path.startsWith('/projects/') ? 'project' : path === '/research' ? 'research' : path === '/about' ? 'about' : path === '/teaching' ? 'teaching' : 'home';
+const route = path.startsWith('/projects/') ? 'project' : path === '/research' ? 'research' : path === '/about' ? 'about' : path === '/teaching' ? 'teaching' : path === '/management' ? 'management' : 'home';
 const projectId = routeParts[1];
 const languageUrl = l => '/' + l + (path === '/' ? '/' : path + '/') + location.hash;
 Object.assign(UI.zh, {intro:'我是亓炳堃，国际学校物理与数学教师、非厄米光子学研究者，也是一名 AI 教学工具开发者。我把研究中的好奇心带进课堂，再把教学中的需求做成工具。',contactIntro:'欢迎交流国际课程教学、教育工具合作与物理研究。邮件中可以告诉我你的问题或想法。'});
@@ -53,7 +53,7 @@ const arrow = '<span aria-hidden="true">↗</span>';
 const external = (url, text, cls='text-link') => `<a class="${cls}" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(text)} ${arrow}</a>`;
 
 function header(t) {
- return `<a class="skip" href="#main">${t.skip}</a><header class="site-header wrap"><a href="/" class="brand" aria-label="${esc(t.footer)}"><span class="brand-mark" aria-hidden="true">亓</span><span>${t.name}<small>${lang==='zh'?'BINGKUN QI':'PHYSICS, TEACHING & AI'}</small></span></a><button class="menu-toggle" aria-label="${t.menu}" aria-expanded="false" aria-controls="navigation"><span></span><span></span></button><nav id="navigation" aria-label="${lang==='zh'?'主导航':'Main navigation'}"><a href="/#projects">${t.nav[0]}</a><a href="/#physics-lab">${lang==='zh'?'物理演示':'Physics demos'}</a><a href="/teaching/" ${route==='teaching'?'aria-current="page"':''}>${lang==='zh'?'教学':'Teaching'}</a><a href="/research/" ${route==='research'?'aria-current="page"':''}>${t.nav[1]}</a><a href="/about/" ${route==='about'?'aria-current="page"':''}>${t.nav[2]}</a><a href="#contact">${t.nav[3]}</a><div class="language" aria-label="Language"><button data-lang="zh" aria-pressed="${lang==='zh'}">中</button><span>/</span><button data-lang="en" aria-pressed="${lang==='en'}">EN</button></div></nav></header>`;
+ return `<a class="skip" href="#main">${t.skip}</a><header class="site-header wrap"><a href="/" class="brand" aria-label="${esc(t.footer)}"><span class="brand-mark" aria-hidden="true">亓</span><span>${t.name}<small>${lang==='zh'?'BINGKUN QI':'PHYSICS, TEACHING & AI'}</small></span></a><button class="menu-toggle" aria-label="${t.menu}" aria-expanded="false" aria-controls="navigation"><span></span><span></span></button><nav id="navigation" aria-label="${lang==='zh'?'主导航':'Main navigation'}"><a href="/#projects">${t.nav[0]}</a><a href="/#physics-lab">${lang==='zh'?'物理演示':'Physics demos'}</a><a href="/teaching/" ${route==='teaching'?'aria-current="page"':''}>${lang==='zh'?'教学':'Teaching'}</a><a href="/management/" ${route==='management'?'aria-current="page"':''}>${lang==='zh'?'管理系统':'Management'}</a><a href="/research/" ${route==='research'?'aria-current="page"':''}>${t.nav[1]}</a><a href="/about/" ${route==='about'?'aria-current="page"':''}>${t.nav[2]}</a><a href="#contact">${t.nav[3]}</a><div class="language" aria-label="Language"><button data-lang="zh" aria-pressed="${lang==='zh'}">中</button><span>/</span><button data-lang="en" aria-pressed="${lang==='en'}">EN</button></div></nav></header>`;
 }
 function footer(t) {
  return `<section class="contact wrap" id="contact"><div><p class="eyebrow">${t.contactLabel}</p><h2>${t.contactTitle}</h2><p>${t.contactIntro}</p></div><div class="contact-links"><a class="button dark" href="mailto:${EMAIL}">${t.email} ${arrow}</a>${external(SCHOLAR,t.scholar)}${external(GITHUB,'GitHub')}</div></section><footer class="site-footer wrap"><span>© ${new Date().getFullYear()} ${t.footer}</span><span>${t.footerNote}</span><a href="#top" aria-label="${lang==='zh'?'回到顶部':'Back to top'}">↑</a></footer>`;
@@ -74,7 +74,7 @@ function portfolioHighlights(d,t) {
 }
 function projectAction(p,t,cls='text-link') {
  if(p.url) {
-  const label=p.actionLabel||(p.id==='student-feedback'?(lang==='zh'?'访问系统':'Open system'):t.visit);
+  const label=p.actionLabel||(p.id==='student-feedback'?(lang==='zh'?'浏览管理系统作品集':'Browse the management portfolio'):t.visit);
   return p.url.startsWith('/')?`<a class="${cls}" href="${esc(p.url)}">${esc(label)} →</a>`:external(p.url,label,cls);
  }
  if(p.downloads?.length) return `<a class="${cls}" href="#lesson-resources">${lang==='zh'?'查看课例材料':'Explore the lesson materials'} ↓</a>`;
@@ -113,15 +113,19 @@ function render() {
  const menuWasOpen=document.querySelector('.menu-toggle')?.getAttribute('aria-expanded')==='true';
  document.documentElement.lang=lang==='zh'?'zh-CN':'en';
  document.body.dataset.language=lang;
- document.title = `${route==='research'?t.researchPageTitle:route==='about'?t.aboutPageTitle:route==='teaching'?d.teachingOverview.title:route==='project'?(d.projects.find(p=>p.id===projectId)?.title||'Project'):t.footer} — ${lang==='zh'?'物理 · 教学 · AI':'Physics · Teaching · AI'}`;
- document.getElementById('app').innerHTML=header(t)+({home,research,about,project,teaching}[route](d,t))+footer(t);
+ document.title = `${route==='research'?t.researchPageTitle:route==='about'?t.aboutPageTitle:route==='teaching'?d.teachingOverview.title:route==='management'?(d.managementPortfolio?.title||(lang==='zh'?'管理系统':'Management system')):route==='project'?(d.projects.find(p=>p.id===projectId)?.title||'Project'):t.footer} — ${lang==='zh'?'物理 · 教学 · AI':'Physics · Teaching · AI'}`;
+ const body=({home,research,about,project,teaching,management}[route](d,t));
+ document.body.classList.toggle('mgmt-page', route==='management');
+ document.getElementById('app').innerHTML=route==='management'?body:(header(t)+body+footer(t));
  if(previousLab&&document.querySelector('wave-lab')){document.querySelector('wave-lab').replaceWith(previousLab);previousLab.setAttribute('lang',lang);}
  document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{if(lang===b.dataset.lang)return;const y=scrollY;lang=b.dataset.lang;history.pushState({language:lang},'',languageUrl(lang));try{localStorage.setItem('bq-language',lang);}catch{}render();scrollTo(0,y);document.querySelector(`[data-lang="${lang}"]`)?.focus({preventScroll:true});}));
  enhancePage();
  const menu=document.querySelector('.menu-toggle'), nav=document.getElementById('navigation');
- if(menuWasOpen){menu.setAttribute('aria-expanded','true');nav.classList.add('open');}
- menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open);});
- nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}));
+ if(menu&&nav){
+  if(menuWasOpen){menu.setAttribute('aria-expanded','true');nav.classList.add('open');}
+  menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open);});
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}));
+ }
 }
 document.addEventListener('keydown',e=>{const menu=document.querySelector('.menu-toggle');if(e.key==='Escape'&&menu?.getAttribute('aria-expanded')==='true'){document.getElementById('navigation')?.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.focus();}});
 fetch('/assets/content.json').then(r=>{if(!r.ok)throw new Error('Content unavailable');return r.json();}).then(d=>{content=d;render();if(location.hash)requestAnimationFrame(()=>document.querySelector(location.hash)?.scrollIntoView());}).catch(()=>{document.getElementById('app').innerHTML=`<main class="wrap inner-main"><h1>Bingkun Qi</h1><p>${UI[lang].error}</p><a href="${SCHOLAR}">Google Scholar ↗</a></main>`;});
