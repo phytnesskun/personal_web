@@ -283,6 +283,30 @@ def fallback_content(language, route):
         sections.append(f'<section id="other-entries"><h2>{esc(portfolio["otherTitle"])}</h2>'
                         f'<p>{esc(portfolio["otherLead"])}</p>{others}'
                         f'<p>{esc(portfolio["privacyNote"])}</p></section>')
+        teaching_home = portfolio.get('teachingHome', 'https://bingkun.rth1.xyz/')
+        cases_home = portfolio.get('casesHome', teaching_home)
+        management_nav = [
+            f'<a href="{esc(teaching_home)}" target="_blank" rel="noopener noreferrer">'
+            f'{esc(portfolio["navTeaching"])}</a>',
+            f'<a href="{localized_path(language, "management")}" aria-current="page">'
+            f'{esc(portfolio["navManagement"])}</a>',
+            f'<a href="{esc(cases_home)}" target="_blank" rel="noopener noreferrer">'
+            f'{esc(portfolio["navOthers"])}</a>',
+        ]
+        return (
+            f'<a class="skip" href="#main">{esc(t["skip"])}</a>'
+            f'<header class="static-header wrap"><a class="brand" '
+            f'href="{localized_path(language, "management")}">'
+            f'<span class="mgmt-brand-mark" aria-hidden="true">亓</span> Bingkun Qi / 亓炳堃'
+            f'</a><nav aria-label="{esc(t["nav"])}">{" ".join(management_nav)}</nav>'
+            f'<div aria-label="{esc(t["languages"])}">{language_links}</div></header>'
+            f'<main id="main" class="wrap inner-main static-main">'
+            f'<p class="eyebrow">{esc(portfolio["eyebrow"])}</p>'
+            f'<h1>{esc(portfolio["headline"])}</h1><p>{esc(description)}</p>{"".join(sections)}'
+            f'<noscript><p>{esc(t["noscript"])}</p></noscript></main>'
+            f'<footer class="static-footer wrap"><span>{esc(portfolio["footerName"])}</span>'
+            f'<a href="#top">{esc(portfolio["backTop"])}</a></footer>'
+        )
     else:
         project = next(p for p in d['projects'] if route == f'projects/{p["id"]}')
         sections.append(f'<section><h2>{esc(t["overview"])}</h2>'
