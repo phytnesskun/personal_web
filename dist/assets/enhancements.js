@@ -10,12 +10,12 @@ const CASES = {
       foot:'这里展示操作流程；点击“进入题库”可在原网站使用完整功能。'
     },
     'student-feedback': {
-      label:'案例 02 / 课堂之外的沟通', title:'让“我没懂”，变成一个可以回应的问题。',
-      cards:[['教学问题','学生的困惑需要具体表达，教师也需要知道下一次讲解从哪里开始。'],['已实现的入口','教师与学生分别登录，支持中英文界面，面向学生反馈与教学管理。'],['设计关注','让角色入口清晰，让反馈围绕具体概念展开。下面的虚构案例用于说明这一思路。']],
-      images:[['feedback-teacher.png','真实界面：教师登录入口。'],['feedback-student.png','真实界面：学生登录入口。']],
-      note:'截图仅展示公开登录页。下面是独立的流程示例，使用虚构内容，不代表已验证的后台功能。',
-      steps:[['学生视角','“两个波的振幅都是 1，为什么相差 90° 时合振幅不是 2？”'],['教师视角','先定位到“位移与振幅的区别”，用同一位置的读数检查逐点相加。'],['下一次学习','回到波形实验，比较 0°、90°、180°，再用不等振幅的例子检查理解。']],
-      foot:'虚构的波动课场景 · 仅在本页切换展示，不发送或保存任何学生信息。'
+      label:'案例 02 / 管理系统', title:'把周反馈、催填与课表，收进同一套角色权限。',
+      cards:[['管理问题','任课填写、班主任催填、调课审批与花名册维护往往散落在不同表格。'],['已实现的入口','教务系统按角色提供填写、班级总览、课表与行政模块；作品集只展示化名截图。'],['隐私边界','不深链生产登录页；截图来自本地化名演示库（李老师 / 张三 / 李四）。']],
+      images:[['management/01-fill-grid.png','化名截图：任课填写网格与批量工具。'],['management/02-homeroom-overview.png','化名截图：班主任总览与催填。']],
+      note:'完整模块导读见「管理系统」长页。本页不打开可写演示，也不进入生产真库。',
+      steps:[['任课填写','按班批量登记本周表现，折叠次要列并套用预设。'],['班主任催填','看清未填科目，把催填落到具体老师。'],['导出审计','打印 / CSV 留痕，课时可按周汇总。']],
+      foot:'化名演示截图 · 详细 01–06 模块见 /management/'
     }
   },
   en: {
@@ -28,12 +28,12 @@ const CASES = {
       foot:'This is a walkthrough. Open the question bank to use the complete application.'
     },
     'student-feedback': {
-      label:'CASE 02 / AROUND THE CLASSROOM', title:'Turn “I don’t understand” into a question we can work with.',
-      cards:[['The teaching problem','Students need to express a precise difficulty, and teachers need a useful starting point for the next explanation.'],['Available entry points','Separate teacher and student sign-in, with Chinese and English interfaces for feedback and teaching administration.'],['The design focus','Clear roles and feedback tied to a concrete concept. The fictional example below illustrates this idea.']],
-      images:[['feedback-teacher.png','Actual interface: teacher sign-in.'],['feedback-student.png','Actual interface: student sign-in.']],
-      note:'Screenshots show only the public sign-in pages. The separate illustrative workflow below uses fictional content, not verified back-office functionality.',
-      steps:[['Student perspective','“Both waves have amplitude 1. Why is the resultant not 2 when the phase difference is 90°?”'],['Teacher perspective','Focus on displacement versus amplitude. Read the curves at one position to test point-by-point addition.'],['Next learning step','Return to the wave lab. Compare 0°, 90° and 180°, then test understanding using unequal amplitudes.']],
-      foot:'Fictional waves lesson · This display runs only on this page and sends or saves no student information.'
+      label:'CASE 02 / MANAGEMENT SYSTEM', title:'Weekly feedback, chase-up and timetable under one role model.',
+      cards:[['The admin problem','Fill-in, chase-up, timetable approvals and rosters often live in separate spreadsheets.'],['What exists today','Role-based fill, homeroom overview, timetable and admin modules; the portfolio shows anonymised screenshots only.'],['Privacy boundary','No deep link into production sign-in; shots come from a local anonymised demo (Teacher Li / Zhang San / Li Si).']],
+      images:[['management/01-fill-grid.png','Anonymised shot: subject-teacher fill grid and batch tools.'],['management/02-homeroom-overview.png','Anonymised shot: homeroom overview and chase-up.']],
+      note:'The full module walkthrough lives on the Management long page. This page opens no writable demo and no production database.',
+      steps:[['Subject fill-in','Batch-enter the week by class; fold columns and apply presets.'],['Homeroom chase-up','See missing subjects and route reminders to teachers.'],['Export audit','Print/CSV leave a trail; hours roll up by week.']],
+      foot:'Anonymised demo screenshots · modules 01–06 at /management/'
     }
   }
 };
@@ -46,6 +46,22 @@ function caseStudy(p) {
 function researchExplainers(d) {
   const labels=lang==='zh'?['研究的问题','为何值得研究','论文发现','作者身份','阅读原文','概念示意 · 非实验或模拟数据']:['The question','Why it matters','The finding','Authorship','Read the preprint','Conceptual illustration · not experimental or simulated data'];
   return `<section class="research-explainers" aria-label="${lang==='zh'?'代表论文解读':'Research explained'}">${d.explainers.map((p,i)=>`<article class="research-feature"><div class="research-feature-copy"><p class="eyebrow">PRL / ${i===0?'2018':'2023'}</p><h2>${esc(p.title)}</h2>${[['question',labels[0]],['why',labels[1]],['finding',labels[2]]].map(([key,label])=>`<h3>${label}</h3><p>${esc(p[key])}</p>`).join('')}<p class="research-credit"><strong>${labels[3]}</strong> ${esc(p.credit)}</p>${external(p.sourceUrl,labels[4])}</div><figure><img src="/assets/${i===0?'research-flat-band.svg':'research-zero-mode.svg'}" alt="${esc(p.title)} — ${labels[5]}" loading="lazy"><figcaption>${labels[5]}</figcaption></figure></article>`).join('')}</section>`;
+}
+
+function management(d,t) {
+  const m=d.managementPortfolio;
+  if(!m) return `<main id="main" class="wrap inner-main"><h1>404</h1><a href="/">${t.back}</a></main>`;
+  const roles=m.roles.map(([role,text])=>`<div><strong>${esc(role)}</strong><span>${esc(text)}</span></div>`).join('');
+  const steps=m.steps.map((step,i)=>`<li><span>0${i+1}</span><div><strong>${esc(step[0])}</strong><em>${esc(step[1])}</em></div></li>`).join('');
+  const modules=m.modules.map(mod=>{
+    const shots=mod.images?.length
+      ? `<div class="mgmt-shots${mod.images.length===1?' single':''}">${mod.images.map(([file,caption])=>`<figure><img src="/assets/${esc(file)}" width="1440" height="900" loading="lazy" alt="${esc(caption)}"><figcaption>${esc(caption)}</figcaption></figure>`).join('')}</div>`
+      : '';
+    const gap=mod.gap?`<p class="mgmt-gap-note">${esc(mod.gap)}</p>`:'';
+    return `<article class="mgmt-module" id="module-${esc(mod.id)}"><div class="mgmt-num" aria-hidden="true">${esc(mod.id)}</div><div class="mgmt-module-copy"><h3>${esc(mod.title)}</h3><p>${esc(mod.summary)}</p>${gap}${shots}</div></article>`;
+  }).join('');
+  const others=m.others.map(item=>`<article><p class="mgmt-kicker">${esc(item.kicker)}</p><h3>${esc(item.title)}</h3><p>${esc(item.text)}</p>${item.href&&item.linkLabel?`<a class="textish" href="${esc(item.href)}">${esc(item.linkLabel)}</a>`:''}</article>`).join('');
+  return `<div class="mgmt-shell"><a class="skip" href="#main">${t.skip}</a><header class="mgmt-header wrap"><a class="mgmt-brand" href="/"><span class="mgmt-brand-mark" aria-hidden="true">齐</span><span>Bingkun Qi<small>${lang==='zh'?'TEACHING · ADMIN':'PHYSICS · TEACHING · AI'}</small></span></a><nav class="mgmt-nav" aria-label="${lang==='zh'?'主导航':'Main navigation'}"><a href="/teaching/">${esc(m.navTeaching)}</a><a href="/management/" aria-current="page">${esc(m.navManagement)}</a><a href="/#projects">${esc(m.navOthers)}</a><div class="mgmt-lang" aria-label="Language"><button type="button" data-lang="zh" aria-pressed="${lang==='zh'}">中</button><span>/</span><button type="button" data-lang="en" aria-pressed="${lang==='en'}">EN</button></div></nav></header><main id="main" class="wrap"><section class="mgmt-hero"><div><p class="mgmt-kicker">${esc(m.eyebrow)}</p><h1>${esc(m.headline)}</h1><p class="mgmt-hero-lead">${esc(m.lead)}</p><div class="mgmt-actions"><a class="mgmt-btn mgmt-btn-solid" href="#modules">${esc(m.ctaPrimary)}</a><a class="mgmt-btn mgmt-btn-ghost" href="/teaching/">${esc(m.ctaSecondary)}</a></div></div><aside class="mgmt-hero-panel" aria-label="${esc(m.panelTitle)}"><h2>${esc(m.panelTitle)}</h2><div class="mgmt-role-grid">${roles}</div></aside></section><section class="mgmt-workflow" id="workflow" aria-labelledby="workflow-title"><div class="mgmt-workflow-head"><div><p class="mgmt-kicker">${esc(m.workflowLabel)}</p><h2 id="workflow-title">${esc(m.workflowTitle)}</h2><p>${esc(m.workflowCode)}</p></div><div><p>${esc(m.workflowLead)}</p><ol class="mgmt-steps">${steps}</ol></div></div></section><section class="mgmt-modules" id="modules"><div class="mgmt-section-head"><p class="mgmt-kicker">01 — 06</p><h2>${esc(m.modulesTitle)}</h2><p>${esc(m.modulesLead)}</p></div>${modules}</section><section class="mgmt-other" id="other-entries"><p class="mgmt-kicker">${lang==='zh'?'旁注与回链':'NOTES & LINKS'}</p><h2>${esc(m.otherTitle)}</h2><p>${esc(m.otherLead)}</p><div class="mgmt-other-grid">${others}</div><p class="mgmt-gap-note" style="margin-top:18px;background:#e7efe8;color:#003d2b">${esc(m.privacyNote)}</p></section></main><footer class="mgmt-footer wrap"><span>${esc(m.footerName)}</span><a href="#top">${esc(m.backTop)}</a></footer></div>`;
 }
 
 function teaching(d,t) {
@@ -68,7 +84,7 @@ function enhancePage() {
   document.querySelector('meta[property="og:locale:alternate"]')?.setAttribute('content',lang==='zh'?'en_US':'zh_CN');
   document.querySelector('meta[name="twitter:title"]')?.setAttribute('content',document.title);
   const d=content[lang];
-  const description=route==='project'?d.projects.find(p=>p.id===projectId)?.summary:route==='teaching'?d.teachingOverview.intro:route==='research'?UI[lang].researchPageIntro:d.about.intro;
+  const description=route==='project'?d.projects.find(p=>p.id===projectId)?.summary:route==='teaching'?d.teachingOverview.intro:route==='management'?d.managementPortfolio?.lead:route==='research'?UI[lang].researchPageIntro:d.about.intro;
   document.querySelector('meta[name="description"]')?.setAttribute('content',description||'');
   document.querySelector('meta[property="og:description"]')?.setAttribute('content',description||'');
   document.querySelector('meta[name="twitter:description"]')?.setAttribute('content',description||'');

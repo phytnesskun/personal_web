@@ -15,7 +15,7 @@ labels = {
     'zh': {
         'html_lang': 'zh-CN', 'locale': 'zh_CN',
         'home': '首页', 'about': '关于', 'research': '研究与论文',
-        'teaching': '教学与学习工具', 'projects': '教学工具与项目',
+        'teaching': '教学与学习工具', 'management': '管理系统', 'projects': '教学工具与项目',
         'education': '学习与研究经历', 'experience': '教学经历',
         'life': '书桌之外', 'features': '功能与使用场景',
         'overview': '项目介绍', 'visit': '访问项目',
@@ -31,7 +31,7 @@ labels = {
     'en': {
         'html_lang': 'en', 'locale': 'en_US',
         'home': 'Home', 'about': 'About', 'research': 'Research & publications',
-        'teaching': 'Teaching & learning tools', 'projects': 'Teaching tools & projects',
+        'teaching': 'Teaching & learning tools', 'management': 'Management system', 'projects': 'Teaching tools & projects',
         'education': 'Learning & research', 'experience': 'Teaching experience',
         'life': 'Beyond the desk', 'features': 'Features and use cases',
         'overview': 'About this project', 'visit': 'Open project',
@@ -166,6 +166,9 @@ def page_details(language, route):
         return f'{t["research"]} — Bingkun Qi', t['research_description']
     if route == 'teaching':
         return f'{d["teachingOverview"]["title"]} — Bingkun Qi', d['teachingOverview']['intro']
+    if route == 'management':
+        portfolio = d['managementPortfolio']
+        return f'{portfolio["title"]} — Bingkun Qi', portfolio['lead']
     project_id = route.removeprefix('projects/')
     project = next(p for p in d['projects'] if p['id'] == project_id)
     return f'{project["title"]} — Bingkun Qi', project['summary']
@@ -192,6 +195,7 @@ def fallback_content(language, route):
     title, description = page_details(language, route)
     navigation = []
     for target, key in [('', 'home'), ('teaching', 'teaching'),
+                        ('management', 'management'),
                         ('research', 'research'), ('about', 'about')]:
         current = ' aria-current="page"' if route == target else ''
         navigation.append(
@@ -241,6 +245,44 @@ def fallback_content(language, route):
         sections.append(paragraphs(d['about']['paragraphs'][-1:]))
         sections.append(f'<section id="projects"><h2>{esc(t["projects"])}</h2>'
                         f'{project_cards(language, d["projects"])}</section>')
+    elif route == 'management':
+        portfolio = d['managementPortfolio']
+        steps = ''.join(
+            f'<li><strong>{esc(step[0])}</strong> — {esc(step[1])}</li>'
+            for step in portfolio['steps']
+        )
+        modules = []
+        for mod in portfolio['modules']:
+            images = ''.join(
+                f'<figure><img src="/assets/{esc(file)}" alt="{esc(caption)}" '
+                f'style="max-width:100%;height:auto"><figcaption>{esc(caption)}</figcaption></figure>'
+                for file, caption in mod.get('images', [])
+            )
+            gap = f'<p>{esc(mod["gap"])}</p>' if mod.get('gap') else ''
+            modules.append(
+                f'<article id="module-{esc(mod["id"])}"><p class="small-label">{esc(mod["id"])}</p>'
+                f'<h3>{esc(mod["title"])}</h3><p>{esc(mod["summary"])}</p>{gap}{images}</article>'
+            )
+        other_parts = []
+        for item in portfolio['others']:
+            link = ''
+            if item.get('href') and item.get('linkLabel'):
+                href = item['href']
+                if href.startswith('/') and not href.startswith(('/assets/', '/lab/')):
+                    href = localized_path(language, href.strip('/'))
+                link = f'<p><a href="{esc(href)}">{esc(item["linkLabel"])}</a></p>'
+            other_parts.append(
+                f'<article><p class="small-label">{esc(item["kicker"])}</p>'
+                f'<h3>{esc(item["title"])}</h3><p>{esc(item["text"])}</p>{link}</article>'
+            )
+        others = ''.join(other_parts)
+        sections.append(f'<section id="workflow"><h2>{esc(portfolio["workflowTitle"])}</h2>'
+                        f'<p>{esc(portfolio["workflowLead"])}</p><ol>{steps}</ol></section>')
+        sections.append(f'<section id="modules"><h2>{esc(portfolio["modulesTitle"])}</h2>'
+                        f'<p>{esc(portfolio["modulesLead"])}</p>{"".join(modules)}</section>')
+        sections.append(f'<section id="other-entries"><h2>{esc(portfolio["otherTitle"])}</h2>'
+                        f'<p>{esc(portfolio["otherLead"])}</p>{others}'
+                        f'<p>{esc(portfolio["privacyNote"])}</p></section>')
     else:
         project = next(p for p in d['projects'] if route == f'projects/{p["id"]}')
         sections.append(f'<section><h2>{esc(t["overview"])}</h2>'
@@ -269,7 +311,10 @@ def fallback_content(language, route):
                 sections.append(f'<p><a href="{esc(item["url"])}">{esc(item["label"])}</a></p>')
             sections.append('</section>')
         if project.get('url'):
-            sections.append(f'<p><a href="{esc(project["url"])}">'
+            href = project['url']
+            if href.startswith('/') and not href.startswith(('/assets/', '/lab/')):
+                href = localized_path(language, href.strip('/'))
+            sections.append(f'<p><a href="{esc(href)}">'
                             f'{esc(project.get("actionLabel", t["visit"]))}</a></p>')
         sections.append(f'<section><h2>{esc(t["projects"])}</h2>'
                         f'{project_cards(language, [p for p in d["projects"] if p["id"] != project["id"]])}</section>')
@@ -337,7 +382,7 @@ def write_page(language, route, output_route):
 <meta name="twitter:image" content="{origin}/assets/share-card.png">
 <link rel="canonical" href="{canonical}">{alternates}
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/assets/style.css"><link rel="stylesheet" href="/assets/enhancements.css"><link rel="stylesheet" href="/assets/physics-hub.css">
+<link rel="stylesheet" href="/assets/style.css"><link rel="stylesheet" href="/assets/enhancements.css"><link rel="stylesheet" href="/assets/physics-hub.css"><link rel="stylesheet" href="/assets/management-portfolio.css">
 <script src="/assets/wave-lab.js" defer></script><script src="/assets/enhancements.js" defer></script><script src="/assets/app.js" defer></script>
 <style>
 .static-header{{display:flex;flex-wrap:wrap;align-items:center;gap:20px;padding-block:28px;border-bottom:1px solid var(--line)}}
@@ -349,13 +394,13 @@ def write_page(language, route, output_route):
 .static-main th,.static-main td{{border:1px solid var(--line);padding:12px;text-align:left;min-width:70px}}
 </style>
 {structured_data(language, route, canonical, title, description)}
-</head><body id="top" data-language="{language}"><div id="app">{fallback_content(language, route)}</div></body></html>'''
+</head><body id="top" data-language="{language}"{' class="mgmt-page"' if route == 'management' else ''}><div id="app">{fallback_content(language, route)}</div></body></html>'''
     directory = dist / output_route
     directory.mkdir(parents=True, exist_ok=True)
     (directory / 'index.html').write_text(document, encoding='utf-8')
 
 
-routes = ['', 'about', 'research', 'teaching'] + [
+routes = ['', 'about', 'research', 'teaching', 'management'] + [
     f'projects/{project["id"]}' for project in data['zh']['projects']
 ]
 if {project['id'] for project in data['zh']['projects']} != {
