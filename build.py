@@ -273,7 +273,10 @@ def fallback_content(language, route):
                             f'{esc(project.get("actionLabel", t["visit"]))}</a></p>')
         sections.append(f'<section><h2>{esc(t["projects"])}</h2>'
                         f'{project_cards(language, [p for p in d["projects"] if p["id"] != project["id"]])}</section>')
-    icp_link = '<a href="https://beian.miit.gov.cn/">鲁ICP备2026070984号-1</a>' if not route else ''
+    icp_link = (
+        '<a class="icp-registration" href="https://beian.miit.gov.cn/">鲁ICP备2026070984号-1</a>'
+        if not route else ''
+    )
     return (
         f'<a class="skip" href="#main">{esc(t["skip"])}</a>'
         f'<header class="static-header wrap"><a class="brand" href="{localized_path(language)}">'
