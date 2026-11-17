@@ -99,19 +99,20 @@
       },
       {
         "id": "student-feedback",
-        "title": "学生反馈与教务系统",
-        "kicker": "教学管理 · 教师与学生",
-        "summary": "连接教师与学生的反馈入口，探索将教学沟通与日常管理放进同一个系统。",
-        "url": "https://student-feedback-kun.fly.dev",
+        "title": "教务系统",
+        "kicker": "求职样品 · 周反馈 / 课表运维 / 行政",
+        "summary": "国际高中教务网页：角色权限下的周反馈闭环 + 课表运维 + 行政花名册；考试/作业为学业侧翼。化名截图，不进生产真库。",
+        "url": "/management/",
         "features": [
-          "教师与学生分别登录使用",
-          "支持中文与 English 界面",
-          "围绕学生反馈与教务管理场景设计"
+          "一周工作流：填 → 催 → 调 → 管 → 算与留痕",
+          "模块 01–06（德育未上线；排课器 ≠ 课表运维）",
+          "化名 demo 截图 · 回链教学作品集 rth1"
         ],
         "story": [
-          "课堂里的困惑需要一个清晰的表达入口。这个项目把教师与学生的登录路径分开，并提供中英文界面，围绕日常教学反馈展开。",
-          "下面用一个虚构的波动课场景，解释我关注的沟通问题：学生如何说清楚卡在哪里，教师如何把问题转化为下一次讲解。流程示例独立于实际系统运行。"
-        ]
+          "教务系统把日常管理收成一条产品故事：任课填写、班主任催填、课表运维、花名册与课时/导出审计；考试与作业是学业旁支。",
+          "求职样品页只展示化名截图与诚实边界：德育草稿未合入，独立排课器未见，小程序仅渠道旁注。不深链生产登录页。"
+        ],
+        "actionLabel": "浏览求职样品"
       },
       {
         "id": "igcse-maths",
@@ -866,6 +867,175 @@
     "teachingOverview": {
       "title": "让一个好问题，走进课堂。",
       "intro": "从物理直觉到清晰的解释，把任务、讲解和反馈连接起来。这里有一份完整课例，也有可以亲手操作的十分钟学习活动。"
+    },
+    "managementPortfolio": {
+      "title": "教务系统 · 求职样品",
+      "eyebrow": "教务系统 · 求职样品 · Flask SSR",
+      "headline": "一条产品故事：周反馈闭环 + 课表运维 + 行政花名册",
+      "lead": "国际高中场景的教务网页：角色权限下的周反馈闭环 + 课表运维 + 行政花名册，考试/作业为学业侧翼。本页用化名截图讲「现在能管什么」——不进入生产真库。",
+      "stackLine": "技术栈：Flask SSR · SQLite · 角色权限（任课 / 班主任 / 管理员）。网页为主；微信小程序仅作渠道旁注（本仓不构建）。",
+      "ctaPrimary": "看一周工作流",
+      "ctaSecondary": "打开教学作品集 ↗",
+      "panelTitle": "角色 × 权限",
+      "roles": [
+        [
+          "任课老师",
+          "填写周反馈 · 申请调课 · 课时查看"
+        ],
+        [
+          "班主任",
+          "班级汇总 · 催填 · 打印导出"
+        ],
+        [
+          "管理员",
+          "花名册 · 任教 · 审批生效 · 审计"
+        ]
+      ],
+      "workflowTitle": "一周工作流",
+      "workflowLead": "访客三十秒能懂的主路径：填 → 催 → 调 → 管 → 算与留痕。考试/作业是学业旁支；小程序只作渠道说明。",
+      "workflowLabel": "求职叙事 · 教务周",
+      "workflowCode": "填 → 催 → 调 → 管 → 算与留痕",
+      "steps": [
+        [
+          "填",
+          "任课老师按班登记本周表现：批量、复制上周、折叠列与预设。"
+        ],
+        [
+          "催",
+          "班主任看清未填科目与待关注学生，把催填落到任课老师。"
+        ],
+        [
+          "调",
+          "课表上申请改时/取消/代课/加课；管理员审批或直接生效。"
+        ],
+        [
+          "管",
+          "学生 · 班级 · 任教「数据三角」由管理员维护对齐。"
+        ],
+        [
+          "算与留痕",
+          "课时按周汇总；打印 / CSV 写入导出审计，可追溯。"
+        ]
+      ],
+      "modulesTitle": "模块 01–06",
+      "modulesLead": "按完整管理工作编号，不是 PR 变更日志。德育未上线，不写进交付清单；排课器 ≠ 课表运维。",
+      "modules": [
+        {
+          "id": "01",
+          "title": "周反馈填写",
+          "summary": "任课主路径：筛选班级与学生，Excel 式批量填充，折叠次要列，一键套用「表现良好」等预设；可打印与 CSV。",
+          "images": [
+            [
+              "management/01-fill-folded.png",
+              "填写清单默认折叠次要列，先看进度与筛选。"
+            ],
+            [
+              "management/01-fill-grid.png",
+              "粘性姓名列与横向工具条，适合长表快速填写。"
+            ]
+          ]
+        },
+        {
+          "id": "02",
+          "title": "班主任汇总与催填",
+          "summary": "班级总览里的未填科目 KPI、待关注学生与催填 chip；支持班级打印与催填 CSV。",
+          "images": [
+            [
+              "management/02-homeroom-overview.png",
+              "班主任总览：未填科目 KPI 与综合等级表。"
+            ],
+            [
+              "management/02-homeroom-print.png",
+              "班级打印预览（化名花名册）。"
+            ]
+          ]
+        },
+        {
+          "id": "03",
+          "title": "课表与调课加课",
+          "summary": "强调课表运维闭环：申请 → 审批/立即生效 → 加课与取消。这不是可视化全校「智能排课器」；初始格子多靠导入维护。",
+          "images": [
+            [
+              "management/03-tt-toolbar.png",
+              "教师课表工具栏：加课、临时加课与多选取消。"
+            ],
+            [
+              "management/03-tt-adjust-modal.png",
+              "申请调整弹窗：改时间/地点、取消、代课分区。"
+            ]
+          ]
+        },
+        {
+          "id": "04",
+          "title": "行政花名册",
+          "summary": "学生名单、班级与任教关系组成数据三角；软停用、可授科目与代入视图齐全。enrollment 与 assignment 对齐仍是运维点。",
+          "images": [
+            [
+              "management/04-admin-students.png",
+              "学生名单：筛选班级、新建与代入课表。"
+            ],
+            [
+              "management/04-admin-assignments.png",
+              "任教关系：老师–科目–班级–学生映射。"
+            ]
+          ]
+        },
+        {
+          "id": "05",
+          "title": "考试与作业",
+          "summary": "学业侧翼：考试登记（布置/录入/学生档案）与作业区（布置/按班录入/档案）已上线可用；同步周测关闭，自动批改未合入。",
+          "gap": "截图缺口：考试区 / 作业区待本地 init_db --demo 补拍（勿碰生产库）。此处仅文案说明。",
+          "images": []
+        },
+        {
+          "id": "06",
+          "title": "课时与导出审计",
+          "summary": "课时按当前课表与临时加课汇总并导出 CSV；教师/班主任打印与 CSV 写入导出记录表，便于合规追溯。",
+          "images": [
+            [
+              "management/06-hours-export.png",
+              "课时统计：按周查询、科目合计与明细。"
+            ],
+            [
+              "management/06-admin-exports.png",
+              "导出记录：操作者、类型、范围与行数（仅元数据）。"
+            ]
+          ]
+        }
+      ],
+      "otherTitle": "其他入口与诚实边界",
+      "otherLead": "求职样品只展示已交付能力。一期纯静态化名截图；不深链生产登录页，不开隔离可写 demo。",
+      "others": [
+        {
+          "kicker": "渠道 · 旁注",
+          "title": "微信小程序",
+          "text": "手机经微信云函数访问同一套教务 API；本仓只保后端契约，不构建小程序 UI。",
+          "linkLabel": null,
+          "href": null
+        },
+        {
+          "kicker": "教学作品集",
+          "title": "回链热铁盒教学站",
+          "text": "物理题库、课例与实验演示以教学作品集为准；勿链 bingkun.me 主页。",
+          "linkLabel": "打开 bingkun.rth1.xyz ↗",
+          "href": "https://bingkun.rth1.xyz/"
+        },
+        {
+          "kicker": "未交付 · 脚注",
+          "title": "德育草稿",
+          "text": "德育模块仅存在于未合入的独立草稿分支；main 无路由/表。简历与样品正文不当已交付。",
+          "linkLabel": null,
+          "href": null
+        }
+      ],
+      "footerName": "亓炳堃 · Bingkun Qi",
+      "backTop": "回到顶部 ↑",
+      "navTeaching": "教学作品集",
+      "navManagement": "管理系统",
+      "navOthers": "其他案例",
+      "privacyNote": "隐私：截图均来自本地化名 demo（李老师 / 管理员；学生张三、李四；班级 26F-G9A）。不出现真实师生姓名，不深链生产真库。",
+      "teachingHome": "https://bingkun.rth1.xyz/",
+      "casesHome": "https://bingkun.rth1.xyz/"
     }
   },
   "en": {
@@ -968,19 +1138,20 @@
       },
       {
         "id": "student-feedback",
-        "title": "Student Feedback & Teaching Administration",
-        "kicker": "Teaching administration · Teachers & students",
-        "summary": "A shared starting point for teachers and students, exploring how software can support feedback and everyday teaching administration.",
-        "url": "https://student-feedback-kun.fly.dev",
+        "title": "School admin system",
+        "kicker": "Job sample · feedback / timetable ops / roster",
+        "summary": "International-high-school admin web: role-based weekly loop + timetable operations + rosters; exams/homework as side wing. Anonymised screenshots only.",
+        "url": "/management/",
         "features": [
-          "Separate teacher and student sign-in flows",
-          "Chinese and English interfaces",
-          "Designed around student feedback and teaching administration"
+          "Weekly loop: Fill → Chase → Adjust → Manage → Count & trail",
+          "Modules 01–06 (moral-ed not shipped; scheduler ≠ timetable ops)",
+          "Anonymised demo shots · link back to teaching portfolio on rth1"
         ],
         "story": [
-          "Questions from a lesson need a clear place to be expressed. This project separates teacher and student sign-in and provides Chinese and English interfaces for everyday teaching feedback.",
-          "A fictional lesson on waves illustrates the communication problem: how a student can express a precise difficulty, and how a teacher might turn it into the next explanation. The illustrative workflow runs independently of the live system."
-        ]
+          "School admin gathers everyday work into one product story: subject fill-in, homeroom chase-up, timetable operations, rosters, and hours/export audit; exams and homework sit as academic side wings.",
+          "The job sample shows anonymised screenshots and honest boundaries: moral-education drafts are unmerged, no campus scheduler, mini program is channel-only. No production sign-in deep links."
+        ],
+        "actionLabel": "Browse the job sample"
       },
       {
         "id": "igcse-maths",
@@ -1735,6 +1906,175 @@
     "teachingOverview": {
       "title": "Bring a good question into the classroom.",
       "intro": "Connect a physical intuition with a clear explanation through tasks, modelling and feedback. Explore a complete lesson and a ten-minute hands-on activity."
+    },
+    "managementPortfolio": {
+      "title": "School admin · job portfolio",
+      "eyebrow": "School admin · job sample · Flask SSR",
+      "headline": "One product story: weekly loop + timetable ops + rosters",
+      "lead": "An international-high-school admin web app: role-based weekly feedback loop + timetable operations + administrative rosters, with exams/homework as the academic side wing. Anonymised screenshots only — no production database.",
+      "stackLine": "Stack: Flask SSR · SQLite · roles (subject teacher / homeroom / admin). Web first; WeChat mini program is a channel note only (not built in this repo).",
+      "ctaPrimary": "See the weekly loop",
+      "ctaSecondary": "Open teaching portfolio ↗",
+      "panelTitle": "Roles × access",
+      "roles": [
+        [
+          "Subject teacher",
+          "Fill weekly feedback · request changes · hours"
+        ],
+        [
+          "Homeroom",
+          "Class overview · chase-up · print / CSV"
+        ],
+        [
+          "Admin",
+          "Rosters · assignments · approvals · audit"
+        ]
+      ],
+      "workflowTitle": "A week in the system",
+      "workflowLead": "The thirty-second path: Fill → Chase → Adjust → Manage → Count & trail. Exams/homework are side wings; the mini program is channel-only.",
+      "workflowLabel": "Job narrative · admin week",
+      "workflowCode": "Fill → Chase → Adjust → Manage → Count & trail",
+      "steps": [
+        [
+          "Fill",
+          "Subject teachers record the week by class: batch fill, copy last week, fold columns, presets."
+        ],
+        [
+          "Chase",
+          "Homeroom sees missing subjects and students to watch, then routes chase chips to teachers."
+        ],
+        [
+          "Adjust",
+          "Request moves/cancels/covers/add-ons on the timetable; admins approve or apply now."
+        ],
+        [
+          "Manage",
+          "Students · classes · teaching assignments stay aligned as the data triangle."
+        ],
+        [
+          "Count & trail",
+          "Hours roll up by week; print/CSV writes an export audit log."
+        ]
+      ],
+      "modulesTitle": "Modules 01–06",
+      "modulesLead": "Numbered by complete admin jobs, not PR changelogs. Moral-education is not shipped; a scheduler ≠ timetable operations.",
+      "modules": [
+        {
+          "id": "01",
+          "title": "Weekly feedback fill-in",
+          "summary": "Subject-teacher path: filter class and students, Excel-style batch fill, fold secondary columns, apply multi-field presets; print and CSV.",
+          "images": [
+            [
+              "management/01-fill-folded.png",
+              "Fill list with secondary columns folded; progress and filters first."
+            ],
+            [
+              "management/01-fill-grid.png",
+              "Sticky name column and horizontal tools for long grids."
+            ]
+          ]
+        },
+        {
+          "id": "02",
+          "title": "Homeroom overview & chase-up",
+          "summary": "Missing-subject KPIs, students to watch, and chase chips; class print and chase CSV.",
+          "images": [
+            [
+              "management/02-homeroom-overview.png",
+              "Homeroom overview: missing-subject KPIs and grade table."
+            ],
+            [
+              "management/02-homeroom-print.png",
+              "Class print preview with demo roster names."
+            ]
+          ]
+        },
+        {
+          "id": "03",
+          "title": "Timetable ops & change requests",
+          "summary": "Timetable operations loop: request → approve/apply-now → add-on/cancel. Not a campus-wide visual scheduler; initial cells are mostly imported.",
+          "images": [
+            [
+              "management/03-tt-toolbar.png",
+              "Teacher timetable toolbar: add, temp-add, multi-cancel."
+            ],
+            [
+              "management/03-tt-adjust-modal.png",
+              "Adjustment modal: move, cancel or substitute zones."
+            ]
+          ]
+        },
+        {
+          "id": "04",
+          "title": "Administrative rosters",
+          "summary": "Students, classes and teaching assignments form the data triangle; soft-deactivate, teachable subjects and proxy views included. Enrolment vs assignment sync remains an ops concern.",
+          "images": [
+            [
+              "management/04-admin-students.png",
+              "Student list: class filters, create, open timetable."
+            ],
+            [
+              "management/04-admin-assignments.png",
+              "Assignments: teacher–subject–class–student links."
+            ]
+          ]
+        },
+        {
+          "id": "05",
+          "title": "Exams & homework",
+          "summary": "Academic side wing: exam registration and homework set/record/student file are live; weekly-test sync is off; auto-grading is not merged.",
+          "gap": "Screenshot gap: exam/homework pages still need local init_db --demo captures (never production). Copy-only for now.",
+          "images": []
+        },
+        {
+          "id": "06",
+          "title": "Hours & export audit",
+          "summary": "Hours roll up from the current timetable and temp add-ons; teacher/homeroom print and CSV leave an export log for traceability.",
+          "images": [
+            [
+              "management/06-hours-export.png",
+              "Hours stats: week range, subject totals and detail rows."
+            ],
+            [
+              "management/06-admin-exports.png",
+              "Export log: actor, type, scope and row count (metadata only)."
+            ]
+          ]
+        }
+      ],
+      "otherTitle": "Other entries & honest boundaries",
+      "otherLead": "This job sample shows shipped capabilities only. Phase 1 is static anonymised screenshots — no production sign-in deep links, no writable isolated demo.",
+      "others": [
+        {
+          "kicker": "Channel · note only",
+          "title": "WeChat mini program",
+          "text": "Phones reach the same school-admin API through WeChat cloud functions; this repo keeps the API contract and does not build the mini-program UI.",
+          "linkLabel": null,
+          "href": null
+        },
+        {
+          "kicker": "Teaching portfolio",
+          "title": "Back to the rth1 teaching site",
+          "text": "Physics banks, lessons and labs live on the teaching portfolio; do not link bingkun.me homepage.",
+          "linkLabel": "Open bingkun.rth1.xyz ↗",
+          "href": "https://bingkun.rth1.xyz/"
+        },
+        {
+          "kicker": "Not shipped · footnote",
+          "title": "Moral-education draft",
+          "text": "Moral-education exists only on unmerged draft branches; main has no routes/tables. Do not list it as delivered on a résumé.",
+          "linkLabel": null,
+          "href": null
+        }
+      ],
+      "footerName": "Bingkun Qi · 亓炳堃",
+      "backTop": "Back to top ↑",
+      "navTeaching": "Teaching work",
+      "navManagement": "Management",
+      "navOthers": "Other cases",
+      "privacyNote": "Privacy: screenshots from local anonymised demo (Teacher Li / Admin; students Zhang San & Li Si; class 26F-G9A). No real names; no production DB deep links.",
+      "teachingHome": "https://bingkun.rth1.xyz/",
+      "casesHome": "https://bingkun.rth1.xyz/"
     }
   }
 }
