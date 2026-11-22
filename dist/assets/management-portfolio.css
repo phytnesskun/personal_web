@@ -122,7 +122,7 @@
   transition: background .18s, color .18s, transform .18s;
 }
 .mgmt-btn:hover { transform: translateY(-1px); }
-.mgmt-btn-solid {
+.mgmt-page .mgmt-btn-solid {
   background: var(--mgmt-ink);
   color: #f7fbf8;
 }
