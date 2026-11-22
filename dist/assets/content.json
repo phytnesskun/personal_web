@@ -100,19 +100,19 @@
       {
         "id": "student-feedback",
         "title": "教务系统",
-        "kicker": "求职样品 · 周反馈 / 课表运维 / 行政",
-        "summary": "国际高中教务网页：角色权限下的周反馈闭环 + 课表运维 + 行政花名册；考试/作业为学业侧翼。化名截图，不进生产真库。",
+        "kicker": "学校教务 · 任课教师与班主任",
+        "summary": "我和每位老师核实了谁教哪些学生、哪些科目。任课教师从自己的清单填报，班主任仍按班查看各科反馈。这是我构想“一生一档”的起点。",
         "url": "/management/",
         "features": [
-          "一周工作流：填 → 催 → 调 → 管 → 算与留痕",
-          "模块 01–06（德育未上线；排课器 ≠ 课表运维）",
-          "化名 demo 截图 · 回链教学作品集 rth1"
+          "按任教清单填写周反馈，按班查看缺项",
+          "查看考试和作业记录，追踪具体学习问题",
+          "处理课表变更，导出课时供工作量核对"
         ],
         "story": [
-          "教务系统把日常管理收成一条产品故事：任课填写、班主任催填、课表运维、花名册与课时/导出审计；考试与作业是学业旁支。",
-          "求职样品页只展示化名截图与诚实边界：德育草稿未合入，独立排课器未见，小程序仅渠道旁注。不深链生产登录页。"
+          "我在一些班教数学、另一些班教物理，高数只教其中一些学生，还有插班生。每周在按班级编排的 Excel 里来回找人，是我开始做这个系统的原因。",
+          "建立任教关系后，同一条反馈能从任课教师和班主任两个视角查看。作业、考试记录也可以按学生回查。我希望这些证据将来能支持教师分析、学校跟进和有依据的家校沟通。"
         ],
-        "actionLabel": "浏览求职样品"
+        "actionLabel": "看完整案例"
       },
       {
         "id": "igcse-maths",
@@ -869,30 +869,30 @@
       "intro": "从物理直觉到清晰的解释，把任务、讲解和反馈连接起来。这里有一份完整课例，也有可以亲手操作的十分钟学习活动。"
     },
     "managementPortfolio": {
-      "title": "教务系统 · 跨学科周反馈",
+      "title": "教务系统 · 从教师周反馈到一生一档",
       "eyebrow": "亓炳堃 · 国际高中教务系统",
-      "headline": "班主任怎样看全一名学生的各科反馈？",
-      "lead": "以前，同事要在几张 Excel 表里来回查，才能拼出一个学生一周的情况。我做了一个共享数据库。任课老师按科记录，班主任打开学生的周汇总，就能看到哪科有具体问题、哪科还缺反馈。",
-      "stackLine": "我在校内观察到，同事少了来回切表的步骤。节省的时间和对学习的影响尚未测量。",
+      "headline": "填一次周反馈，我要翻好几张班级表",
+      "lead": "学校的反馈表按班级设计。班主任打开自己班的那一页，就能沿着一名学生的名字看各科反馈。我填表时走的是另一条路线：几个班教数学，另几个班教物理，高数只教其中一些学生，还要找到中途插班的学生。每周填报，我都要反复换表、找人、对科目。",
+      "stackLine": "我去问教务，能否列出每位老师具体教哪些学生、哪些科目。教务当时掌握的信息还不完整，我就逐一找老师确认，把任课教师、学生和科目的对应关系建进数据库。老师从自己的任教清单填一次，班主任在本班学生的周汇总里就能读到同一条反馈。",
       "ctaPrimary": "看第 4 周案例",
       "ctaSecondary": "浏览教学作品集",
       "panelTitle": "谁能看到哪些记录",
       "roles": [
         [
           "任课教师",
-          "填写自己任教的学生和科目。"
+          "按自己所教的学生和科目填报。"
         ],
         [
           "班主任",
-          "查看本班学生的跨科反馈和缺项。"
+          "从本班学生的记录查看各科反馈。"
         ],
         [
           "教务管理员",
-          "维护班级和任教关系，处理调课申请。"
+          "维护任教关系，处理课表变更。"
         ]
       ],
       "workflowTitle": "一条物理评语，一份待收的数学反馈",
-      "workflowLead": "班主任打开这名学生的周汇总时，物理有了记录，数学还空着。接下来要找谁，各谈什么？",
+      "workflowLead": "原表允许学生未选的科目留空。现在班主任打开本周记录，就能看见这名学生选了数学，但数学还缺反馈。物理已经填好，老师留了一条具体的评语。",
       "workflowLabel": "第 4 周 · 虚构学生记录",
       "workflowCode": "同一名学生，两个教师视角",
       "steps": [
@@ -910,12 +910,12 @@
         ]
       ],
       "modulesTitle": "系统里的六项教务工作",
-      "modulesLead": "前两项支撑上面的周反馈案例。我也实现了课表变更、花名册、考试作业和课时导出。扩大校内使用会涉及更多学生数据，这部分目前暂缓推广。",
+      "modulesLead": "老师少了来回切表的步骤，这是我在校内观察到的变化。沿着周反馈的需求，我又开发了课表变更、考试、作业和课时统计。扩大使用会涉及更多学生数据，目前暂缓全校推广。",
       "modules": [
         {
           "id": "01",
           "title": "任课教师填写周反馈",
-          "summary": "教师可以按班录入、复制上周记录，再为每个学生补充本周观察。",
+          "summary": "原表为每科保留了 11 项反馈。系统沿用这些项目，按实际任教关系列出学生和科目，老师可以在自己的清单里填报，也可以复制上周记录后逐人更新。",
           "images": [
             [
               "management/01-fill-folded.png",
@@ -930,7 +930,7 @@
         {
           "id": "02",
           "title": "班主任查看本班汇总",
-          "summary": "班主任按学生查阅各科记录和教师评语，也可列出尚未提交反馈的科目。",
+          "summary": "班主任保留按班、按学生查阅各科的方式。系统将学生的选课与当周已填综合等级的科目对照，列出还需向哪位老师补收反馈。",
           "images": [
             [
               "management/02-homeroom-overview.png",
@@ -945,7 +945,7 @@
         {
           "id": "03",
           "title": "课表变更",
-          "summary": "任课老师可以申请调课、加课或代课，管理员审批后更新现有课表。",
+          "summary": "以前一次调课要先发消息，经教务主任和教务人员逐层传达。几份 Excel 上的时间可能对不上，学生、老师和教务常要再问一遍。现在老师可以提交变更，教务审批后更新系统里的课表，师生可以各自查看。",
           "images": [
             [
               "management/03-tt-toolbar.png",
@@ -960,7 +960,7 @@
         {
           "id": "04",
           "title": "班级名册与任教关系",
-          "summary": "教务人员维护学生名单、班级与任教关系。若某科找不到负责老师，先核对学生的选课和该科的任教安排。",
+          "summary": "我逐位核实的任教关系记录到学生和科目。学生插班或换课时，教务可以核对他的班级、选课和任课老师；这些关系决定他会出现在哪些老师的填报清单里。",
           "images": [
             [
               "management/04-admin-students.png",
@@ -975,7 +975,7 @@
         {
           "id": "05",
           "title": "考试与作业记录",
-          "summary": "老师可以建立考试、登记各生成绩，也可以按班记录一次作业的完成情况。两类记录各有录入页面。",
+          "summary": "老师可以在一次考试下登记分数、分析和改进建议，在一次作业下记录完成情况和评语。两类记录都能按学生回查，为后续了解同一个学生的学习情况提供依据。",
           "images": [
             [
               "management/05-exam-list.png",
@@ -998,7 +998,7 @@
         {
           "id": "06",
           "title": "课时统计与导出",
-          "summary": "系统根据当前课表和临时加课汇总课时，支持 CSV 导出并保留导出记录。核算历史代课时需要另行核对变更。",
+          "summary": "系统按当前课表和临时加课汇总课时，可以导出明细。这为学校核对教师工作量提供了一个起点。正式核算时，历史代课和调课仍需按学校口径复核。",
           "images": [
             [
               "management/06-hours-export.png",
@@ -1011,29 +1011,29 @@
           ]
         }
       ],
-      "otherTitle": "扩大试用前，我想核实什么",
-      "otherLead": "我会请任课教师和班主任一起走完一个反馈周，再与学校讨论是否扩大试用。",
+      "otherTitle": "从周反馈走向“一生一档”",
+      "otherLead": "数据库做起来以后，我有了下一个问题：下次和家长谈这个孩子时，老师能不能把当时的课堂观察、后来交的作业和最近一次考试放在一起，讲清楚孩子遇到了什么困难、哪些地方已经有了进步？这就是我想做的“一生一档”。",
       "others": [
         {
-          "kicker": "任务观察",
-          "title": "同事能否找对缺项？",
-          "text": "请同事用原表格和系统分别找出一名学生本周缺哪科，记录耗时、切换次数和判断结果。",
+          "kicker": "教师与学校",
+          "title": "沿着一个问题看下去",
+          "text": "比如物理老师在周反馈里记下“下次检查图线截距”。系统已有按学生回查作业、考试记录的功能。下一步，我希望任课老师和班主任能沿时间查看这些证据，教务也能在职责范围内了解哪些学生需要支持。",
           "linkLabel": null,
           "href": null
         },
         {
-          "kicker": "访问范围",
-          "title": "谁需要看这条记录？",
-          "text": "和学校核对每个角色能看到的学生和字段，再决定下一个试用班级。",
+          "kicker": "家校沟通",
+          "title": "让反馈有具体依据",
+          "text": "班主任和家长谈数学时，可以选一份能看出进步的作业，再举一个还需要练习的例子。我希望班主任能从学生档案中选取、核对适合分享的记录，和家长商量下一步。",
           "linkLabel": null,
           "href": null
         },
         {
-          "kicker": "相关作品",
-          "title": "物理教学与课程设计",
-          "text": "可以继续看我怎样设计一节物理课、一道题或一次实验。",
-          "linkLabel": "查看教学作品集",
-          "href": "https://bingkun.rth1.xyz/"
+          "kicker": "后续对接",
+          "title": "知识点掌握与德育情况",
+          "text": "若要判断学生是否掌握一个知识点，还需要和学习平台对接，取得对应题目和作答证据。德育记录目前停留在草稿阶段，纳入档案前还要与学校明确谁能记录、谁能查看。",
+          "linkLabel": null,
+          "href": null
         }
       ],
       "footerName": "亓炳堃 · Bingkun Qi",
@@ -1151,19 +1151,19 @@
       {
         "id": "student-feedback",
         "title": "School admin system",
-        "kicker": "Job sample · feedback / timetable ops / roster",
-        "summary": "International-high-school admin web: role-based weekly loop + timetable operations + rosters; exams/homework as side wing. Anonymised screenshots only.",
+        "kicker": "School operations · Subject teachers and form tutors",
+        "summary": "I checked with each teacher which pupils and subjects they taught. Teachers now report from their own lists, while tutors read the same records by class. It was the starting point for a longer-term pupil record.",
         "url": "/management/",
         "features": [
-          "Weekly loop: Fill → Chase → Adjust → Manage → Count & trail",
-          "Modules 01–06 (moral-ed not shipped; scheduler ≠ timetable ops)",
-          "Anonymised demo shots · link back to teaching portfolio on rth1"
+          "Weekly subject reports and missing entries by class",
+          "Exam and homework records for individual pupils",
+          "Timetable changes and teaching hours for workload review"
         ],
         "story": [
-          "School admin gathers everyday work into one product story: subject fill-in, homeroom chase-up, timetable operations, rosters, and hours/export audit; exams and homework sit as academic side wings.",
-          "The job sample shows anonymised screenshots and honest boundaries: moral-education drafts are unmerged, no campus scheduler, mini program is channel-only. No production sign-in deep links."
+          "I taught maths to some classes, physics to others and Further Mathematics to a subset of pupils. Some pupils joined mid-term. Finding the right pupil and subject on the class spreadsheets each reporting week prompted me to build the system.",
+          "Once the teaching assignments were in place, a subject teacher and a form tutor could read the same weekly entry. Homework and exams can also be retrieved by pupil. I want those records to help staff decide what to follow up and give families concrete examples of progress."
         ],
-        "actionLabel": "Browse the job sample"
+        "actionLabel": "Read the full case study"
       },
       {
         "id": "igcse-maths",
@@ -1920,11 +1920,11 @@
       "intro": "Connect a physical intuition with a clear explanation through tasks, modelling and feedback. Explore a complete lesson and a ten-minute hands-on activity."
     },
     "managementPortfolio": {
-      "title": "Academic Affairs System · Weekly pupil feedback",
+      "title": "Academic Affairs System · From weekly feedback to a pupil record",
       "eyebrow": "Bingkun Qi · Academic Affairs System",
-      "headline": "How can a form tutor see a pupil’s week across subjects?",
-      "lead": "My colleagues used to piece together a pupil’s week from several Excel sheets. I built a shared database where subject teachers enter their observations and a form tutor can read all the reports for one pupil and see which are still due.",
-      "stackLine": "At school I saw colleagues switch between sheets less often. I have yet to measure the time saved or the effect on pupils’ learning.",
+      "headline": "My teaching list spanned several class sheets",
+      "lead": "Our weekly spreadsheet worked well for a form tutor. Each pupil had a row, with all their subjects side by side. I taught maths to some classes, physics to others and Further Mathematics to only some pupils. Pupils also joined partway through the term. Every reporting week I moved between sheets to find the right pupil and subject.",
+      "stackLine": "I asked the school office who taught each pupil in each subject. The office had only part of that picture, so I checked the assignments with every teacher and recorded them in a shared database. Subject teachers now write from their own teaching lists. Form tutors read the same comments by pupil and class.",
       "ctaPrimary": "Follow one pupil in week 4",
       "ctaSecondary": "View teaching portfolio",
       "panelTitle": "Who can see each record?",
@@ -1943,7 +1943,7 @@
         ]
       ],
       "workflowTitle": "A physics comment and a missing maths report",
-      "workflowLead": "When the form tutor opens the weekly record, physics has a grade and maths is still blank. Who should the tutor speak to, and about what?",
+      "workflowLead": "The spreadsheet allowed a subject to be left blank if a pupil did not take it. Here the tutor can see that the pupil takes maths and a report is still due. The physics teacher has already left a specific comment.",
       "workflowLabel": "Week 4 · Fictional pupil record",
       "workflowCode": "One pupil, seen by two teachers",
       "steps": [
@@ -1961,12 +1961,12 @@
         ]
       ],
       "modulesTitle": "Inside the Academic Affairs System",
-      "modulesLead": "The first two modules support the weekly feedback case. I also built tools for timetable changes, rosters, assessment records and teaching hours. I have held back wider use of these tools at school because they involve more pupil data.",
+      "modulesLead": "At school I saw colleagues switch between sheets less often. I also built tools for timetable changes, exams, homework and teaching hours. I have held back wider school use because it would involve more pupil data.",
       "modules": [
         {
           "id": "01",
           "title": "Weekly subject reports",
-          "summary": "Teachers can enter feedback by class, copy the previous week’s records and add an observation for each pupil.",
+          "summary": "The database retains the 11 feedback fields teachers knew from the spreadsheets. Each teacher gets a list of the pupils and subjects they teach and can copy the previous week’s entry before updating an observation.",
           "images": [
             [
               "management/01-fill-folded.png",
@@ -1981,7 +1981,7 @@
         {
           "id": "02",
           "title": "The form tutor’s overview",
-          "summary": "Tutors can read comments across subjects for each pupil and identify the subjects whose reports are due.",
+          "summary": "Form tutors still read across subjects for their own class. The system compares each pupil’s enrolments with the subjects that have an overall grade for the week, so the tutor can see which teachers to follow up with.",
           "images": [
             [
               "management/02-homeroom-overview.png",
@@ -1996,7 +1996,7 @@
         {
           "id": "03",
           "title": "Timetable changes",
-          "summary": "Teachers can request a move, an extra lesson or cover. Administrators review requests and update the existing timetable.",
+          "summary": "A change used to start with a message passed on through the head of academic affairs and the school office. With several Excel timetables in circulation, pupils, teachers and staff often had to ask which time was current. Teachers can now submit a change for approval, and staff and pupils can consult their respective views of the updated timetable.",
           "images": [
             [
               "management/03-tt-toolbar.png",
@@ -2011,7 +2011,7 @@
         {
           "id": "04",
           "title": "Class lists and teaching assignments",
-          "summary": "Administrators maintain class lists and teaching assignments. If a subject has no named teacher, they can check the pupil’s enrolment and the teaching assignment for that subject.",
+          "summary": "I verified assignments at the level of an individual pupil and subject. When a pupil joins a class or changes course, the office can check their class, enrolments and teachers. These determine whose reporting lists the pupil appears on.",
           "images": [
             [
               "management/04-admin-students.png",
@@ -2026,7 +2026,7 @@
         {
           "id": "05",
           "title": "Exam and homework records",
-          "summary": "Teachers can set up an exam and enter marks, or open a homework task and record completion by class. Each has its own entry screen.",
+          "summary": "Teachers can record a mark, an analysis and advice for an exam, or completion and comments for a homework task. Both kinds of record can be retrieved by pupil to follow up a learning concern.",
           "images": [
             [
               "management/05-exam-list.png",
@@ -2049,7 +2049,7 @@
         {
           "id": "06",
           "title": "Teaching hours and exports",
-          "summary": "The current timetable and extra lessons supply the hours report. Staff can export a CSV, and the system logs the export. Historical cover needs a separate check.",
+          "summary": "The system totals hours from the current timetable and extra lessons and exports the detail. This gives the school a starting point for reviewing teaching workloads. Historical cover and timetable changes still need to be reconciled under the school’s own rules.",
           "images": [
             [
               "management/06-hours-export.png",
@@ -2062,29 +2062,29 @@
           ]
         }
       ],
-      "otherTitle": "What I would check before wider use",
-      "otherLead": "I would ask a subject teacher and a form tutor to walk through one reporting week together before deciding whether to add another class.",
+      "otherTitle": "Towards a continuing record for each pupil",
+      "otherLead": "Once the database was in place, I began to think about the next conversation with a parent. Could a teacher bring a classroom observation, a later piece of homework and a recent exam together to explain where a pupil had struggled and what had improved? That is what I want a pupil record to make possible.",
       "others": [
         {
-          "kicker": "Evaluation",
-          "title": "Can staff find the missing report?",
-          "text": "Ask colleagues to find the subject still due for one pupil using the spreadsheets and then the system. Record time taken, sheet changes and whether they identify the right subject.",
+          "kicker": "Teachers and school staff",
+          "title": "Follow a question over time",
+          "text": "The physics teacher’s note about graph intercepts gives the tutor something specific to revisit with the pupil. Homework and exam records can already be retrieved by pupil. I would like teachers and tutors to follow that evidence over time, and authorised school staff to see where a pupil needs support.",
           "linkLabel": null,
           "href": null
         },
         {
-          "kicker": "Access",
-          "title": "Who needs this record?",
-          "text": "Agree with the school which pupils and fields each role should see before choosing the next class for a pilot.",
+          "kicker": "Families",
+          "title": "Give a parent a specific example",
+          "text": "A tutor could select a piece of work that shows progress and another that shows what still needs practice. My aim is for the tutor to review those records before sharing them and agree a next step with the family.",
           "linkLabel": null,
           "href": null
         },
         {
-          "kicker": "Related work",
-          "title": "Physics teaching and course design",
-          "text": "Explore my classroom work through a lesson, a question or a practical investigation.",
-          "linkLabel": "View teaching portfolio",
-          "href": "https://bingkun.rth1.xyz/"
+          "kicker": "Future development",
+          "title": "Evidence of learning and pastoral care",
+          "text": "Understanding a pupil’s grasp of a particular concept would require a link to the learning platform and evidence from relevant questions and responses. The pastoral module is a draft. Before including those records, the school would need to agree who may write and read them.",
+          "linkLabel": null,
+          "href": null
         }
       ],
       "footerName": "Bingkun Qi · 亓炳堃",
