@@ -1,5 +1,6 @@
 """Build localized static entry pages from the site's shared, verified content."""
 from pathlib import Path
+import hashlib
 import html
 import json
 
@@ -189,8 +190,92 @@ def physics_hub(language):
             f'<p><a href="{esc(hub["libraryUrl"])}" target="_blank" rel="noopener noreferrer">{esc(hub["libraryLabel"])} ↗</a></p></section>')
 
 
+def management_page(language):
+    m = data[language]['managementPortfolio']
+    t = labels[language]
+    route = localized_path(language, 'management')
+    language_links = ' / '.join(
+        f'<a href="{localized_path(code, "management")}" data-management-lang="{code}" '
+        f'lang="{labels[code]["html_lang"]}" hreflang="{labels[code]["html_lang"]}"'
+        + (' aria-current="page"' if code == language else '') + f'>{name}</a>'
+        for code, name in [('zh', '中文'), ('en', 'English')]
+    )
+    subjects = ''.join(
+        f'<div><dt>{esc(subject)}</dt><dd><strong>{esc(status)}</strong>'
+        f'<span>{esc(note)}</span></dd></div>'
+        for subject, status, note in m['previewRows']
+    )
+
+    def screenshot(image):
+        file, caption = image
+        url = f'/assets/{esc(file)}'
+        # Supply the intrinsic size so the page keeps its place as images load.
+        with (dist / 'assets' / file).open('rb') as stream:
+            header = stream.read(24)
+        size = ''
+        if header.startswith(bytes.fromhex('89504e470d0a1a0a')) and len(header) == 24:
+            width = int.from_bytes(header[16:20], 'big')
+            height = int.from_bytes(header[20:24], 'big')
+            size = f' width="{width}" height="{height}"'
+        return (f'<figure><a href="{url}"><img src="{url}" alt="{esc(caption)}"{size} '
+                f'loading="lazy"></a><figcaption>{esc(caption)}</figcaption></figure>')
+
+    modules = []
+    for mod in m['modules']:
+        images = mod.get('images', [])
+        gallery = ''
+        if images:
+            layout = ' single' if len(images) == 1 else ''
+            figures = ''.join(screenshot(image) for image in images)
+            gallery = f'<div class="mgmt-shots{layout}">{figures}</div>'
+        modules.append(
+            f'<details class="mgmt-module" id="module-{esc(mod["id"])}">'
+            f'<summary>{esc(mod["title"])}</summary><p>{esc(mod["summary"])}</p>'
+            f'{gallery}</details>'
+        )
+
+    future = []
+    for item in m['others']:
+        link = ''
+        if item.get('href') and item.get('linkLabel'):
+            link = f'<a href="{esc(item["href"])}">{esc(item["linkLabel"])}</a>'
+        future.append(f'<article><h3>{esc(item["title"])}</h3><p>{esc(item["text"])}</p>{link}</article>')
+
+    headline = '<br>'.join(esc(line) for line in m['headline'].splitlines())
+    modules_lead = f'<p>{esc(m["modulesLead"])}</p>' if m.get('modulesLead') else ''
+    return (
+        f'<div class="mgmt-shell"><a class="skip" href="#main">{esc(t["skip"])}</a>'
+        f'<header class="mgmt-header wrap"><a class="mgmt-brand" href="{route}">'
+        f'<span class="mgmt-brand-mark" aria-hidden="true">亓</span>Bingkun Qi</a>'
+        f'<nav class="mgmt-nav" aria-label="{esc(t["nav"])}">'
+        f'<a href="{esc(m["teachingHome"])}">{esc(m["navTeaching"])}</a>'
+        f'<span class="mgmt-lang" aria-label="{esc(t["languages"])}">{language_links}</span>'
+        f'</nav></header><main id="main" class="wrap"><section class="mgmt-hero">'
+        f'<div class="mgmt-intro"><p class="mgmt-kicker">{esc(m["eyebrow"])}</p>'
+        f'<h1>{headline}</h1><p class="mgmt-hero-lead">{esc(m["lead"])}</p>'
+        f'<a class="mgmt-btn mgmt-btn-solid" href="#workflow">{esc(m["ctaPrimary"])}</a></div>'
+        f'<aside class="mgmt-record"><h2>{esc(m["workflowLabel"])}</h2>'
+        f'<dl class="mgmt-subjects">{subjects}</dl></aside></section>'
+        f'<details class="mgmt-origin"><summary>{esc(m["originTitle"])}</summary>'
+        f'<p>{esc(m["stackLine"])}</p></details>'
+        f'<section class="mgmt-workflow" id="workflow"><h2>{esc(m["workflowTitle"])}</h2>'
+        f'<p class="mgmt-workflow-brief">{esc(m["workflowLead"])}</p>'
+        f'<div class="mgmt-shots mgmt-workflow-image">{screenshot(m["workflowImage"])}</div></section>'
+        f'<section class="mgmt-modules" id="modules"><h2>{esc(m["modulesTitle"])}</h2>'
+        f'{modules_lead}{"".join(modules)}</section>'
+        f'<section class="mgmt-other" id="other-entries"><h2>{esc(m["otherTitle"])}</h2>'
+        f'<p>{esc(m["otherLead"])}</p><details class="mgmt-future"><summary>{esc(m["futureTitle"])}</summary>'
+        f'<div class="mgmt-other-grid">{"".join(future)}</div></details></section></main>'
+        f'<footer class="mgmt-footer wrap"><span>{esc(m["footerName"])}</span>'
+        f'<span>{esc(m["privacyNote"])}</span>'
+        f'<a href="#top">{esc(m["backTop"])}</a></footer></div>'
+    )
+
+
 def fallback_content(language, route):
     """Keep meaningful copy and navigation available before JS or without it."""
+    if route == 'management':
+        return management_page(language)
     d, t = data[language], labels[language]
     title, description = page_details(language, route)
     navigation = []
@@ -245,80 +330,6 @@ def fallback_content(language, route):
         sections.append(paragraphs(d['about']['paragraphs'][-1:]))
         sections.append(f'<section id="projects"><h2>{esc(t["projects"])}</h2>'
                         f'{project_cards(language, d["projects"])}</section>')
-    elif route == 'management':
-        portfolio = d['managementPortfolio']
-        steps = ''.join(
-            f'<li><strong>{esc(step[0])}</strong> — {esc(step[1])}</li>'
-            for step in portfolio['steps']
-        )
-        def screenshot(image):
-            file, caption = image
-            url = f'/assets/{esc(file)}'
-            return (f'<figure><a href="{url}"><img src="{url}" loading="lazy" '
-                    f'alt="{esc(caption)}"></a><figcaption>{esc(caption)}</figcaption></figure>')
-
-        workflow_image = ''
-        if portfolio.get('workflowImage'):
-            workflow_image = (f'<div class="mgmt-shots mgmt-workflow-image">'
-                              f'{screenshot(portfolio["workflowImage"])}</div>')
-        modules = []
-        for mod in portfolio['modules']:
-            images = ''
-            if mod.get('images'):
-                layout = ' single' if len(mod['images']) == 1 else ''
-                figures = ''.join(screenshot(image) for image in mod['images'])
-                images = f'<div class="mgmt-shots{layout}">{figures}</div>'
-            gap = f'<p>{esc(mod["gap"])}</p>' if mod.get('gap') else ''
-            modules.append(
-                f'<article id="module-{esc(mod["id"])}"><p class="small-label">{esc(mod["id"])}</p>'
-                f'<h3>{esc(mod["title"])}</h3><p>{esc(mod["summary"])}</p>{gap}{images}</article>'
-            )
-        other_parts = []
-        for item in portfolio['others']:
-            link = ''
-            if item.get('href') and item.get('linkLabel'):
-                href = item['href']
-                link = f'<p><a href="{esc(href)}" target="_blank" rel="noopener noreferrer">{esc(item["linkLabel"])}</a></p>'
-            other_parts.append(
-                f'<article><p class="small-label">{esc(item["kicker"])}</p>'
-                f'<h3>{esc(item["title"])}</h3><p>{esc(item["text"])}</p>{link}</article>'
-            )
-        others = ''.join(other_parts)
-        stack = f'<p>{esc(portfolio["stackLine"])}</p>' if portfolio.get('stackLine') else ''
-        sections.append(stack)
-        sections.append(f'<section id="workflow"><p class="mgmt-kicker">{esc(portfolio["workflowLabel"])}</p>'
-                        f'<h2>{esc(portfolio["workflowTitle"])}</h2>'
-                        f'<p>{esc(portfolio["workflowLead"])}</p>'
-                        f'<p><strong>{esc(portfolio["workflowCode"])}</strong></p><ol>{steps}</ol>{workflow_image}</section>')
-        sections.append(f'<section id="modules"><h2>{esc(portfolio["modulesTitle"])}</h2>'
-                        f'<p>{esc(portfolio["modulesLead"])}</p>{"".join(modules)}</section>')
-        sections.append(f'<section id="other-entries"><h2>{esc(portfolio["otherTitle"])}</h2>'
-                        f'<p>{esc(portfolio["otherLead"])}</p>{others}'
-                        f'<p>{esc(portfolio["privacyNote"])}</p></section>')
-        teaching_home = portfolio.get('teachingHome', 'https://bingkun.rth1.xyz/')
-        cases_home = portfolio.get('casesHome', teaching_home)
-        management_nav = [
-            f'<a href="{esc(teaching_home)}" target="_blank" rel="noopener noreferrer">'
-            f'{esc(portfolio["navTeaching"])}</a>',
-            f'<a href="{localized_path(language, "management")}" aria-current="page">'
-            f'{esc(portfolio["navManagement"])}</a>',
-            f'<a href="{esc(cases_home)}" target="_blank" rel="noopener noreferrer">'
-            f'{esc(portfolio["navOthers"])}</a>',
-        ]
-        return (
-            f'<a class="skip" href="#main">{esc(t["skip"])}</a>'
-            f'<header class="static-header wrap"><a class="brand" '
-            f'href="{localized_path(language, "management")}">'
-            f'<span class="mgmt-brand-mark" aria-hidden="true">亓</span> Bingkun Qi / 亓炳堃'
-            f'</a><nav aria-label="{esc(t["nav"])}">{" ".join(management_nav)}</nav>'
-            f'<div aria-label="{esc(t["languages"])}">{language_links}</div></header>'
-            f'<main id="main" class="wrap inner-main static-main">'
-            f'<p class="eyebrow">{esc(portfolio["eyebrow"])}</p>'
-            f'<h1>{esc(portfolio["headline"])}</h1><p>{esc(description)}</p>{"".join(sections)}'
-            f'<noscript><p>{esc(t["noscript"])}</p></noscript></main>'
-            f'<footer class="static-footer wrap"><span>{esc(portfolio["footerName"])}</span>'
-            f'<a href="#top">{esc(portfolio["backTop"])}</a></footer>'
-        )
     else:
         project = next(p for p in d['projects'] if route == f'projects/{p["id"]}')
         sections.append(f'<section><h2>{esc(t["overview"])}</h2>'
@@ -399,6 +410,16 @@ def write_page(language, route, output_route):
         for code in labels
     ) + f'<link rel="alternate" hreflang="x-default" href="{localized_url("zh", route)}">'
     other_locale = labels['en' if language == 'zh' else 'zh']['locale']
+    assets = '''<link rel="stylesheet" href="/assets/style.css"><link rel="stylesheet" href="/assets/enhancements.css"><link rel="stylesheet" href="/assets/physics-hub.css"><link rel="stylesheet" href="/assets/management-portfolio.css">
+<script src="/assets/wave-lab.js" defer></script><script src="/assets/enhancements.js" defer></script><script src="/assets/app.js" defer></script>'''
+    if route == 'management':
+        def asset_url(name):
+            version = hashlib.sha256((dist / 'assets' / name).read_bytes()).hexdigest()[:12]
+            return f'/assets/{name}?v={version}'
+
+        assets = (f'<link rel="stylesheet" href="{asset_url("style.css")}">'
+                  f'<link rel="stylesheet" href="{asset_url("management-portfolio.css")}">'
+                  f'<script src="{asset_url("management.js")}" defer></script>')
     document = f'''<!doctype html>
 <html lang="{t['html_lang']}"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -415,8 +436,7 @@ def write_page(language, route, output_route):
 <meta name="twitter:image" content="{origin}/assets/share-card.png">
 <link rel="canonical" href="{canonical}">{alternates}
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/assets/style.css"><link rel="stylesheet" href="/assets/enhancements.css"><link rel="stylesheet" href="/assets/physics-hub.css"><link rel="stylesheet" href="/assets/management-portfolio.css">
-<script src="/assets/wave-lab.js" defer></script><script src="/assets/enhancements.js" defer></script><script src="/assets/app.js" defer></script>
+{assets}
 <style>
 .static-header{{display:flex;flex-wrap:wrap;align-items:center;gap:20px;padding-block:28px;border-bottom:1px solid var(--line)}}
 .static-header nav{{display:flex;flex-wrap:wrap;gap:18px}}.static-header a:hover,.static-main a:hover{{text-decoration:underline}}

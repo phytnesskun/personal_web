@@ -870,47 +870,16 @@
     },
     "managementPortfolio": {
       "title": "教务系统 · 从教师周反馈到一生一档",
-      "eyebrow": "亓炳堃 · 国际高中教务系统",
-      "headline": "填一次周反馈，我要翻好几张班级表",
-      "lead": "学校的反馈表按班级设计。班主任打开自己班的那一页，就能沿着一名学生的名字看各科反馈。我填表时走的是另一条路线：几个班教数学，另几个班教物理，高数只教其中一些学生，还要找到中途插班的学生。每周填报，我都要反复换表、找人、对科目。",
-      "stackLine": "我去问教务，能否列出每位老师具体教哪些学生、哪些科目。教务当时掌握的信息还不完整，我就逐一找老师确认，把任课教师、学生和科目的对应关系建进数据库。老师从自己的任教清单填一次，班主任在本班学生的周汇总里就能读到同一条反馈。",
+      "eyebrow": "国际高中教务系统 · 教师周反馈",
+      "headline": "任课老师填一次，\n班主任按学生看各科",
+      "lead": "我逐一找老师核对任教关系，把每位老师要填的学生和科目整理成一张清单。",
+      "stackLine": "我在一些班教数学，另一些班教物理，高数只教部分学生，还要找到中途插班的同学。原来的 Excel 按班排，班主任读起来方便，我每周填反馈却要来回换表。教务手头也没有完整的任教明细。我逐位核对后建了共享数据库：同一条记录，老师按任教清单填，班主任按班查看。",
       "ctaPrimary": "看第 4 周案例",
-      "ctaSecondary": "浏览教学作品集",
-      "panelTitle": "谁能看到哪些记录",
-      "roles": [
-        [
-          "任课教师",
-          "按自己所教的学生和科目填报。"
-        ],
-        [
-          "班主任",
-          "从本班学生的记录查看各科反馈。"
-        ],
-        [
-          "教务管理员",
-          "维护任教关系，处理课表变更。"
-        ]
-      ],
-      "workflowTitle": "一条物理评语，一份待收的数学反馈",
-      "workflowLead": "原表允许学生未选的科目留空。现在班主任打开本周记录，就能看见这名学生选了数学，但数学还缺反馈。物理已经填好，老师留了一条具体的评语。",
-      "workflowLabel": "第 4 周 · 虚构学生记录",
-      "workflowCode": "同一名学生，两个教师视角",
-      "steps": [
-        [
-          "物理老师记录观察",
-          "这周布置了 3 份作业，学生完成 2 份。老师给出综合等级 C，写下“下次检查图线截距”并保存。"
-        ],
-        [
-          "班主任查看各科汇总",
-          "打开同一学生的第 4 周记录，班主任能读回物理老师的评语，也看到数学一栏显示“未填”。"
-        ],
-        [
-          "分别跟进学生和老师",
-          "班主任可以请学生拿出物理作业，说说怎样从图上读截距。数学一栏缺的是教师反馈，班主任可以向数学老师补收这周的记录。"
-        ]
-      ],
-      "modulesTitle": "系统里的六项教务工作",
-      "modulesLead": "老师少了来回切表的步骤，这是我在校内观察到的变化。沿着周反馈的需求，我又开发了课表变更、考试、作业和课时统计。扩大使用会涉及更多学生数据，目前暂缓全校推广。",
+      "workflowTitle": "班主任接下来找谁？",
+      "workflowLead": "找学生，一起看物理作业上的图线截距。找数学老师，补收本周反馈。",
+      "workflowLabel": "班主任看到的第 4 周 · 虚构示例",
+      "modulesTitle": "六项教务功能",
+      "modulesLead": "校内已观察到老师少了切表的步骤。扩展功能暂缓全校推广。",
       "modules": [
         {
           "id": "01",
@@ -1011,25 +980,22 @@
           ]
         }
       ],
-      "otherTitle": "从周反馈走向“一生一档”",
-      "otherLead": "数据库做起来以后，我有了下一个问题：下次和家长谈这个孩子时，老师能不能把当时的课堂观察、后来交的作业和最近一次考试放在一起，讲清楚孩子遇到了什么困难、哪些地方已经有了进步？这就是我想做的“一生一档”。",
+      "otherTitle": "下一步，走向一生一档",
+      "otherLead": "把本周的观察和后来的作业、考试放在一起，师生和家长就有具体的例子可以讨论。",
       "others": [
         {
-          "kicker": "教师与学校",
           "title": "沿着一个问题看下去",
           "text": "比如物理老师在周反馈里记下“下次检查图线截距”。系统已有按学生回查作业、考试记录的功能。下一步，我希望任课老师和班主任能沿时间查看这些证据，教务也能在职责范围内了解哪些学生需要支持。",
           "linkLabel": null,
           "href": null
         },
         {
-          "kicker": "家校沟通",
           "title": "让反馈有具体依据",
           "text": "班主任和家长谈数学时，可以选一份能看出进步的作业，再举一个还需要练习的例子。我希望班主任能从学生档案中选取、核对适合分享的记录，和家长商量下一步。",
           "linkLabel": null,
           "href": null
         },
         {
-          "kicker": "后续对接",
           "title": "知识点掌握与德育情况",
           "text": "若要判断学生是否掌握一个知识点，还需要和学习平台对接，取得对应题目和作答证据。德育记录目前停留在草稿阶段，纳入档案前还要与学校明确谁能记录、谁能查看。",
           "linkLabel": null,
@@ -1039,15 +1005,26 @@
       "footerName": "亓炳堃 · Bingkun Qi",
       "backTop": "回到顶部 ↑",
       "navTeaching": "教学作品集",
-      "navManagement": "教务系统",
-      "navOthers": "其他案例",
-      "privacyNote": "本页学生记录和成绩均来自本地虚构演示。",
+      "privacyNote": "本页界面均使用虚构学生记录。",
       "teachingHome": "https://bingkun.rth1.xyz/",
-      "casesHome": "https://bingkun.rth1.xyz/",
       "workflowImage": [
         "management/week-4-feedback.png",
-        "虚构界面节选。左图是物理老师填写的作业数量和综合等级，右图是班主任看到的物理 C 和数学“未填”。"
-      ]
+        "左图为任课老师填报，右图为班主任汇总。点图查看原图。"
+      ],
+      "originTitle": "为什么要逐位核对任教关系？",
+      "previewRows": [
+        [
+          "物理",
+          "已填",
+          "作业完成 2/3，综合 C。下次检查图线截距。"
+        ],
+        [
+          "数学",
+          "待填",
+          "数学老师还没填本周反馈。"
+        ]
+      ],
+      "futureTitle": "现有记录与下一步对接"
     }
   },
   "en": {
@@ -1921,47 +1898,16 @@
     },
     "managementPortfolio": {
       "title": "Academic Affairs System · From weekly feedback to a pupil record",
-      "eyebrow": "Bingkun Qi · Academic Affairs System",
-      "headline": "My teaching list spanned several class sheets",
-      "lead": "Our weekly spreadsheet worked well for a form tutor. Each pupil had a row, with all their subjects side by side. I taught maths to some classes, physics to others and Further Mathematics to only some pupils. Pupils also joined partway through the term. Every reporting week I moved between sheets to find the right pupil and subject.",
-      "stackLine": "I asked the school office who taught each pupil in each subject. The office had only part of that picture, so I checked the assignments with every teacher and recorded them in a shared database. Subject teachers now write from their own teaching lists. Form tutors read the same comments by pupil and class.",
+      "eyebrow": "Academic Affairs System · Weekly pupil feedback",
+      "headline": "Teachers report once. Tutors see each pupil’s week.",
+      "lead": "I checked teaching assignments with each colleague so teachers can report from a list of their own pupils and subjects.",
+      "stackLine": "I taught maths to some classes, physics to others and Further Mathematics to just some pupils. Some pupils joined mid-term. The class sheets worked well for form tutors, but I had to switch between sheets every reporting week. The school office had only part of the picture. I checked each teaching list with the teacher and built a shared database around those assignments.",
       "ctaPrimary": "Follow one pupil in week 4",
-      "ctaSecondary": "View teaching portfolio",
-      "panelTitle": "Who can see each record?",
-      "roles": [
-        [
-          "Subject teacher",
-          "Records feedback for the pupils and subjects they teach."
-        ],
-        [
-          "Form tutor",
-          "Sees feedback and missing reports for their own form."
-        ],
-        [
-          "School administrator",
-          "Maintains class lists and teaching assignments and reviews timetable changes."
-        ]
-      ],
-      "workflowTitle": "A physics comment and a missing maths report",
-      "workflowLead": "The spreadsheet allowed a subject to be left blank if a pupil did not take it. Here the tutor can see that the pupil takes maths and a report is still due. The physics teacher has already left a specific comment.",
-      "workflowLabel": "Week 4 · Fictional pupil record",
-      "workflowCode": "One pupil, seen by two teachers",
-      "steps": [
-        [
-          "The physics teacher records an observation",
-          "The pupil completed two of three homework tasks. The teacher records an overall C and adds a reminder to check how the pupil finds the intercept on a graph next lesson."
-        ],
-        [
-          "The form tutor opens the same week",
-          "The physics grade and comment are visible in the pupil’s record. Alongside them, maths is marked “未填” (report pending)."
-        ],
-        [
-          "The tutor can follow up with two people",
-          "The tutor can ask the pupil to show how they read the intercept on their physics graph. For maths, the next step is to ask the teacher for the missing report."
-        ]
-      ],
-      "modulesTitle": "Inside the Academic Affairs System",
-      "modulesLead": "At school I saw colleagues switch between sheets less often. I also built tools for timetable changes, exams, homework and teaching hours. I have held back wider school use because it would involve more pupil data.",
+      "workflowTitle": "Who does the tutor follow up with?",
+      "workflowLead": "Ask the pupil to read the intercept on their physics graph. Ask the maths teacher for the missing report.",
+      "workflowLabel": "Form tutor’s view · Fictional week 4",
+      "modulesTitle": "Six school operations tools",
+      "modulesLead": "Teachers switched between sheets less often at school. Wider use of the additional tools is on hold.",
       "modules": [
         {
           "id": "01",
@@ -2062,25 +2008,22 @@
           ]
         }
       ],
-      "otherTitle": "Towards a continuing record for each pupil",
-      "otherLead": "Once the database was in place, I began to think about the next conversation with a parent. Could a teacher bring a classroom observation, a later piece of homework and a recent exam together to explain where a pupil had struggled and what had improved? That is what I want a pupil record to make possible.",
+      "otherTitle": "Towards a continuing pupil record",
+      "otherLead": "Bring an observation together with later homework and exams so teachers and families can discuss specific signs of progress.",
       "others": [
         {
-          "kicker": "Teachers and school staff",
           "title": "Follow a question over time",
           "text": "The physics teacher’s note about graph intercepts gives the tutor something specific to revisit with the pupil. Homework and exam records can already be retrieved by pupil. I would like teachers and tutors to follow that evidence over time, and authorised school staff to see where a pupil needs support.",
           "linkLabel": null,
           "href": null
         },
         {
-          "kicker": "Families",
           "title": "Give a parent a specific example",
           "text": "A tutor could select a piece of work that shows progress and another that shows what still needs practice. My aim is for the tutor to review those records before sharing them and agree a next step with the family.",
           "linkLabel": null,
           "href": null
         },
         {
-          "kicker": "Future development",
           "title": "Evidence of learning and pastoral care",
           "text": "Understanding a pupil’s grasp of a particular concept would require a link to the learning platform and evidence from relevant questions and responses. The pastoral module is a draft. Before including those records, the school would need to agree who may write and read them.",
           "linkLabel": null,
@@ -2090,15 +2033,26 @@
       "footerName": "Bingkun Qi · 亓炳堃",
       "backTop": "Back to top ↑",
       "navTeaching": "Teaching work",
-      "navManagement": "School operations",
-      "navOthers": "Other cases",
-      "privacyNote": "All pupil records and grades shown come from local demonstrations using fictional data.",
+      "privacyNote": "All pupil records shown here are fictional.",
       "teachingHome": "https://bingkun.rth1.xyz/",
-      "casesHome": "https://bingkun.rth1.xyz/",
       "workflowImage": [
         "management/week-4-feedback.png",
-        "Fictional interface excerpts. On the left the physics teacher records three tasks set, two completed and an overall C. On the right the tutor sees physics C and maths marked “未填” (report pending)."
-      ]
+        "Subject teacher on the left, form tutor on the right. Select the image for a full-size view."
+      ],
+      "originTitle": "Why check every teaching assignment?",
+      "previewRows": [
+        [
+          "Physics",
+          "Reported",
+          "2 of 3 tasks completed. Overall C. Revisit graph intercepts."
+        ],
+        [
+          "Maths",
+          "Pending",
+          "The maths teacher’s report is still due."
+        ]
+      ],
+      "futureTitle": "Current records and future connections"
     }
   }
 }

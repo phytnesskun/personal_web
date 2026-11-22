@@ -43,7 +43,7 @@ const routeParts = location.pathname.split('/').filter(Boolean);
 const urlLanguage = ['zh','en'].includes(routeParts[0]) ? routeParts.shift() : null;
 let lang = urlLanguage || 'zh';
 const path = '/' + routeParts.join('/');
-const route = path.startsWith('/projects/') ? 'project' : path === '/research' ? 'research' : path === '/about' ? 'about' : path === '/teaching' ? 'teaching' : path === '/management' ? 'management' : 'home';
+const route = path.startsWith('/projects/') ? 'project' : path === '/research' ? 'research' : path === '/about' ? 'about' : path === '/teaching' ? 'teaching' : 'home';
 const projectId = routeParts[1];
 const languageUrl = l => '/' + l + (path === '/' ? '/' : path + '/') + location.hash;
 Object.assign(UI.zh, {intro:'我是亓炳堃，国际学校物理与数学教师、非厄米光子学研究者，也是一名 AI 教学工具开发者。我把研究中的好奇心带进课堂，再把教学中的需求做成工具。',contactIntro:'欢迎交流国际课程教学、教育工具合作与物理研究。邮件中可以告诉我你的问题或想法。'});
@@ -108,15 +108,16 @@ function project(d,t) {
  return `<main id="main" class="wrap inner-main"><a class="back-link" href="/#projects">← ${t.backProjects}</a><section class="project-heading page-heading"><p class="eyebrow">${esc(p.kicker)}</p><h1>${esc(p.title)}</h1><p>${esc(p.summary)}</p>${p.status?`<p class="project-status">${esc(p.status)}</p>`:''}${projectAction(p,t,'button dark')}</section>${p.case||CASES[lang][p.id]?caseStudy(p):`<div class="project-banner">${projectArt(t,p.id)}</div>`}<div class="project-body"><div><section><h2>${t.overview}</h2>${p.story.map(x=>`<p>${esc(x)}</p>`).join('')}</section><section><h2>${t.features}</h2><ul class="feature-list">${p.features.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>${p.id==='caie-physics'?`<section><h2>${t.workflow}</h2><p>${t.workflowIntro}</p><ol class="workflow-list">${t.steps.map((x,i)=>`<li><span>0${i+1}</span>${x}</li>`).join('')}</ol></section>`:''}${projectResources(p)}</div><aside><p class="eyebrow">${p.url?t.access:(lang==='zh'?'项目状态':'PROJECT STATUS')}</p><p>${p.accessNote?esc(p.accessNote):p.id==='student-feedback'?(lang==='zh'?'系统提供教师与学生各自的使用入口，支持中文与英文界面。':'The system provides separate entry points for teachers and students, with Chinese and English interfaces.'):t.accessNote}</p>${projectAction(p,t)}<hr>${external(SCHOLAR,t.scholar)}</aside></div><section class="related-projects"><h2>${t.moreProjects}</h2>${projectRows(d,t,p.id)}</section></main>`;
 }
 function render() {
+ // Older cached management documents already contain the full static case.
+ if (path === '/management') return;
  const t=UI[lang], d=content[lang];
  const previousLab=document.querySelector('wave-lab');
  const menuWasOpen=document.querySelector('.menu-toggle')?.getAttribute('aria-expanded')==='true';
  document.documentElement.lang=lang==='zh'?'zh-CN':'en';
  document.body.dataset.language=lang;
- document.title = `${route==='research'?t.researchPageTitle:route==='about'?t.aboutPageTitle:route==='teaching'?d.teachingOverview.title:route==='management'?(d.managementPortfolio?.title||(lang==='zh'?'教务系统 · 求职样品':'School admin · job portfolio')):route==='project'?(d.projects.find(p=>p.id===projectId)?.title||'Project'):t.footer} — ${lang==='zh'?'物理 · 教学 · AI':'Physics · Teaching · AI'}`;
- const body=({home,research,about,project,teaching,management}[route](d,t));
- document.body.classList.toggle('mgmt-page', route==='management');
- document.getElementById('app').innerHTML=route==='management'?body:(header(t)+body+footer(t));
+ document.title = `${route==='research'?t.researchPageTitle:route==='about'?t.aboutPageTitle:route==='teaching'?d.teachingOverview.title:route==='project'?(d.projects.find(p=>p.id===projectId)?.title||'Project'):t.footer} — ${lang==='zh'?'物理 · 教学 · AI':'Physics · Teaching · AI'}`;
+ const body=({home,research,about,project,teaching}[route](d,t));
+ document.getElementById('app').innerHTML=header(t)+body+footer(t);
  if(previousLab&&document.querySelector('wave-lab')){document.querySelector('wave-lab').replaceWith(previousLab);previousLab.setAttribute('lang',lang);}
  document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{if(lang===b.dataset.lang)return;const y=scrollY;lang=b.dataset.lang;history.pushState({language:lang},'',languageUrl(lang));try{localStorage.setItem('bq-language',lang);}catch{}render();scrollTo(0,y);document.querySelector(`[data-lang="${lang}"]`)?.focus({preventScroll:true});}));
  enhancePage();
