@@ -976,8 +976,24 @@
           "id": "05",
           "title": "考试与作业记录",
           "summary": "老师可以建立考试、登记各生成绩，也可以按班记录一次作业的完成情况。两类记录各有录入页面。",
-          "gap": "截图缺口：考试区 / 作业区待本地 init_db --demo 补拍（勿碰生产库）。此处仅文案说明。",
-          "images": []
+          "images": [
+            [
+              "management/05-exam-list.png",
+              "考试列表。《运动图像小测》这一行显示已有 2 条成绩记录。"
+            ],
+            [
+              "management/05-exam-entry.png",
+              "考试录入。两名虚构学生分别得 7/10 和 9/10。第一份答卷读出了截距却漏写单位，老师将“在读数后标明单位”存为改进建议。"
+            ],
+            [
+              "management/05-homework-list.png",
+              "作业列表。第 4 周《运动图像练习》显示“已录入 2/3”，即三名学生中已有两人的教师记录。"
+            ],
+            [
+              "management/05-homework-entry.png",
+              "作业录入。第一人有分数和评语，第二人只有评语，两人都标为“已录”。第三人“未录”，是否交作业还需核实。"
+            ]
+          ]
         },
         {
           "id": "06",
@@ -2011,8 +2027,24 @@
           "id": "05",
           "title": "Exam and homework records",
           "summary": "Teachers can set up an exam and enter marks, or open a homework task and record completion by class. Each has its own entry screen.",
-          "gap": "Screenshot gap: exam/homework pages still need local init_db --demo captures (never production). Copy-only for now.",
-          "images": []
+          "images": [
+            [
+              "management/05-exam-list.png",
+              "Exam list. The Motion Graphs Quiz (运动图像小测) has two recorded results."
+            ],
+            [
+              "management/05-exam-entry.png",
+              "Exam entry. Two fictional pupils scored 7/10 and 9/10. The first pupil read the intercept correctly but omitted the unit. The teacher’s advice is to write the unit after the reading."
+            ],
+            [
+              "management/05-homework-list.png",
+              "Homework list. For the week 4 Motion Graphs Practice (运动图像练习), “2/3” counts pupils for whom the teacher has entered a record."
+            ],
+            [
+              "management/05-homework-entry.png",
+              "Homework entry. One pupil has a mark and a comment, another has a comment alone. Both count as recorded. The third row is blank, so the pupil’s submission status is still unknown."
+            ]
+          ]
         },
         {
           "id": "06",
