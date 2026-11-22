@@ -78,12 +78,27 @@ def project_cards(language, projects):
     )
 
 
-def paper_cards(papers):
+def paper_record(language, paper):
+    if 'citations' in paper:
+        count = paper['citations']
+        citation = f'被引用 {count} 次' if language == 'zh' else f'Cited by {count}'
+    else:
+        citation = '未显示被引数' if language == 'zh' else 'Citation count not displayed'
+    story_label = '中文图文解读' if language == 'zh' else 'Read the illustrated article (Chinese)'
+    doi = paper['url'].removeprefix('https://doi.org/')
+    doi_link = f'<a href="{esc(paper["url"])}">DOI {esc(doi)}</a> · ' if doi != paper['url'] else ''
+    return (f'<p>{esc(paper["credit"])}</p><p>{doi_link}'
+            f'<a href="{esc(paper["scholarUrl"])}">Google Scholar · {esc(citation)}</a></p>'
+            f'<p><a href="{esc(paper["storyUrl"])}" hreflang="zh-CN">{story_label}</a></p>')
+
+
+def paper_cards(language, papers, *, records=False):
     return ''.join(
         f'<article><p class="paper-meta">{esc(paper["journal"])} · {esc(paper["year"])}</p>'
         f'<h3><a href="{esc(paper["url"])}">{esc(paper["title"])}</a></h3>'
         f'<p class="authors">{esc(paper["authors"])}</p>'
-        f'<p>{esc(paper["summary"])}</p></article>'
+        f'<p>{esc(paper["summary"])}</p>'
+        f'{paper_record(language, paper) if records else ""}</article>'
         for paper in papers
     )
 
@@ -300,7 +315,7 @@ def fallback_content(language, route):
                         f'{project_cards(language, d["projects"])}</section>')
         sections.append(physics_hub(language))
         sections.append(f'<section><h2>{esc(t["research"])}</h2>'
-                        f'{paper_cards(d["papers"])}</section>')
+                        f'{paper_cards(language, d["papers"])}</section>')
     elif route == 'about':
         sections.append(paragraphs(d['about']['paragraphs']))
         education = ''.join(
@@ -317,8 +332,10 @@ def fallback_content(language, route):
         if d.get('explainers'):
             sections.append(f'<section><h2>{esc(t["explainers"])}</h2>'
                             f'{explainer_cards(language, d["explainers"])}</section>')
-        sections.append(f'<section><h2>{esc(t["research"])}</h2>'
-                        f'{paper_cards(d["papers"])}</section>')
+        sections.append(f'<section><h2>{esc(t["research"])}</h2><p>{esc(d["citationNote"])}</p>'
+                        f'{paper_cards(language, d["papers"], records=True)}</section>')
+        sections.append(f'<section><h2>{esc(d["teachingPaperHeading"])}</h2>'
+                        f'{paper_cards(language, [d["teachingPaper"]], records=True)}</section>')
     elif route == 'teaching':
         sample = next(p for p in d['projects'] if p['id'] == 'teaching-design')
         sections.append(project_cards(language, [sample]))

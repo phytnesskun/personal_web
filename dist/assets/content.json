@@ -46,12 +46,28 @@
     ],
     "papers": [
       {
-        "title": "Robust Zero Modes in Non-Hermitian Systems without Global Symmetries",
-        "authors": "Jose D. H. Rivero, Courtney Fleming, Bingkun Qi, Liang Feng, Li Ge",
-        "journal": "Physical Review Letters 131, 223801",
-        "year": 2023,
-        "url": "https://doi.org/10.1103/PhysRevLett.131.223801",
-        "summary": "研究不具备全局对称性的非厄米系统中的稳健零模。"
+        "title": "Defect States Emerging from a Non-Hermitian Flatband of Photonic Zero Modes",
+        "authors": "Bingkun Qi, Lingxuan Zhang, Li Ge",
+        "journal": "Physical Review Letters 120, 093901",
+        "year": 2018,
+        "url": "https://doi.org/10.1103/PhysRevLett.120.093901",
+        "summary": "在增益和损耗交替的晶格中，非厄米粒子–空穴对称性使一整带模式在适当参数下具有相同的振荡频率。边缘失谐保持不变时，调节增益与损耗可以改变光强向远处衰减的快慢，而每个晶胞内两点的强度比保持不变。",
+        "credit": "第一作者",
+        "citations": 130,
+        "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&user=V6ELkxMAAAAJ&citation_for_view=V6ELkxMAAAAJ:isC4tDSrTZIC",
+        "storyUrl": "/assets/paper-stories.html#article-3"
+      },
+      {
+        "title": "Parity–Time Symmetry Synthetic Lasers: Physics and Devices",
+        "authors": "Bingkun Qi, Hua-Zhou Chen, Li Ge, Pierre Berini, Ren-Min Ma",
+        "journal": "Advanced Optical Materials 7, 1900694",
+        "year": 2019,
+        "url": "https://doi.org/10.1002/adom.201900694",
+        "summary": "受邀综述，梳理宇称–时间对称如何影响激光模式的频率、增长和衰减，并对照微环等器件的实验结果。",
+        "credit": "第一作者",
+        "citations": 69,
+        "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&user=V6ELkxMAAAAJ&citation_for_view=V6ELkxMAAAAJ:zYLM7Y9cAGgC",
+        "storyUrl": "/assets/paper-stories.html#article-2"
       },
       {
         "title": "Linear Localization of Zero Modes in Weakly Coupled Non-Hermitian Reservoirs",
@@ -59,23 +75,23 @@
         "journal": "Advanced Physics Research 2, 2300066",
         "year": 2023,
         "url": "https://doi.org/10.1002/apxr.202300066",
-        "summary": "研究弱耦合非厄米储库中零模的线性局域化。"
+        "summary": "理论与数值计算表明，在一定条件下，受束缚光场在相邻的有限储库中可以形成近似直线的振幅尾部。",
+        "credit": "第一作者",
+        "citations": 6,
+        "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&user=V6ELkxMAAAAJ&citation_for_view=V6ELkxMAAAAJ:O3NaXMp0MMsC",
+        "storyUrl": "/assets/paper-stories.html#article-1"
       },
       {
-        "title": "Parity-Time Symmetry Synthetic Lasers: Physics and Devices",
-        "authors": "Bingkun Qi, Hua-Zhou Chen, Li Ge, Pierre Berini, Ren-Min Ma",
-        "journal": "Advanced Optical Materials 7, 1900694",
-        "year": 2019,
-        "url": "https://doi.org/10.1002/adom.201900694",
-        "summary": "探讨宇称–时间对称合成激光器的物理机制与器件。"
-      },
-      {
-        "title": "Defect States Emerging from a Non-Hermitian Flat Band of Photonic Zero Modes",
-        "authors": "Bingkun Qi, Lingxuan Zhang, Li Ge",
-        "journal": "Physical Review Letters 120, 093901",
-        "year": 2018,
-        "url": "https://doi.org/10.1103/PhysRevLett.120.093901",
-        "summary": "研究由光子零模构成的非厄米平带中出现的缺陷态。"
+        "title": "Robust Zero Modes in Non-Hermitian Systems without Global Symmetries",
+        "authors": "Jose D. H. Rivero, Courtney Fleming, Bingkun Qi, Liang Feng, Li Ge",
+        "journal": "Physical Review Letters 131, 223801",
+        "year": 2023,
+        "url": "https://doi.org/10.1103/PhysRevLett.131.223801",
+        "summary": "提出一种边界耦合条件，使一个模式在体区存在无序、缺少全局对称性时仍能保持参考频率。",
+        "credit": "第三作者",
+        "citations": 22,
+        "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&user=V6ELkxMAAAAJ&citation_for_view=V6ELkxMAAAAJ:ns9cj8rnVeAC",
+        "storyUrl": "/assets/paper-stories.html#article-4"
       }
     ],
     "projects": [
@@ -554,10 +570,10 @@
     "explainers": [
       {
         "id": "flat-band-2018",
-        "title": "增益与损耗，如何塑造光？",
-        "question": "光被放大或吸收时，阵列中的光场会怎样改变？",
-        "why": "为控制光的局域提供新的设计参数。",
-        "finding": "所研究晶格中，非厄米粒子—空穴对称性产生实部平带；增益/损耗增强时，边缘缺陷态更局域。“零”以参考频率为基准。",
+        "title": "首要代表作 · 光为什么会在晶格边缘形成台阶？",
+        "question": "光从一个边缘缺陷向远处变暗时，同一小组中两点的亮度比例也会改变吗？",
+        "why": "这把两种可以从强度图上读出的量区分开来：一对格点内部的亮暗比例，以及跨越多对格点的衰减速度。",
+        "finding": "在增益和损耗交替的晶格中，非厄米粒子–空穴对称性使一整带模式在适当参数下具有相同的振荡频率。边缘失谐保持不变时，调节增益与损耗可以改变光强向远处衰减的快慢，而每个晶胞内两点的强度比保持不变。",
         "credit": "亓炳堃为第一作者。",
         "sourceUrl": "https://arxiv.org/abs/1704.04713"
       },
@@ -1025,6 +1041,19 @@
         ]
       ],
       "futureTitle": "现有记录与下一步对接"
+    },
+    "citationNote": "被引次数来自 Google Scholar，查询日期为 2026 年 11 月 22 日。",
+    "teachingPaperHeading": "本科物理实验教学论文",
+    "teachingPaper": {
+      "title": "YBCO高温超导样品制备工艺的改进",
+      "authors": "亓炳堃、夏一凡、姚红英",
+      "journal": "物理实验 34(2), 45–48",
+      "year": 2014,
+      "url": "https://qikan.cqvip.com/Qikan/Article/Detail?id=48810769",
+      "summary": "复旦大学本科物理实验课中的研究。通过样品表征和升降温测量，改进了超导陶瓷的制备流程。",
+      "credit": "第一作者",
+      "scholarUrl": "https://scholar.google.com/scholar?cluster=7830369742655053001&hl=zh-CN",
+      "storyUrl": "/assets/paper-stories.html#article-5"
     }
   },
   "en": {
@@ -1074,12 +1103,28 @@
     ],
     "papers": [
       {
-        "title": "Robust Zero Modes in Non-Hermitian Systems without Global Symmetries",
-        "authors": "Jose D. H. Rivero, Courtney Fleming, Bingkun Qi, Liang Feng, Li Ge",
-        "journal": "Physical Review Letters 131, 223801",
-        "year": 2023,
-        "url": "https://doi.org/10.1103/PhysRevLett.131.223801",
-        "summary": "Investigates robust zero modes in non-Hermitian systems that lack global symmetries."
+        "title": "Defect States Emerging from a Non-Hermitian Flatband of Photonic Zero Modes",
+        "authors": "Bingkun Qi, Lingxuan Zhang, Li Ge",
+        "journal": "Physical Review Letters 120, 093901",
+        "year": 2018,
+        "url": "https://doi.org/10.1103/PhysRevLett.120.093901",
+        "summary": "In a lattice with alternating gain and loss, non-Hermitian particle–hole symmetry allows an entire band of modes to share one oscillation frequency when the gain and loss are sufficiently strong. At fixed edge detuning, changing gain and loss alters how fast the defect mode fades across the array while preserving the intensity ratio within each unit cell.",
+        "credit": "First author",
+        "citations": 130,
+        "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&user=V6ELkxMAAAAJ&citation_for_view=V6ELkxMAAAAJ:isC4tDSrTZIC",
+        "storyUrl": "/assets/paper-stories.html#article-3"
+      },
+      {
+        "title": "Parity–Time Symmetry Synthetic Lasers: Physics and Devices",
+        "authors": "Bingkun Qi, Hua-Zhou Chen, Li Ge, Pierre Berini, Ren-Min Ma",
+        "journal": "Advanced Optical Materials 7, 1900694",
+        "year": 2019,
+        "url": "https://doi.org/10.1002/adom.201900694",
+        "summary": "Invited review of how parity–time symmetry shapes the frequencies, growth and decay of laser modes, with experimental examples including microring lasers.",
+        "credit": "First author",
+        "citations": 69,
+        "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&user=V6ELkxMAAAAJ&citation_for_view=V6ELkxMAAAAJ:zYLM7Y9cAGgC",
+        "storyUrl": "/assets/paper-stories.html#article-2"
       },
       {
         "title": "Linear Localization of Zero Modes in Weakly Coupled Non-Hermitian Reservoirs",
@@ -1087,23 +1132,23 @@
         "journal": "Advanced Physics Research 2, 2300066",
         "year": 2023,
         "url": "https://doi.org/10.1002/apxr.202300066",
-        "summary": "Studies the linear localization of zero modes in weakly coupled non-Hermitian reservoirs."
+        "summary": "Theory and numerical simulations show how a confined optical mode can develop a nearly linear amplitude tail in an adjacent finite reservoir.",
+        "credit": "First author",
+        "citations": 6,
+        "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&user=V6ELkxMAAAAJ&citation_for_view=V6ELkxMAAAAJ:O3NaXMp0MMsC",
+        "storyUrl": "/assets/paper-stories.html#article-1"
       },
       {
-        "title": "Parity-Time Symmetry Synthetic Lasers: Physics and Devices",
-        "authors": "Bingkun Qi, Hua-Zhou Chen, Li Ge, Pierre Berini, Ren-Min Ma",
-        "journal": "Advanced Optical Materials 7, 1900694",
-        "year": 2019,
-        "url": "https://doi.org/10.1002/adom.201900694",
-        "summary": "Explores the physics and devices of parity-time symmetry synthetic lasers."
-      },
-      {
-        "title": "Defect States Emerging from a Non-Hermitian Flat Band of Photonic Zero Modes",
-        "authors": "Bingkun Qi, Lingxuan Zhang, Li Ge",
-        "journal": "Physical Review Letters 120, 093901",
-        "year": 2018,
-        "url": "https://doi.org/10.1103/PhysRevLett.120.093901",
-        "summary": "Studies defect states emerging from a non-Hermitian flat band formed by photonic zero modes."
+        "title": "Robust Zero Modes in Non-Hermitian Systems without Global Symmetries",
+        "authors": "Jose D. H. Rivero, Courtney Fleming, Bingkun Qi, Liang Feng, Li Ge",
+        "journal": "Physical Review Letters 131, 223801",
+        "year": 2023,
+        "url": "https://doi.org/10.1103/PhysRevLett.131.223801",
+        "summary": "The paper identifies boundary coupling conditions that keep a mode at a reference frequency despite bulk disorder and the absence of global symmetry.",
+        "credit": "Third author",
+        "citations": 22,
+        "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&user=V6ELkxMAAAAJ&citation_for_view=V6ELkxMAAAAJ:ns9cj8rnVeAC",
+        "storyUrl": "/assets/paper-stories.html#article-4"
       }
     ],
     "projects": [
@@ -1582,10 +1627,10 @@
     "explainers": [
       {
         "id": "flat-band-2018",
-        "title": "Shaping light with gain and loss",
-        "question": "How does amplification or absorption reshape a lattice mode?",
-        "why": "It offers another design parameter for controlling localization.",
-        "finding": "In the studied lattices, non-Hermitian particle-hole symmetry creates a flat real spectrum. Stronger gain/loss increasingly localizes an edge-defect mode. Zero is measured relative to a reference frequency.",
+        "title": "Featured publication · Why does light form steps near the edge of a lattice?",
+        "question": "When light fades away from a defect, does the brightness ratio between neighboring sites have to change too?",
+        "why": "A single intensity image reveals two distinct properties: the contrast within a pair of sites and the decay across many pairs.",
+        "finding": "In a lattice with alternating gain and loss, non-Hermitian particle–hole symmetry allows an entire band of modes to share one oscillation frequency when the gain and loss are sufficiently strong. At fixed edge detuning, changing gain and loss alters how fast the defect mode fades across the array while preserving the intensity ratio within each unit cell.",
         "credit": "Bingkun Qi is the first author.",
         "sourceUrl": "https://arxiv.org/abs/1704.04713"
       },
@@ -2053,6 +2098,19 @@
         ]
       ],
       "futureTitle": "Current records and future connections"
+    },
+    "citationNote": "Citation counts were checked on Google Scholar on 22 November 2026.",
+    "teachingPaperHeading": "Undergraduate physics laboratory education",
+    "teachingPaper": {
+      "title": "Improvement of preparation technique for YBCO high temperature superconductivity",
+      "authors": "Qi Bing-kun, Xia Yi-fan, Yao Hong-ying",
+      "journal": "Physics Experimentation 34(2), 45–48",
+      "year": 2014,
+      "url": "https://qikan.cqvip.com/Qikan/Article/Detail?id=48810769",
+      "summary": "A Fudan undergraduate laboratory study on preparing and testing superconducting ceramics. Published in Chinese as “YBCO高温超导样品制备工艺的改进”.",
+      "credit": "First author",
+      "scholarUrl": "https://scholar.google.com/scholar?cluster=7830369742655053001&hl=zh-CN",
+      "storyUrl": "/assets/paper-stories.html#article-5"
     }
   }
 }
