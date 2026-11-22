@@ -251,13 +251,23 @@ def fallback_content(language, route):
             f'<li><strong>{esc(step[0])}</strong> — {esc(step[1])}</li>'
             for step in portfolio['steps']
         )
+        def screenshot(image):
+            file, caption = image
+            url = f'/assets/{esc(file)}'
+            return (f'<figure><a href="{url}"><img src="{url}" loading="lazy" '
+                    f'alt="{esc(caption)}"></a><figcaption>{esc(caption)}</figcaption></figure>')
+
+        workflow_image = ''
+        if portfolio.get('workflowImage'):
+            workflow_image = (f'<div class="mgmt-shots mgmt-workflow-image">'
+                              f'{screenshot(portfolio["workflowImage"])}</div>')
         modules = []
         for mod in portfolio['modules']:
-            images = ''.join(
-                f'<figure><img src="/assets/{esc(file)}" alt="{esc(caption)}" '
-                f'style="max-width:100%;height:auto"><figcaption>{esc(caption)}</figcaption></figure>'
-                for file, caption in mod.get('images', [])
-            )
+            images = ''
+            if mod.get('images'):
+                layout = ' single' if len(mod['images']) == 1 else ''
+                figures = ''.join(screenshot(image) for image in mod['images'])
+                images = f'<div class="mgmt-shots{layout}">{figures}</div>'
             gap = f'<p>{esc(mod["gap"])}</p>' if mod.get('gap') else ''
             modules.append(
                 f'<article id="module-{esc(mod["id"])}"><p class="small-label">{esc(mod["id"])}</p>'
@@ -276,9 +286,10 @@ def fallback_content(language, route):
         others = ''.join(other_parts)
         stack = f'<p>{esc(portfolio["stackLine"])}</p>' if portfolio.get('stackLine') else ''
         sections.append(stack)
-        sections.append(f'<section id="workflow"><h2>{esc(portfolio["workflowTitle"])}</h2>'
+        sections.append(f'<section id="workflow"><p class="mgmt-kicker">{esc(portfolio["workflowLabel"])}</p>'
+                        f'<h2>{esc(portfolio["workflowTitle"])}</h2>'
                         f'<p>{esc(portfolio["workflowLead"])}</p>'
-                        f'<p><strong>{esc(portfolio["workflowCode"])}</strong></p><ol>{steps}</ol></section>')
+                        f'<p><strong>{esc(portfolio["workflowCode"])}</strong></p><ol>{steps}</ol>{workflow_image}</section>')
         sections.append(f'<section id="modules"><h2>{esc(portfolio["modulesTitle"])}</h2>'
                         f'<p>{esc(portfolio["modulesLead"])}</p>{"".join(modules)}</section>')
         sections.append(f'<section id="other-entries"><h2>{esc(portfolio["otherTitle"])}</h2>'

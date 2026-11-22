@@ -869,61 +869,53 @@
       "intro": "从物理直觉到清晰的解释，把任务、讲解和反馈连接起来。这里有一份完整课例，也有可以亲手操作的十分钟学习活动。"
     },
     "managementPortfolio": {
-      "title": "教务系统 · 求职样品",
-      "eyebrow": "教务系统 · 求职样品 · Flask SSR",
-      "headline": "一条产品故事：周反馈闭环 + 课表运维 + 行政花名册",
-      "lead": "国际高中场景的教务网页：角色权限下的周反馈闭环 + 课表运维 + 行政花名册，考试/作业为学业侧翼。本页用化名截图讲「现在能管什么」——不进入生产真库。",
-      "stackLine": "技术栈：Flask SSR · SQLite · 角色权限（任课 / 班主任 / 管理员）。网页为主；微信小程序仅作渠道旁注（本仓不构建）。",
-      "ctaPrimary": "看一周工作流",
-      "ctaSecondary": "打开教学作品集 ↗",
-      "panelTitle": "角色 × 权限",
+      "title": "教务系统 · 跨学科周反馈",
+      "eyebrow": "亓炳堃 · 国际高中教务系统",
+      "headline": "班主任怎样看全一名学生的各科反馈？",
+      "lead": "以前，同事要在几张 Excel 表里来回查，才能拼出一个学生一周的情况。我做了一个共享数据库。任课老师按科记录，班主任打开学生的周汇总，就能看到哪科有具体问题、哪科还缺反馈。",
+      "stackLine": "我在校内观察到，同事少了来回切表的步骤。节省的时间和对学习的影响尚未测量。",
+      "ctaPrimary": "看第 4 周案例",
+      "ctaSecondary": "浏览教学作品集",
+      "panelTitle": "谁能看到哪些记录",
       "roles": [
         [
-          "任课老师",
-          "填写周反馈 · 申请调课 · 课时查看"
+          "任课教师",
+          "填写自己任教的学生和科目。"
         ],
         [
           "班主任",
-          "班级汇总 · 催填 · 打印导出"
+          "查看本班学生的跨科反馈和缺项。"
         ],
         [
-          "管理员",
-          "花名册 · 任教 · 审批生效 · 审计"
+          "教务管理员",
+          "维护班级和任教关系，处理调课申请。"
         ]
       ],
-      "workflowTitle": "一周工作流",
-      "workflowLead": "访客三十秒能懂的主路径：填 → 催 → 调 → 管 → 算与留痕。考试/作业是学业旁支；小程序只作渠道说明。",
-      "workflowLabel": "求职叙事 · 教务周",
-      "workflowCode": "填 → 催 → 调 → 管 → 算与留痕",
+      "workflowTitle": "一条物理评语，一份待收的数学反馈",
+      "workflowLead": "班主任打开这名学生的周汇总时，物理有了记录，数学还空着。接下来要找谁，各谈什么？",
+      "workflowLabel": "第 4 周 · 虚构学生记录",
+      "workflowCode": "同一名学生，两个教师视角",
       "steps": [
         [
-          "填",
-          "任课老师按班登记本周表现：批量、复制上周、折叠列与预设。"
+          "物理老师记录观察",
+          "这周布置了 3 份作业，学生完成 2 份。老师给出综合等级 C，写下“下次检查图线截距”并保存。"
         ],
         [
-          "催",
-          "班主任看清未填科目与待关注学生，把催填落到任课老师。"
+          "班主任查看各科汇总",
+          "打开同一学生的第 4 周记录，班主任能读回物理老师的评语，也看到数学一栏显示“未填”。"
         ],
         [
-          "调",
-          "课表上申请改时/取消/代课/加课；管理员审批或直接生效。"
-        ],
-        [
-          "管",
-          "学生 · 班级 · 任教「数据三角」由管理员维护对齐。"
-        ],
-        [
-          "算与留痕",
-          "课时按周汇总；打印 / CSV 写入导出审计，可追溯。"
+          "分别跟进学生和老师",
+          "班主任可以请学生拿出物理作业，说说怎样从图上读截距。数学一栏缺的是教师反馈，班主任可以向数学老师补收这周的记录。"
         ]
       ],
-      "modulesTitle": "模块 01–06",
-      "modulesLead": "按完整管理工作编号，不是 PR 变更日志。德育未上线，不写进交付清单；排课器 ≠ 课表运维。",
+      "modulesTitle": "系统里的六项教务工作",
+      "modulesLead": "前两项支撑上面的周反馈案例。我也实现了课表变更、花名册、考试作业和课时导出。扩大校内使用会涉及更多学生数据，这部分目前暂缓推广。",
       "modules": [
         {
           "id": "01",
-          "title": "周反馈填写",
-          "summary": "任课主路径：筛选班级与学生，Excel 式批量填充，折叠次要列，一键套用「表现良好」等预设；可打印与 CSV。",
+          "title": "任课教师填写周反馈",
+          "summary": "教师可以按班录入、复制上周记录，再为每个学生补充本周观察。",
           "images": [
             [
               "management/01-fill-folded.png",
@@ -937,8 +929,8 @@
         },
         {
           "id": "02",
-          "title": "班主任汇总与催填",
-          "summary": "班级总览里的未填科目 KPI、待关注学生与催填 chip；支持班级打印与催填 CSV。",
+          "title": "班主任查看本班汇总",
+          "summary": "班主任按学生查阅各科记录和教师评语，也可列出尚未提交反馈的科目。",
           "images": [
             [
               "management/02-homeroom-overview.png",
@@ -952,8 +944,8 @@
         },
         {
           "id": "03",
-          "title": "课表与调课加课",
-          "summary": "强调课表运维闭环：申请 → 审批/立即生效 → 加课与取消。这不是可视化全校「智能排课器」；初始格子多靠导入维护。",
+          "title": "课表变更",
+          "summary": "任课老师可以申请调课、加课或代课，管理员审批后更新现有课表。",
           "images": [
             [
               "management/03-tt-toolbar.png",
@@ -967,8 +959,8 @@
         },
         {
           "id": "04",
-          "title": "行政花名册",
-          "summary": "学生名单、班级与任教关系组成数据三角；软停用、可授科目与代入视图齐全。enrollment 与 assignment 对齐仍是运维点。",
+          "title": "班级名册与任教关系",
+          "summary": "教务人员维护学生名单、班级与任教关系。若某科找不到负责老师，先核对学生的选课和该科的任教安排。",
           "images": [
             [
               "management/04-admin-students.png",
@@ -982,15 +974,15 @@
         },
         {
           "id": "05",
-          "title": "考试与作业",
-          "summary": "学业侧翼：考试登记（布置/录入/学生档案）与作业区（布置/按班录入/档案）已上线可用；同步周测关闭，自动批改未合入。",
+          "title": "考试与作业记录",
+          "summary": "老师可以建立考试、登记各生成绩，也可以按班记录一次作业的完成情况。两类记录各有录入页面。",
           "gap": "截图缺口：考试区 / 作业区待本地 init_db --demo 补拍（勿碰生产库）。此处仅文案说明。",
           "images": []
         },
         {
           "id": "06",
-          "title": "课时与导出审计",
-          "summary": "课时按当前课表与临时加课汇总并导出 CSV；教师/班主任打印与 CSV 写入导出记录表，便于合规追溯。",
+          "title": "课时统计与导出",
+          "summary": "系统根据当前课表和临时加课汇总课时，支持 CSV 导出并保留导出记录。核算历史代课时需要另行核对变更。",
           "images": [
             [
               "management/06-hours-export.png",
@@ -1003,39 +995,43 @@
           ]
         }
       ],
-      "otherTitle": "其他入口与诚实边界",
-      "otherLead": "求职样品只展示已交付能力。一期纯静态化名截图；不深链生产登录页，不开隔离可写 demo。",
+      "otherTitle": "扩大试用前，我想核实什么",
+      "otherLead": "我会请任课教师和班主任一起走完一个反馈周，再与学校讨论是否扩大试用。",
       "others": [
         {
-          "kicker": "渠道 · 旁注",
-          "title": "微信小程序",
-          "text": "手机经微信云函数访问同一套教务 API；本仓只保后端契约，不构建小程序 UI。",
+          "kicker": "任务观察",
+          "title": "同事能否找对缺项？",
+          "text": "请同事用原表格和系统分别找出一名学生本周缺哪科，记录耗时、切换次数和判断结果。",
           "linkLabel": null,
           "href": null
         },
         {
-          "kicker": "教学作品集",
-          "title": "回链热铁盒教学站",
-          "text": "物理题库、课例与实验演示以教学作品集为准；勿链 bingkun.me 主页。",
-          "linkLabel": "打开 bingkun.rth1.xyz ↗",
+          "kicker": "访问范围",
+          "title": "谁需要看这条记录？",
+          "text": "和学校核对每个角色能看到的学生和字段，再决定下一个试用班级。",
+          "linkLabel": null,
+          "href": null
+        },
+        {
+          "kicker": "相关作品",
+          "title": "物理教学与课程设计",
+          "text": "可以继续看我怎样设计一节物理课、一道题或一次实验。",
+          "linkLabel": "查看教学作品集",
           "href": "https://bingkun.rth1.xyz/"
-        },
-        {
-          "kicker": "未交付 · 脚注",
-          "title": "德育草稿",
-          "text": "德育模块仅存在于未合入的独立草稿分支；main 无路由/表。简历与样品正文不当已交付。",
-          "linkLabel": null,
-          "href": null
         }
       ],
       "footerName": "亓炳堃 · Bingkun Qi",
       "backTop": "回到顶部 ↑",
       "navTeaching": "教学作品集",
-      "navManagement": "管理系统",
+      "navManagement": "教务系统",
       "navOthers": "其他案例",
-      "privacyNote": "隐私：截图均来自本地化名 demo（李老师 / 管理员；学生张三、李四；班级 26F-G9A）。不出现真实师生姓名，不深链生产真库。",
+      "privacyNote": "本页学生记录和成绩均来自本地虚构演示。",
       "teachingHome": "https://bingkun.rth1.xyz/",
-      "casesHome": "https://bingkun.rth1.xyz/"
+      "casesHome": "https://bingkun.rth1.xyz/",
+      "workflowImage": [
+        "management/week-4-feedback.png",
+        "虚构界面节选。左图是物理老师填写的作业数量和综合等级，右图是班主任看到的物理 C 和数学“未填”。"
+      ]
     }
   },
   "en": {
@@ -1908,61 +1904,53 @@
       "intro": "Connect a physical intuition with a clear explanation through tasks, modelling and feedback. Explore a complete lesson and a ten-minute hands-on activity."
     },
     "managementPortfolio": {
-      "title": "School admin · job portfolio",
-      "eyebrow": "School admin · job sample · Flask SSR",
-      "headline": "One product story: weekly loop + timetable ops + rosters",
-      "lead": "An international-high-school admin web app: role-based weekly feedback loop + timetable operations + administrative rosters, with exams/homework as the academic side wing. Anonymised screenshots only — no production database.",
-      "stackLine": "Stack: Flask SSR · SQLite · roles (subject teacher / homeroom / admin). Web first; WeChat mini program is a channel note only (not built in this repo).",
-      "ctaPrimary": "See the weekly loop",
-      "ctaSecondary": "Open teaching portfolio ↗",
-      "panelTitle": "Roles × access",
+      "title": "Academic Affairs System · Weekly pupil feedback",
+      "eyebrow": "Bingkun Qi · Academic Affairs System",
+      "headline": "How can a form tutor see a pupil’s week across subjects?",
+      "lead": "My colleagues used to piece together a pupil’s week from several Excel sheets. I built a shared database where subject teachers enter their observations and a form tutor can read all the reports for one pupil and see which are still due.",
+      "stackLine": "At school I saw colleagues switch between sheets less often. I have yet to measure the time saved or the effect on pupils’ learning.",
+      "ctaPrimary": "Follow one pupil in week 4",
+      "ctaSecondary": "View teaching portfolio",
+      "panelTitle": "Who can see each record?",
       "roles": [
         [
           "Subject teacher",
-          "Fill weekly feedback · request changes · hours"
+          "Records feedback for the pupils and subjects they teach."
         ],
         [
-          "Homeroom",
-          "Class overview · chase-up · print / CSV"
+          "Form tutor",
+          "Sees feedback and missing reports for their own form."
         ],
         [
-          "Admin",
-          "Rosters · assignments · approvals · audit"
+          "School administrator",
+          "Maintains class lists and teaching assignments and reviews timetable changes."
         ]
       ],
-      "workflowTitle": "A week in the system",
-      "workflowLead": "The thirty-second path: Fill → Chase → Adjust → Manage → Count & trail. Exams/homework are side wings; the mini program is channel-only.",
-      "workflowLabel": "Job narrative · admin week",
-      "workflowCode": "Fill → Chase → Adjust → Manage → Count & trail",
+      "workflowTitle": "A physics comment and a missing maths report",
+      "workflowLead": "When the form tutor opens the weekly record, physics has a grade and maths is still blank. Who should the tutor speak to, and about what?",
+      "workflowLabel": "Week 4 · Fictional pupil record",
+      "workflowCode": "One pupil, seen by two teachers",
       "steps": [
         [
-          "Fill",
-          "Subject teachers record the week by class: batch fill, copy last week, fold columns, presets."
+          "The physics teacher records an observation",
+          "The pupil completed two of three homework tasks. The teacher records an overall C and adds a reminder to check how the pupil finds the intercept on a graph next lesson."
         ],
         [
-          "Chase",
-          "Homeroom sees missing subjects and students to watch, then routes chase chips to teachers."
+          "The form tutor opens the same week",
+          "The physics grade and comment are visible in the pupil’s record. Alongside them, maths is marked “未填” (report pending)."
         ],
         [
-          "Adjust",
-          "Request moves/cancels/covers/add-ons on the timetable; admins approve or apply now."
-        ],
-        [
-          "Manage",
-          "Students · classes · teaching assignments stay aligned as the data triangle."
-        ],
-        [
-          "Count & trail",
-          "Hours roll up by week; print/CSV writes an export audit log."
+          "The tutor can follow up with two people",
+          "The tutor can ask the pupil to show how they read the intercept on their physics graph. For maths, the next step is to ask the teacher for the missing report."
         ]
       ],
-      "modulesTitle": "Modules 01–06",
-      "modulesLead": "Numbered by complete admin jobs, not PR changelogs. Moral-education is not shipped; a scheduler ≠ timetable operations.",
+      "modulesTitle": "Inside the Academic Affairs System",
+      "modulesLead": "The first two modules support the weekly feedback case. I also built tools for timetable changes, rosters, assessment records and teaching hours. I have held back wider use of these tools at school because they involve more pupil data.",
       "modules": [
         {
           "id": "01",
-          "title": "Weekly feedback fill-in",
-          "summary": "Subject-teacher path: filter class and students, Excel-style batch fill, fold secondary columns, apply multi-field presets; print and CSV.",
+          "title": "Weekly subject reports",
+          "summary": "Teachers can enter feedback by class, copy the previous week’s records and add an observation for each pupil.",
           "images": [
             [
               "management/01-fill-folded.png",
@@ -1976,8 +1964,8 @@
         },
         {
           "id": "02",
-          "title": "Homeroom overview & chase-up",
-          "summary": "Missing-subject KPIs, students to watch, and chase chips; class print and chase CSV.",
+          "title": "The form tutor’s overview",
+          "summary": "Tutors can read comments across subjects for each pupil and identify the subjects whose reports are due.",
           "images": [
             [
               "management/02-homeroom-overview.png",
@@ -1991,8 +1979,8 @@
         },
         {
           "id": "03",
-          "title": "Timetable ops & change requests",
-          "summary": "Timetable operations loop: request → approve/apply-now → add-on/cancel. Not a campus-wide visual scheduler; initial cells are mostly imported.",
+          "title": "Timetable changes",
+          "summary": "Teachers can request a move, an extra lesson or cover. Administrators review requests and update the existing timetable.",
           "images": [
             [
               "management/03-tt-toolbar.png",
@@ -2006,8 +1994,8 @@
         },
         {
           "id": "04",
-          "title": "Administrative rosters",
-          "summary": "Students, classes and teaching assignments form the data triangle; soft-deactivate, teachable subjects and proxy views included. Enrolment vs assignment sync remains an ops concern.",
+          "title": "Class lists and teaching assignments",
+          "summary": "Administrators maintain class lists and teaching assignments. If a subject has no named teacher, they can check the pupil’s enrolment and the teaching assignment for that subject.",
           "images": [
             [
               "management/04-admin-students.png",
@@ -2021,15 +2009,15 @@
         },
         {
           "id": "05",
-          "title": "Exams & homework",
-          "summary": "Academic side wing: exam registration and homework set/record/student file are live; weekly-test sync is off; auto-grading is not merged.",
+          "title": "Exam and homework records",
+          "summary": "Teachers can set up an exam and enter marks, or open a homework task and record completion by class. Each has its own entry screen.",
           "gap": "Screenshot gap: exam/homework pages still need local init_db --demo captures (never production). Copy-only for now.",
           "images": []
         },
         {
           "id": "06",
-          "title": "Hours & export audit",
-          "summary": "Hours roll up from the current timetable and temp add-ons; teacher/homeroom print and CSV leave an export log for traceability.",
+          "title": "Teaching hours and exports",
+          "summary": "The current timetable and extra lessons supply the hours report. Staff can export a CSV, and the system logs the export. Historical cover needs a separate check.",
           "images": [
             [
               "management/06-hours-export.png",
@@ -2042,39 +2030,43 @@
           ]
         }
       ],
-      "otherTitle": "Other entries & honest boundaries",
-      "otherLead": "This job sample shows shipped capabilities only. Phase 1 is static anonymised screenshots — no production sign-in deep links, no writable isolated demo.",
+      "otherTitle": "What I would check before wider use",
+      "otherLead": "I would ask a subject teacher and a form tutor to walk through one reporting week together before deciding whether to add another class.",
       "others": [
         {
-          "kicker": "Channel · note only",
-          "title": "WeChat mini program",
-          "text": "Phones reach the same school-admin API through WeChat cloud functions; this repo keeps the API contract and does not build the mini-program UI.",
+          "kicker": "Evaluation",
+          "title": "Can staff find the missing report?",
+          "text": "Ask colleagues to find the subject still due for one pupil using the spreadsheets and then the system. Record time taken, sheet changes and whether they identify the right subject.",
           "linkLabel": null,
           "href": null
         },
         {
-          "kicker": "Teaching portfolio",
-          "title": "Back to the rth1 teaching site",
-          "text": "Physics banks, lessons and labs live on the teaching portfolio; do not link bingkun.me homepage.",
-          "linkLabel": "Open bingkun.rth1.xyz ↗",
+          "kicker": "Access",
+          "title": "Who needs this record?",
+          "text": "Agree with the school which pupils and fields each role should see before choosing the next class for a pilot.",
+          "linkLabel": null,
+          "href": null
+        },
+        {
+          "kicker": "Related work",
+          "title": "Physics teaching and course design",
+          "text": "Explore my classroom work through a lesson, a question or a practical investigation.",
+          "linkLabel": "View teaching portfolio",
           "href": "https://bingkun.rth1.xyz/"
-        },
-        {
-          "kicker": "Not shipped · footnote",
-          "title": "Moral-education draft",
-          "text": "Moral-education exists only on unmerged draft branches; main has no routes/tables. Do not list it as delivered on a résumé.",
-          "linkLabel": null,
-          "href": null
         }
       ],
       "footerName": "Bingkun Qi · 亓炳堃",
       "backTop": "Back to top ↑",
       "navTeaching": "Teaching work",
-      "navManagement": "Management",
+      "navManagement": "School operations",
       "navOthers": "Other cases",
-      "privacyNote": "Privacy: screenshots from local anonymised demo (Teacher Li / Admin; students Zhang San & Li Si; class 26F-G9A). No real names; no production DB deep links.",
+      "privacyNote": "All pupil records and grades shown come from local demonstrations using fictional data.",
       "teachingHome": "https://bingkun.rth1.xyz/",
-      "casesHome": "https://bingkun.rth1.xyz/"
+      "casesHome": "https://bingkun.rth1.xyz/",
+      "workflowImage": [
+        "management/week-4-feedback.png",
+        "Fictional interface excerpts. On the left the physics teacher records three tasks set, two completed and an overall C. On the right the tutor sees physics C and maths marked “未填” (report pending)."
+      ]
     }
   }
 }
