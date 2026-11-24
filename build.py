@@ -11,6 +11,11 @@ origin = 'https://bingkun.me'
 scholar = 'https://scholar.google.com/citations?user=V6ELkxMAAAAJ&hl=en'
 github = 'https://github.com/phytnesskun'
 data = json.loads((dist / 'assets/content.json').read_text(encoding='utf-8-sig'))
+selected_research = data['selectedResearch']
+selected_papers = {
+    'about/' + paper['selectedStory']: paper for paper in data['en']['papers']
+    if 'selectedStory' in paper
+}
 
 labels = {
     'zh': {
@@ -78,6 +83,51 @@ def project_cards(language, projects):
     )
 
 
+def selected_research_section(language):
+    cards = []
+    for route, paper in selected_papers.items():
+        slug = paper['selectedStory']
+        story = selected_research['stories'][slug]
+        cards.append(
+            f'<a class="selected-card" data-story="{esc(slug)}" href="{localized_path(language, route)}">'
+            f'<img src="/assets/selected-{esc(story["art"])}-thumb.svg" width="400" height="105" alt="" loading="lazy">'
+            f'<div><p class="selected-meta">{paper["year"]} · {esc(story["journalName"])}</p>'
+            f'<small>First author · {esc(story["kind"])}</small><h3>{esc(story["title"])}</h3>'
+            f'<p>{esc(story["summary"])}</p><span class="selected-read">Read the research story</span></div></a>'
+        )
+    return (
+        '<section id="selected-research" class="selected-research" lang="en" aria-labelledby="selected-title">'
+        f'<h2 id="selected-title">Selected research</h2><p class="selected-intro">{esc(selected_research["intro"])}</p>'
+        f'<div class="selected-grid">{"".join(cards)}</div></section>'
+    )
+
+
+def research_story(language, paper):
+    story = selected_research['stories'][paper['selectedStory']]
+    about = localized_path(language, 'about') + '#selected-research'
+    back = '返回「关于我」的代表作' if language == 'zh' else 'Back to selected research'
+    return (
+        f'<a class="skip" href="#main">{labels[language]["skip"]}</a>'
+        f'<header class="story-header wrap"><a class="brand" href="{localized_path(language)}">'
+        f'<span class="brand-mark" aria-hidden="true">亓</span>Bingkun Qi</a>'
+        f'<a href="{about}">{back}</a></header>'
+        f'<main id="main" class="selected-story wrap" lang="en">'
+        f'<p class="selected-meta">{paper["year"]} · {esc(story["journalName"])} · First author · {esc(story["kind"])}</p>'
+        f'<h1>{esc(story["title"])}</h1><p class="story-lead">{esc(story["lead"])}</p>'
+        f'<div class="story-layout"><figure class="story-figure">'
+        f'<img src="/assets/selected-{esc(story["art"])}.svg" width="400" height="330" alt="{esc(story["alt"])}">'
+        f'<figcaption>{esc(story["caption"])}</figcaption></figure>'
+        f'<div class="story-body">{paragraphs(story["paragraphs"])}'
+        f'<p class="story-personal">{esc(story["personal"])}</p></div></div>'
+        f'<aside class="story-chinese" lang="zh-CN"><h2>中文读图</h2><p>{esc(story["chinese"])} '
+        f'<a href="{esc(paper["storyUrl"])}">继续读中文图解</a></p></aside>'
+        f'<footer class="story-publication"><div><h2>{esc(paper["title"])}</h2>'
+        f'<p>{esc(paper["authors"])}</p><p>{esc(paper["journal"])} ({paper["year"]})</p></div>'
+        f'<a class="story-journal" href="{esc(story["journalUrl"])}">{esc(story["journalLink"])}</a>'
+        f'</footer></main>'
+    )
+
+
 def paper_record(language, paper):
     if 'citations' in paper:
         count = paper['citations']
@@ -87,9 +137,14 @@ def paper_record(language, paper):
     story_label = '中文图文解读' if language == 'zh' else 'Read the illustrated article (Chinese)'
     doi = paper['url'].removeprefix('https://doi.org/')
     doi_link = f'<a href="{esc(paper["url"])}">DOI {esc(doi)}</a> · ' if doi != paper['url'] else ''
+    selected_link = ''
+    if 'selectedStory' in paper:
+        href = localized_path(language, 'about/' + paper['selectedStory'])
+        label = '英文图文介绍' if language == 'zh' else 'Read the research story'
+        selected_link = f'<a href="{href}">{label}</a> · '
     return (f'<p>{esc(paper["credit"])}</p><p>{doi_link}'
             f'<a href="{esc(paper["scholarUrl"])}">Google Scholar · {esc(citation)}</a></p>'
-            f'<p><a href="{esc(paper["storyUrl"])}" hreflang="zh-CN">{story_label}</a></p>')
+            f'<p>{selected_link}<a href="{esc(paper["storyUrl"])}" hreflang="zh-CN">{story_label}</a></p>')
 
 
 def paper_cards(language, papers, *, records=False):
@@ -178,6 +233,9 @@ def page_details(language, route):
         return t['home_title'], d['about']['intro']
     if route == 'about':
         return t['about_title'], d['about']['intro']
+    if route in selected_papers:
+        story = selected_research['stories'][selected_papers[route]['selectedStory']]
+        return f'{story["title"]} — Bingkun Qi', story['lead']
     if route == 'research':
         return f'{t["research"]} — Bingkun Qi', t['research_description']
     if route == 'teaching':
@@ -291,6 +349,8 @@ def fallback_content(language, route):
     """Keep meaningful copy and navigation available before JS or without it."""
     if route == 'management':
         return management_page(language)
+    if route in selected_papers:
+        return research_story(language, selected_papers[route])
     d, t = data[language], labels[language]
     title, description = page_details(language, route)
     navigation = []
@@ -318,6 +378,7 @@ def fallback_content(language, route):
                         f'{paper_cards(language, d["papers"])}</section>')
     elif route == 'about':
         sections.append(paragraphs(d['about']['paragraphs']))
+        sections.append(selected_research_section(language))
         education = ''.join(
             f'<article><h3>{esc(item["institution"])}</h3>'
             f'<p>{esc(item["detail"])}</p><p>{esc(item["period"])}</p></article>'
@@ -429,14 +490,20 @@ def write_page(language, route, output_route):
     other_locale = labels['en' if language == 'zh' else 'zh']['locale']
     assets = '''<link rel="stylesheet" href="/assets/style.css"><link rel="stylesheet" href="/assets/enhancements.css"><link rel="stylesheet" href="/assets/physics-hub.css"><link rel="stylesheet" href="/assets/management-portfolio.css">
 <script src="/assets/wave-lab.js" defer></script><script src="/assets/enhancements.js" defer></script><script src="/assets/app.js" defer></script>'''
-    if route == 'management':
-        def asset_url(name):
-            version = hashlib.sha256((dist / 'assets' / name).read_bytes()).hexdigest()[:12]
-            return f'/assets/{name}?v={version}'
+    def asset_url(name):
+        version = hashlib.sha256((dist / 'assets' / name).read_bytes()).hexdigest()[:12]
+        return f'/assets/{name}?v={version}'
 
+    if route == 'management':
         assets = (f'<link rel="stylesheet" href="{asset_url("style.css")}">'
                   f'<link rel="stylesheet" href="{asset_url("management-portfolio.css")}">'
                   f'<script src="{asset_url("management.js")}" defer></script>')
+    if route in ('about', 'research'):
+        assets = assets.replace('/assets/app.js', asset_url('app.js'))
+    if route in selected_papers:
+        assets = '<link rel="stylesheet" href="/assets/style.css">'
+    if route == 'about' or route in selected_papers:
+        assets += f'\n<link rel="stylesheet" href="{asset_url("selected-research.css")}">'
     document = f'''<!doctype html>
 <html lang="{t['html_lang']}"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -470,7 +537,7 @@ def write_page(language, route, output_route):
     (directory / 'index.html').write_text(document, encoding='utf-8')
 
 
-routes = ['', 'about', 'research', 'teaching', 'management'] + [
+routes = ['', 'about', *selected_papers, 'research', 'teaching', 'management'] + [
     f'projects/{project["id"]}' for project in data['zh']['projects']
 ]
 if {project['id'] for project in data['zh']['projects']} != {

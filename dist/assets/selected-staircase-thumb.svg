@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="105" viewBox="0 0 400 105" role="img" aria-labelledby="title desc" lang="en">
+  <title id="title">A mode near the edge of a waveguide array</title>
+  <desc id="desc">Schematic cross section. The guides occur in pairs of diminishing brightness from left to right.</desc>
+  <rect width="400" height="105" fill="#101d30"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#edf4ff">
+    <line x1="26.00" y1="52.00" x2="375.00" y2="52.00" stroke="#6e7c94" stroke-width="1"/>
+    <circle cx="27.00" cy="52.00" r="12.5" fill="#101d30" stroke="#69d8ff" stroke-width="1.7"/>
+    <circle cx="27.00" cy="52.00" r="6.9" fill="#b3f0ff" stroke="none" stroke-width="0"/>
+    <circle cx="76.00" cy="52.00" r="12.5" fill="#101d30" stroke="#c1abff" stroke-width="1.7"/>
+    <circle cx="76.00" cy="52.00" r="6.9" fill="#acf0ff" stroke="none" stroke-width="0"/>
+    <circle cx="125.00" cy="52.00" r="12.5" fill="#101d30" stroke="#69d8ff" stroke-width="1.7"/>
+    <circle cx="125.00" cy="52.00" r="6.9" fill="#7493b7" stroke="none" stroke-width="0"/>
+    <circle cx="174.00" cy="52.00" r="12.5" fill="#101d30" stroke="#c1abff" stroke-width="1.7"/>
+    <circle cx="174.00" cy="52.00" r="6.9" fill="#7493b7" stroke="none" stroke-width="0"/>
+    <circle cx="223.00" cy="52.00" r="12.5" fill="#101d30" stroke="#69d8ff" stroke-width="1.7"/>
+    <circle cx="223.00" cy="52.00" r="6.9" fill="#54647f" stroke="none" stroke-width="0"/>
+    <circle cx="272.00" cy="52.00" r="12.5" fill="#101d30" stroke="#c1abff" stroke-width="1.7"/>
+    <circle cx="272.00" cy="52.00" r="6.9" fill="#54647f" stroke="none" stroke-width="0"/>
+    <circle cx="321.00" cy="52.00" r="12.5" fill="#101d30" stroke="#69d8ff" stroke-width="1.7"/>
+    <circle cx="321.00" cy="52.00" r="6.9" fill="#3d4d65" stroke="none" stroke-width="0"/>
+    <circle cx="370.00" cy="52.00" r="12.5" fill="#101d30" stroke="#c1abff" stroke-width="1.7"/>
+    <circle cx="370.00" cy="52.00" r="6.9" fill="#3d4d65" stroke="none" stroke-width="0"/>
+  </g>
+</svg>

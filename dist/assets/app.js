@@ -64,7 +64,10 @@ function paperRecord(p) {
    ? (lang==='zh'?'未显示被引数':'Citation count not displayed')
    : (lang==='zh'?`被引用 ${p.citations} 次`:`Cited by ${p.citations}`);
  const doi = p.url.startsWith('https://doi.org/') ? external(p.url, 'DOI '+p.url.slice('https://doi.org/'.length))+' · ' : '';
- return `<p class="authors">${esc(p.credit)}</p><p class="paper-summary">${doi}${external(p.scholarUrl,'Google Scholar · '+count)}</p><p class="paper-summary"><a class="text-link" href="${esc(p.storyUrl)}" hreflang="zh-CN">${storyLabel} →</a></p>`;
+ const selected = p.selectedStory
+   ? `<a class="text-link" href="/${lang}/about/${esc(p.selectedStory)}/">${lang==='zh'?'英文图文介绍':'Read the research story'}</a> · `
+   : '';
+ return `<p class="authors">${esc(p.credit)}</p><p class="paper-summary">${doi}${external(p.scholarUrl,'Google Scholar · '+count)}</p><p class="paper-summary">${selected}<a class="text-link" href="${esc(p.storyUrl)}" hreflang="zh-CN">${storyLabel} →</a></p>`;
 }
 function paperRow(p,t,index) {
  return `<article class="paper-row"><span class="paper-number">${String(index+1).padStart(2,'0')}</span><div><p class="paper-meta">${esc(p.journal)} <span>${p.year}</span></p><h3><a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.title)} ${arrow}</a></h3>${route==='research'?`<p class="authors">${esc(p.authors)}</p><p class="paper-summary">${esc(p.summary)}</p>${paperRecord(p)}`:''}</div></article>`;
@@ -120,12 +123,20 @@ function render() {
  if (path === '/management') return;
  const t=UI[lang], d=content[lang];
  const previousLab=document.querySelector('wave-lab');
+ const selectedResearch=document.getElementById('selected-research');
  const menuWasOpen=document.querySelector('.menu-toggle')?.getAttribute('aria-expanded')==='true';
  document.documentElement.lang=lang==='zh'?'zh-CN':'en';
  document.body.dataset.language=lang;
  document.title = `${route==='research'?t.researchPageTitle:route==='about'?t.aboutPageTitle:route==='teaching'?d.teachingOverview.title:route==='project'?(d.projects.find(p=>p.id===projectId)?.title||'Project'):t.footer} — ${lang==='zh'?'物理 · 教学 · AI':'Physics · Teaching · AI'}`;
  const body=({home,research,about,project,teaching}[route](d,t));
  document.getElementById('app').innerHTML=header(t)+body+footer(t);
+ // The English stories and cards are already rendered in the static About page.
+ if (selectedResearch && route==='about') {
+   document.querySelector('.about-hero').after(selectedResearch);
+   selectedResearch.querySelectorAll('[data-story]').forEach(link=>{
+     link.href = `/${lang}/about/${link.dataset.story}/`;
+   });
+ }
  if(previousLab&&document.querySelector('wave-lab')){document.querySelector('wave-lab').replaceWith(previousLab);previousLab.setAttribute('lang',lang);}
  document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{if(lang===b.dataset.lang)return;const y=scrollY;lang=b.dataset.lang;history.pushState({language:lang},'',languageUrl(lang));try{localStorage.setItem('bq-language',lang);}catch{}render();scrollTo(0,y);document.querySelector(`[data-lang="${lang}"]`)?.focus({preventScroll:true});}));
  enhancePage();
@@ -137,6 +148,14 @@ function render() {
  }
 }
 document.addEventListener('keydown',e=>{const menu=document.querySelector('.menu-toggle');if(e.key==='Escape'&&menu?.getAttribute('aria-expanded')==='true'){document.getElementById('navigation')?.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.focus();}});
-fetch('/assets/content.json').then(r=>{if(!r.ok)throw new Error('Content unavailable');return r.json();}).then(d=>{content=d;render();if(location.hash)requestAnimationFrame(()=>document.querySelector(location.hash)?.scrollIntoView());}).catch(()=>{document.getElementById('app').innerHTML=`<main class="wrap inner-main"><h1>Bingkun Qi</h1><p>${UI[lang].error}</p><a href="${SCHOLAR}">Google Scholar ↗</a></main>`;});
+fetch('/assets/content.json').then(r=>{if(!r.ok)throw new Error('Content unavailable');return r.json();}).then(d=>{
+ content=d;
+ render();
+ if(route==='about' && location.hash==='#selected-research') {
+   document.getElementById('selected-research')?.scrollIntoView({behavior:'instant'});
+ } else if(location.hash) {
+   requestAnimationFrame(()=>document.querySelector(location.hash)?.scrollIntoView());
+ }
+}).catch(()=>{document.getElementById('app').innerHTML=`<main class="wrap inner-main"><h1>Bingkun Qi</h1><p>${UI[lang].error}</p><a href="${SCHOLAR}">Google Scholar ↗</a></main>`;});
 
 window.addEventListener('popstate',()=>{lang=location.pathname.split('/')[1]==='en'?'en':'zh';render();});

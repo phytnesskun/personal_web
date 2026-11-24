@@ -55,7 +55,8 @@
         "credit": "第一作者",
         "citations": 130,
         "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&user=V6ELkxMAAAAJ&citation_for_view=V6ELkxMAAAAJ:isC4tDSrTZIC",
-        "storyUrl": "/assets/paper-stories.html#article-3"
+        "storyUrl": "/assets/paper-stories.html#article-3",
+        "selectedStory": "waveguide-staircase"
       },
       {
         "title": "Parity–Time Symmetry Synthetic Lasers: Physics and Devices",
@@ -67,7 +68,8 @@
         "credit": "第一作者",
         "citations": 69,
         "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&user=V6ELkxMAAAAJ&citation_for_view=V6ELkxMAAAAJ:zYLM7Y9cAGgC",
-        "storyUrl": "/assets/paper-stories.html#article-2"
+        "storyUrl": "/assets/paper-stories.html#article-2",
+        "selectedStory": "pt-symmetric-lasers"
       },
       {
         "title": "Linear Localization of Zero Modes in Weakly Coupled Non-Hermitian Reservoirs",
@@ -1112,7 +1114,8 @@
         "credit": "First author",
         "citations": 130,
         "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&user=V6ELkxMAAAAJ&citation_for_view=V6ELkxMAAAAJ:isC4tDSrTZIC",
-        "storyUrl": "/assets/paper-stories.html#article-3"
+        "storyUrl": "/assets/paper-stories.html#article-3",
+        "selectedStory": "waveguide-staircase"
       },
       {
         "title": "Parity–Time Symmetry Synthetic Lasers: Physics and Devices",
@@ -1124,7 +1127,8 @@
         "credit": "First author",
         "citations": 69,
         "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&user=V6ELkxMAAAAJ&citation_for_view=V6ELkxMAAAAJ:zYLM7Y9cAGgC",
-        "storyUrl": "/assets/paper-stories.html#article-2"
+        "storyUrl": "/assets/paper-stories.html#article-2",
+        "selectedStory": "pt-symmetric-lasers"
       },
       {
         "title": "Linear Localization of Zero Modes in Weakly Coupled Non-Hermitian Reservoirs",
@@ -2111,6 +2115,47 @@
       "credit": "First author",
       "scholarUrl": "https://scholar.google.com/scholar?cluster=7830369742655053001&hl=zh-CN",
       "storyUrl": "/assets/paper-stories.html#article-5"
+    }
+  },
+  "selectedResearch": {
+    "intro": "In my research on light, I used mathematics to ask which patterns could survive when some parts of a device amplify light and others absorb it. Two papers show how I worked through that question.",
+    "stories": {
+      "waveguide-staircase": {
+        "title": "Why does light form a staircase?",
+        "summary": "A defect in one waveguide leaves a pattern across a whole row.",
+        "kind": "Original research",
+        "journalName": "Physical Review Letters",
+        "art": "staircase",
+        "lead": "Change just the waveguide at the edge of an array. How far into the array will the light reach?",
+        "paragraphs": [
+          "My co-authors and I studied a row of waveguides with alternating gain and loss. Near the edge, a small change in one guide can trap a mode. Its light fades across the array, but on a logarithmic scale the intensity traces a staircase.",
+          "Read the guides in pairs, starting with 2 and 3. On one curve the two guides are equally bright. On the other, the first carries a quarter of its partner’s intensity. At fixed edge detuning and coupling, this ratio even survives changes in gain and loss, while the rate of fading across pairs can change."
+        ],
+        "personal": "This was my first project in Li Ge’s group, and finishing it gave me confidence as a researcher.",
+        "alt": "Relative intensity at waveguides 2–9 on a logarithmic scale. At detuning equal to coupling each pair is equally bright. At half that detuning the first guide in each pair has one quarter of the intensity of the second.",
+        "caption": "Each curve is scaled to the intensity in guide 3. Compare guides 2 and 3, then 4 and 5. The same intensity ratio repeats within each pair. In both curves the gain/loss magnitude is twice the coupling strength.",
+        "chinese": "先比较第 2、3 根波导，再比较第 4、5 根。同一条曲线里，每一对都重复着同样的亮暗比例。",
+        "journalLink": "Read the paper at APS",
+        "journalUrl": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.120.093901"
+      },
+      "pt-symmetric-lasers": {
+        "title": "Can loss help a laser choose a wavelength?",
+        "summary": "A pair of optical rings reveals how loss can help select a laser mode.",
+        "kind": "Invited review",
+        "journalName": "Advanced Optical Materials",
+        "art": "cavities",
+        "lead": "A laser ring can support several wavelengths. Why would adding a second ring that absorbs light help one wavelength stand out?",
+        "paragraphs": [
+          "In our invited review, we used a pair of coupled optical cavities to explain how gain and loss reshape the modes of a laser. Light can move between the two cavities. In the ideal balanced model, when gain and loss exceed the coupling strength, one mode grows while the other fades.",
+          "Experiments discussed in the review show how this can help select a wavelength. With suitable pumping and coupling, one mode can reach the lasing threshold while competing modes remain below it."
+        ],
+        "personal": "My students often ask what complex numbers are for. Here the imaginary part of a mode’s frequency tells us how quickly its field grows or fades.",
+        "alt": "Two coupled optical rings, one with gain and one with loss. Below a gain-to-coupling ratio of one the modes have distinct frequencies. Above one they have the same frequency, and their growth rates separate.",
+        "caption": "When the gain-to-coupling ratio exceeds one, the two modes share an oscillation frequency. One grows in time while the other decays.",
+        "chinese": "把两个光腔想成可以交换光的两个环。不同模式在损耗环里分到的光不同，因此受到的削弱也不同。",
+        "journalLink": "Read the review at Wiley",
+        "journalUrl": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adom.201900694"
+      }
     }
   }
 }

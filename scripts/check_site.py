@@ -66,13 +66,21 @@ for relative, page in pages.items():
 ids = [project['id'] for project in data['zh']['projects']]
 assert len(ids) == len(set(ids)), 'Duplicate project IDs'
 assert ids == [project['id'] for project in data['en']['projects']], 'Language route mismatch'
-routes = ['', 'about', 'research', 'teaching', 'management'] + ['projects/' + item for item in ids]
+story_routes = ['about/' + slug for slug in data['selectedResearch']['stories']]
+routes = ['', 'about', *story_routes, 'research', 'teaching', 'management'] + ['projects/' + item for item in ids]
 assert data['zh'].get('managementPortfolio') and data['en'].get('managementPortfolio'), 'Missing management portfolio copy'
 for language in ('zh', 'en'):
     for mod in data[language]['managementPortfolio']['modules']:
         for file, _caption in mod.get('images', []):
             assert (dist / 'assets' / file).is_file(), f'Missing management screenshot: {file}'
 for language in ('zh', 'en'):
+    about = pages[f'{language}/about/index.html']
+    for route in story_routes:
+        assert f'/{language}/{route}/' in about.links, f'Missing About entry for {route}'
+        story = pages[f'{language}/{route}/index.html']
+        assert f'/{language}/about/#selected-research' in story.links, f'Missing About return for {route}'
+        slug = route.split('/')[-1]
+        assert data['selectedResearch']['stories'][slug]['journalUrl'] in story.links, route
     for route in routes:
         relative = f'{language}/{route + "/" if route else ""}index.html'
         page = pages[relative]
