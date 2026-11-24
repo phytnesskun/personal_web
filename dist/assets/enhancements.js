@@ -12,8 +12,8 @@ const CASES = {
     'student-feedback': {
       label:'案例 02 / 学生周反馈', title:'要收齐一名学生的反馈，先要知道谁教他哪一科。',
       cards:[['从一张班级表说起','一位老师可能跨班、跨科任教。同班只有部分学生上高数，中途还有插班生。班名能帮我找到表，却不能告诉我这名学生的每一科该找谁。'],['和任课老师逐一核对','我找每位老师核实：你在哪些班、教哪些学生、教什么科目？我把核实的对应关系录入数据库，让老师打开系统就能看到自己要填的学生和科目。'],['我想让记录积累下来','我希望每次作业和考试都能留在学生自己的学习记录里。这样，老师过一段时间还能回看一条评语，结合后来的作业或考试判断是否需要继续跟进。']],
-      images:[['management/01-fill-grid.png','演示界面：任课教师的周反馈填写表。'],['management/02-homeroom-overview.png','演示界面：班主任查看本班各科的填报情况。']],
-      note:'两张图分别展示任课教师和班主任的界面。下方用一名虚构学生的第 4 周记录说明两位教师怎样接手。',
+      images:[['management/01-fill-grid.png?v=6eeee8e96477','演示界面：任课教师的周反馈填写表。',2578,878],['management/02-homeroom-overview.png?v=f07b94827f69','演示界面：班主任查看本班各科的填报情况。',2592,1236]],
+      note:'两张界面节选均使用示例姓名和班级代号。下方用一名虚构学生的第 4 周记录说明两位教师怎样接手。',
       steps:[['物理老师填报','这周布置了 3 份作业，学生完成 2 份。老师给出综合等级 C，并写下“下次检查图线截距”。'],['班主任读回','班主任打开该生同一周的记录，能看到物理老师的评语。学生也选了数学，数学反馈显示“未填”。'],['分别跟进','班主任可以请学生用物理作业讲一讲怎样读截距，同时向数学老师补收本周的反馈。']],
       foot:'这个案例已用虚构记录走通。实际工作中，我观察到同事减少了切换表格的步骤。'
     }
@@ -30,8 +30,8 @@ const CASES = {
     'student-feedback': {
       label:'CASE 02 / WEEKLY PUPIL FEEDBACK', title:'Who teaches this pupil, and which reports should we expect?',
       cards:[['Start with the class list','A teacher could teach several classes and more than one subject. Only some pupils in a form took further maths, and others joined during the year. A class list alone could not tell me who taught each pupil.'],['Check each teaching list','I went to each teacher to check which pupils they taught and for which subjects. I recorded those links in the database so teachers could open their own reporting lists.'],['Keep a record over time','I would like each pupil’s homework and exam records to build up over time. A teacher could then revisit an earlier observation alongside a later piece of work and decide whether the pupil still needed help.']],
-      images:[['management/01-fill-grid.png','Demo screen showing the subject teacher’s weekly reporting grid.'],['management/02-homeroom-overview.png','Demo screen showing the form tutor’s view of reports across subjects.']],
-      note:'The screens show the two roles. The week 4 example below follows the same fictional pupil from the subject teacher to the form tutor.',
+      images:[['management/01-fill-grid.png?v=6eeee8e96477','Demo screen showing the subject teacher’s weekly reporting grid.',2578,878],['management/02-homeroom-overview.png?v=f07b94827f69','Demo screen showing the form tutor’s view of reports across subjects.',2592,1236]],
+      note:'The interface excerpts use demo labels for pupils, teachers and classes. The week 4 example below follows the same fictional pupil from the subject teacher to the form tutor.',
       steps:[['Record the observation','The pupil completed two of the three physics tasks. The teacher enters an overall C and makes a note to check how the pupil reads the intercept on a graph.'],['Read across subjects','In the same week the form tutor can read the physics comment. The pupil also takes maths, and that report is marked as missing.'],['Follow up','The tutor can ask the pupil to show how they read the intercept on their graph, and ask the maths teacher for the outstanding report.']],
       foot:'I tested this example with fictional records. At school, I observed that colleagues needed to switch between spreadsheets less often.'
     }

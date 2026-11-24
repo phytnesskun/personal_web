@@ -263,6 +263,11 @@ def physics_hub(language):
             f'<p><a href="{esc(hub["libraryUrl"])}" target="_blank" rel="noopener noreferrer">{esc(hub["libraryLabel"])} ↗</a></p></section>')
 
 
+def asset_url(name):
+    version = hashlib.sha256((dist / 'assets' / name).read_bytes()).hexdigest()[:12]
+    return f'/assets/{name}?v={version}'
+
+
 def management_page(language):
     m = data[language]['managementPortfolio']
     t = labels[language]
@@ -281,7 +286,7 @@ def management_page(language):
 
     def screenshot(image):
         file, caption = image
-        url = f'/assets/{esc(file)}'
+        url = esc(asset_url(file))
         # Supply the intrinsic size so the page keeps its place as images load.
         with (dist / 'assets' / file).open('rb') as stream:
             header = stream.read(24)
@@ -490,16 +495,14 @@ def write_page(language, route, output_route):
     other_locale = labels['en' if language == 'zh' else 'zh']['locale']
     assets = '''<link rel="stylesheet" href="/assets/style.css"><link rel="stylesheet" href="/assets/enhancements.css"><link rel="stylesheet" href="/assets/physics-hub.css"><link rel="stylesheet" href="/assets/management-portfolio.css">
 <script src="/assets/wave-lab.js" defer></script><script src="/assets/enhancements.js" defer></script><script src="/assets/app.js" defer></script>'''
-    def asset_url(name):
-        version = hashlib.sha256((dist / 'assets' / name).read_bytes()).hexdigest()[:12]
-        return f'/assets/{name}?v={version}'
-
     if route == 'management':
         assets = (f'<link rel="stylesheet" href="{asset_url("style.css")}">'
                   f'<link rel="stylesheet" href="{asset_url("management-portfolio.css")}">'
                   f'<script src="{asset_url("management.js")}" defer></script>')
     if route in ('about', 'research'):
         assets = assets.replace('/assets/app.js', asset_url('app.js'))
+    if route == 'projects/student-feedback':
+        assets = assets.replace('/assets/enhancements.js', asset_url('enhancements.js'))
     if route in selected_papers:
         assets = '<link rel="stylesheet" href="/assets/style.css">'
     if route == 'about' or route in selected_papers:
