@@ -10,6 +10,7 @@ dist = root / 'dist'
 origin = 'https://bingkun.me'
 scholar = 'https://scholar.google.com/citations?user=V6ELkxMAAAAJ&hl=en'
 github = 'https://github.com/phytnesskun'
+management_author = 'Bingkun'
 data = json.loads((dist / 'assets/content.json').read_text(encoding='utf-8-sig'))
 selected_research = data['selectedResearch']
 selected_papers = {
@@ -242,7 +243,7 @@ def page_details(language, route):
         return f'{d["teachingOverview"]["title"]} — Bingkun Qi', d['teachingOverview']['intro']
     if route == 'management':
         portfolio = d['managementPortfolio']
-        return f'{portfolio["title"]} — Bingkun Qi', portfolio['lead']
+        return f'{portfolio["title"]} — {management_author}', portfolio['lead']
     project_id = route.removeprefix('projects/')
     project = next(p for p in d['projects'] if p['id'] == project_id)
     return f'{project["title"]} — Bingkun Qi', project['summary']
@@ -268,6 +269,13 @@ def asset_url(name):
     return f'/assets/{name}?v={version}'
 
 
+def png_dimensions(name):
+    with (dist / 'assets' / name).open('rb') as stream:
+        header = stream.read(24)
+    if len(header) == 24 and header.startswith(bytes.fromhex('89504e470d0a1a0a')):
+        return int.from_bytes(header[16:20], 'big'), int.from_bytes(header[20:24], 'big')
+
+
 def management_page(language):
     m = data[language]['managementPortfolio']
     t = labels[language]
@@ -288,12 +296,10 @@ def management_page(language):
         file, caption = image
         url = esc(asset_url(file))
         # Supply the intrinsic size so the page keeps its place as images load.
-        with (dist / 'assets' / file).open('rb') as stream:
-            header = stream.read(24)
+        dimensions = png_dimensions(file)
         size = ''
-        if header.startswith(bytes.fromhex('89504e470d0a1a0a')) and len(header) == 24:
-            width = int.from_bytes(header[16:20], 'big')
-            height = int.from_bytes(header[20:24], 'big')
+        if dimensions:
+            width, height = dimensions
             size = f' width="{width}" height="{height}"'
         return (f'<figure><a href="{url}"><img src="{url}" alt="{esc(caption)}"{size} '
                 f'loading="lazy"></a><figcaption>{esc(caption)}</figcaption></figure>')
@@ -328,8 +334,7 @@ def management_page(language):
     modules_lead = f'<p>{esc(m["modulesLead"])}</p>' if m.get('modulesLead') else ''
     return (
         f'<div class="mgmt-shell"><a class="skip" href="#main">{esc(t["skip"])}</a>'
-        f'<header class="mgmt-header wrap"><a class="mgmt-brand" href="{route}">'
-        f'<span class="mgmt-brand-mark" aria-hidden="true">亓</span>Bingkun Qi</a>'
+        f'<header class="mgmt-header wrap"><a class="mgmt-brand" href="{route}">{management_author}</a>'
         f'<nav class="mgmt-nav" aria-label="{esc(t["nav"])}">'
         f'<a href="{esc(m["teachingHome"])}">{esc(m["navTeaching"])}</a>'
         f'<span class="mgmt-lang" aria-label="{esc(t["languages"])}">{language_links}</span>'
@@ -353,7 +358,7 @@ def management_page(language):
         f'<section class="mgmt-other" id="other-entries"><h2>{esc(m["otherTitle"])}</h2>'
         f'<p>{esc(m["otherLead"])}</p><details class="mgmt-future"><summary>{esc(m["futureTitle"])}</summary>'
         f'<div class="mgmt-other-grid">{"".join(future)}</div></details></section></main>'
-        f'<footer class="mgmt-footer wrap"><span>{esc(m["footerName"])}</span>'
+        f'<footer class="mgmt-footer wrap"><span>{management_author}</span>'
         f'<span>{esc(m["privacyNote"])}</span>'
         f'<a href="#top">{esc(m["backTop"])}</a></footer></div>'
     )
@@ -516,22 +521,31 @@ def write_page(language, route, output_route):
         assets = '<link rel="stylesheet" href="/assets/style.css">'
     if route == 'about' or route in selected_papers:
         assets += f'\n<link rel="stylesheet" href="{asset_url("selected-research.css")}">'
+    site_name = 'Bingkun Qi / 亓炳堃'
+    share_image, share_alt = 'share-card.png', site_name
+    share_width, share_height = 1200, 630
+    icon = '/assets/favicon.svg'
+    if route == 'management':
+        site_name = management_author
+        share_image, share_alt = data[language]['managementPortfolio']['workflowImage']
+        share_width, share_height = png_dimensions(share_image)
+        icon = 'data:,'
     document = f'''<!doctype html>
 <html lang="{t['html_lang']}"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)}</title><meta name="description" content="{esc(description)}">
 <meta name="theme-color" content="#080d18"><meta property="og:type" content="website">
-<meta property="og:site_name" content="Bingkun Qi / 亓炳堃">
+<meta property="og:site_name" content="{esc(site_name)}">
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(description)}">
-<meta property="og:url" content="{canonical}"><meta property="og:image" content="{origin}/assets/share-card.png">
-<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Bingkun Qi / 亓炳堃"><meta property="og:locale" content="{t['locale']}">
+<meta property="og:url" content="{canonical}"><meta property="og:image" content="{origin}/assets/{esc(share_image)}">
+<meta property="og:image:width" content="{share_width}"><meta property="og:image:height" content="{share_height}">
+<meta property="og:image:alt" content="{esc(share_alt)}"><meta property="og:locale" content="{t['locale']}">
 <meta property="og:locale:alternate" content="{other_locale}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{esc(title)}"><meta name="twitter:description" content="{esc(description)}">
-<meta name="twitter:image" content="{origin}/assets/share-card.png">
+<meta name="twitter:image" content="{origin}/assets/{esc(share_image)}">
 <link rel="canonical" href="{canonical}">{alternates}
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{icon}" type="image/svg+xml">
 {assets}
 <style>
 .static-header{{display:flex;flex-wrap:wrap;align-items:center;gap:20px;padding-block:28px;border-bottom:1px solid var(--line)}}
