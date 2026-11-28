@@ -163,6 +163,15 @@
 .mgmt-shots figcaption { color: var(--mgmt-muted); font-size: .875rem; padding: 6px 0 0; }
 .mgmt-workflow .mgmt-shots { margin-bottom: 0; }
 .mgmt-modules, .mgmt-other { margin-block: clamp(28px, 4vw, 50px); }
+.mgmt-comparison {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 12px;
+  margin: 14px 0 4px;
+}
+.mgmt-comparison > div { padding: 14px 18px; border: 1px solid var(--mgmt-line); border-radius: 8px; }
+.mgmt-comparison dt { color: var(--mgmt-green); font-size: 1.15rem; font-weight: 700; }
+.mgmt-comparison dd { color: var(--mgmt-muted); margin: 6px 0 0; line-height: 1.5; }
 .mgmt-module { border-top: 1px solid var(--mgmt-line); scroll-margin-top: 18px; }
 .mgmt-module:last-child { border-bottom: 1px solid var(--mgmt-line); }
 .mgmt-module summary { padding-block: 14px; }

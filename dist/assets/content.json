@@ -895,6 +895,18 @@
       "ctaPrimary": "看第 4 周案例",
       "workflowTitle": "班主任接下来找谁？",
       "workflowLead": "找学生，一起看物理作业上的图线截距。找数学老师，补收本周反馈。",
+      "crossWeek": {
+        "title": "跨三个班填周反馈，要换几次表？",
+        "task": "第 5 周虚拟测试：同一位老师先查看上周三条评语，再给四名学生填反馈，其中一人刚插班。",
+        "routes": [
+          ["旧 Excel · 6 次切换", "换周工作簿 2 次，换班页签 4 次。先集中看完上周三个班，再逐班填本周。"],
+          ["新系统 · 2 次切换", "在“我的填写清单”切到上周，再回本周。三个班的学生都在同一页。"]
+        ],
+        "details": "保存后能看到什么？老师用起来怎样？",
+        "result": "两边保存的 44 个字段逐项一致。老师看到进度从 0/4 变为 4/4；班主任看到物理评语“已标出截距，仍需补写单位”，也看到这名学生的数学反馈仍待补交。",
+        "experience": "我以前常在约 6–8 张表之间来回，还要查上周。按我自己的使用记录，新系统通常几分钟能填完。和我聊过的同事说，反复切表让人厌烦；学生和科目集中在一张清单里，让他们觉得自己的时间受到尊重。",
+        "method": "两条路线都从已打开的本周入口开始。次数只计换工作簿、班页或周次；这次软件回放没有给老师计时。"
+      },
       "workflowLabel": "班主任看到的第 4 周 · 虚构示例",
       "modulesTitle": "六项教务功能",
       "modulesLead": "校内已观察到老师少了切表的步骤。扩展功能暂缓全校推广。",
@@ -1954,6 +1966,18 @@
       "ctaPrimary": "Follow one pupil in week 4",
       "workflowTitle": "Who does the tutor follow up with?",
       "workflowLead": "Ask the pupil to read the intercept on their physics graph. Ask the maths teacher for the missing report.",
+      "crossWeek": {
+        "title": "How many times does a teacher switch views to report across three classes?",
+        "task": "In a simulated Week 5, one teacher checked three comments from the previous week and wrote reports for four pupils. One pupil had just joined.",
+        "routes": [
+          ["Excel · 6 switches", "Two changes of weekly workbook and four changes of class tab. The teacher checked all three classes before returning to the current week."],
+          ["New system · 2 switches", "The teacher opened last week in My reporting list, then returned to this week. All three classes were on the same page."]
+        ],
+        "details": "What could teachers see after saving, and how did it feel to use?",
+        "result": "All 44 saved fields matched. The teacher saw progress move from 0/4 to 4/4. The homeroom teacher could see the physics comment, “The intercept is marked, but the unit is still missing,” and that the same pupil’s maths report was outstanding.",
+        "experience": "I used to move between roughly six to eight sheets and look back at the previous week. In my own use, the new list usually took only a few minutes to complete. Colleagues told me they found the repeated switching frustrating. Having their pupils and subjects in one place made them feel their time was respected.",
+        "method": "Both routes started with the current week open. The count covers changes of workbook, class tab or week. This software replay did not measure teachers’ completion times."
+      },
       "workflowLabel": "Form tutor’s view · Fictional week 4",
       "modulesTitle": "Six school operations tools",
       "modulesLead": "Teachers switched between sheets less often at school. Wider use of the additional tools is on hold.",

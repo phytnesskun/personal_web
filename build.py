@@ -320,6 +320,11 @@ def management_page(language):
         future.append(f'<article><h3>{esc(item["title"])}</h3><p>{esc(item["text"])}</p>{link}</article>')
 
     headline = '<br>'.join(esc(line) for line in m['headline'].splitlines())
+    cross_week = m['crossWeek']
+    routes = ''.join(
+        f'<div><dt>{esc(title)}</dt><dd>{esc(description)}</dd></div>'
+        for title, description in cross_week['routes']
+    )
     modules_lead = f'<p>{esc(m["modulesLead"])}</p>' if m.get('modulesLead') else ''
     return (
         f'<div class="mgmt-shell"><a class="skip" href="#main">{esc(t["skip"])}</a>'
@@ -339,6 +344,10 @@ def management_page(language):
         f'<section class="mgmt-workflow" id="workflow"><h2>{esc(m["workflowTitle"])}</h2>'
         f'<p class="mgmt-workflow-brief">{esc(m["workflowLead"])}</p>'
         f'<div class="mgmt-shots mgmt-workflow-image">{screenshot(m["workflowImage"])}</div></section>'
+        f'<section class="mgmt-modules" id="cross-week"><h2>{esc(cross_week["title"])}</h2>'
+        f'<p>{esc(cross_week["task"])}</p><dl class="mgmt-comparison">{routes}</dl>'
+        f'<details class="mgmt-origin"><summary>{esc(cross_week["details"])}</summary>'
+        f'{paragraphs([cross_week["result"], cross_week["experience"], cross_week["method"]])}</details></section>'
         f'<section class="mgmt-modules" id="modules"><h2>{esc(m["modulesTitle"])}</h2>'
         f'{modules_lead}{"".join(modules)}</section>'
         f'<section class="mgmt-other" id="other-entries"><h2>{esc(m["otherTitle"])}</h2>'
