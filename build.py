@@ -11,6 +11,7 @@ origin = 'https://bingkun.me'
 scholar = 'https://scholar.google.com/citations?user=V6ELkxMAAAAJ&hl=en'
 github = 'https://github.com/phytnesskun'
 management_author = 'Bingkun'
+management_brand = '亓'
 data = json.loads((dist / 'assets/content.json').read_text(encoding='utf-8-sig'))
 selected_research = data['selectedResearch']
 selected_papers = {
@@ -243,7 +244,7 @@ def page_details(language, route):
         return f'{d["teachingOverview"]["title"]} — Bingkun Qi', d['teachingOverview']['intro']
     if route == 'management':
         portfolio = d['managementPortfolio']
-        return f'{portfolio["title"]} — {management_author}', portfolio['lead']
+        return f'{portfolio["title"]} — {management_brand}', portfolio['lead']
     project_id = route.removeprefix('projects/')
     project = next(p for p in d['projects'] if p['id'] == project_id)
     return f'{project["title"]} — Bingkun Qi', project['summary']
@@ -334,7 +335,9 @@ def management_page(language):
     modules_lead = f'<p>{esc(m["modulesLead"])}</p>' if m.get('modulesLead') else ''
     return (
         f'<div class="mgmt-shell"><a class="skip" href="#main">{esc(t["skip"])}</a>'
-        f'<header class="mgmt-header wrap"><a class="mgmt-brand" href="{route}">{management_author}</a>'
+        f'<header class="mgmt-header wrap"><a class="mgmt-brand" href="{route}" '
+        f'aria-label="{management_brand} · {esc(m["title"])}">'
+        f'<span class="mgmt-brand-mark" aria-hidden="true">{management_brand}</span></a>'
         f'<nav class="mgmt-nav" aria-label="{esc(t["nav"])}">'
         f'<a href="{esc(m["teachingHome"])}">{esc(m["navTeaching"])}</a>'
         f'<span class="mgmt-lang" aria-label="{esc(t["languages"])}">{language_links}</span>'
@@ -524,12 +527,10 @@ def write_page(language, route, output_route):
     site_name = 'Bingkun Qi / 亓炳堃'
     share_image, share_alt = 'share-card.png', site_name
     share_width, share_height = 1200, 630
-    icon = '/assets/favicon.svg'
     if route == 'management':
-        site_name = management_author
+        site_name = management_brand
         share_image, share_alt = data[language]['managementPortfolio']['workflowImage']
         share_width, share_height = png_dimensions(share_image)
-        icon = 'data:,'
     document = f'''<!doctype html>
 <html lang="{t['html_lang']}"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -545,7 +546,7 @@ def write_page(language, route, output_route):
 <meta name="twitter:title" content="{esc(title)}"><meta name="twitter:description" content="{esc(description)}">
 <meta name="twitter:image" content="{origin}/assets/{esc(share_image)}">
 <link rel="canonical" href="{canonical}">{alternates}
-<link rel="icon" href="{icon}" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 {assets}
 <style>
 .static-header{{display:flex;flex-wrap:wrap;align-items:center;gap:20px;padding-block:28px;border-bottom:1px solid var(--line)}}
